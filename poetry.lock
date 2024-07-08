@@ -4775,6 +4775,24 @@ test = ["pre-commit", "pytest (>=7.0)", "pytest-timeout"]
 typing = ["mypy (>=1.6,<2.0)", "traitlets (>=5.11.1)"]
 
 [[package]]
+name = "timm"
+version = "1.0.7"
+description = "PyTorch Image Models"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "timm-1.0.7-py3-none-any.whl", hash = "sha256:942ced65b47b5ec12b8df07eb8ee929f1bb310402155b28931ab7a85ecc1cef2"},
+    {file = "timm-1.0.7.tar.gz", hash = "sha256:d1d26d906b5e188d7e7d536a6a0999568bb184f884f9a334c48d46fc6dc166c8"},
+]
+
+[package.dependencies]
+huggingface_hub = "*"
+pyyaml = "*"
+safetensors = "*"
+torch = "*"
+torchvision = "*"
+
+[[package]]
 name = "tinycss2"
 version = "1.3.0"
 description = "A tiny CSS parser"
@@ -5618,4 +5636,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "28fc428911084130d6f0a0d8e7498bd7ef92396ed815584029201473e6fd45ca"
+content-hash = "db7e9bc9cc7186c48f36707239f2cf30e78aea682e9a26cee1c26180cc7673e4"
