@@ -50,6 +50,7 @@ pytest = "^8.2.2"
 plotly = "^5.22.0"
 matplotlib = "^3.9.1"
 timm = "^1.0.7"
+ultralytics = "^8.2.48"
 
 
 [tool.poetry.group.dev.dependencies]
