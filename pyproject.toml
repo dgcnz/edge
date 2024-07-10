@@ -1,35 +1,12 @@
-[tool.pytest.ini_options]
-addopts = [
-  "--color=yes",
-  "--durations=0",
-  "--strict-markers",
-  "--doctest-modules",
-]
-filterwarnings = [
-  "ignore::DeprecationWarning",
-  "ignore::UserWarning",
-]
-log_cli = "True"
-markers = [
-  "slow: slow tests",
-]
-minversion = "6.0"
-testpaths = "tests/"
-
-[tool.coverage.report]
-exclude_lines = [
-    "pragma: nocover",
-    "raise NotImplementedError",
-    "raise NotImplementedError()",
-    "if __name__ == .__main__.:",
-]
-
 [tool.poetry]
 name = "ml-template"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
+packages = [
+  { include = "src", from = "." }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -51,6 +28,7 @@ plotly = "^5.22.0"
 matplotlib = "^3.9.1"
 timm = "^1.0.7"
 ultralytics = "^8.2.48"
+numpy = ">=1.23.0,<2.0.0"
 
 
 [tool.poetry.group.dev.dependencies]

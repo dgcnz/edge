@@ -157,3 +157,6 @@ configs/local/default.yaml
 # artifacts
 runs/*
 **/*.pt
+**/*.pth
+artifacts
+.DS_Store
