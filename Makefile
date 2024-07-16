@@ -28,3 +28,26 @@ test-full: ## Run all tests
 
 train: ## Train the model
 	python src/train.py
+
+
+demo_vitdet:
+	cd detrex && \
+	python demo/demo.py --config-file detectron2/projects/ViTDet/configs/COCO/cascade_mask_rcnn_vitdet_b_100ep.py \
+						--input ../artifacts/idea.jpg  \
+						--output ../artifacts/demo_output.jpg \
+						--opts train.init_checkpoint=../artifacts/model_final_435fa9.pkl train.device=cpu 
+
+demo_eva:
+	cd detrex && \
+	python demo/demo.py --config-file projects/dino_eva/configs/dino-eva-02/dino_eva_02_vitdet_b_4attn_1024_lrd0p7_4scale_12ep.py \
+													--input ../artifacts/idea.jpg  \
+													--output ../artifacts/demo_output_eva.jpg \
+													--opts train.init_checkpoint=../artifacts/dino_eva_02_in21k_pretrain_vitdet_b_4attn_1024_lrd0p7_4scale_12ep.pth train.device=cpu model.device=cpu  
+
+
+demo_vitdet_dino:
+	cd detrex && \
+	python demo/demo.py --config-file projects/dino/configs/dino-vitdet/dino_vitdet_base_4scale_12ep.py \
+													--input ../artifacts/idea.jpg \
+													--output ../artifacts/demo_output_dino_vit.jpg \
+													--opts train.init_checkpoint=../artifacts/dino_vitdet_base_4scale_50ep.pth train.device=cpu model.device=cpu
