@@ -10,6 +10,7 @@
 
 module load 2023
 module load Python/3.11.3-GCCcore-12.3.0
+module load CUDA/12.1.1
 
 cd $HOME/development/.local/edge
 source .venv/bin/activate
@@ -19,5 +20,6 @@ export DETECTRON2_DATASETS=$HOME/datasets
 python tools/train_net.py --config-file ../projects/dino_dinov2/configs/COCO/dino_dinov2_b_12ep.py 
 
 deactivate
+module unload CUDA/12.1.1
 module unload Python/3.11.3-GCCcore-12.3.0
 module unload 2023
