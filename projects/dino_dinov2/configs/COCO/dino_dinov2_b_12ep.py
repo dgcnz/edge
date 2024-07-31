@@ -41,12 +41,14 @@ optimizer.weight_decay = 1e-4
 optimizer.params.lr_factor_func = lambda module_name: 0.1 if "backbone" in module_name else 1
 
 # modify dataloader config
-dataloader.train.num_workers = 16
+# dataloader.train.num_workers = 16
+dataloader.train.num_workers = 4
 
 # please notice that this is total batch size.
 # surpose you're using 4 gpus for training and the batch size for
 # each gpu is 16/4 = 4
-dataloader.train.total_batch_size = 16
+# dataloader.train.total_batch_size = 16
+dataloader.train.total_batch_size = 4
 
 # dump the testing results into output_dir for visualization
 dataloader.evaluator.output_dir = train.output_dir
