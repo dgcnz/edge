@@ -8,12 +8,12 @@
 #SBATCH --time=00:30:00
 #SBATCH --output=scripts/slurm_logs/slurm_output_%A.out
 
-cd $HOME/development/edge
+cd $HOME/development/.local/edge
 source .venv/bin/activate
 
-cd $HOME/development/edge/detrex
+cd $HOME/development/.local/edge/detrex
 srun pip install -e .
 
-cd $HOME/development/edge
+cd $HOME/development/.local/edge
 srun pip install -e .
 deactivate
