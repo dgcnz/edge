@@ -11,9 +11,9 @@
 cd $HOME/development/.local/edge
 source .venv/bin/activate
 
-cd $HOME/development/.local/edge/detrex
+cd $HOME/development/.local/edge/detrex/detectron2
 srun pip install -e .
 
-cd $HOME/development/.local/edge
+cd $HOME/development/.local/edge/detrex
 srun pip install -e .
 deactivate
