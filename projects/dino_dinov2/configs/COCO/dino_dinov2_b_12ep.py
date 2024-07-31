@@ -1,5 +1,6 @@
 from detrex.config import get_config
 from ..models.dino_dinov2 import model
+# from ..common.coco_detr_518 import dataloader
 
 # get default config
 dataloader = get_config("common/data/coco_detr.py").dataloader
@@ -9,7 +10,7 @@ train = get_config("common/train.py").train
 
 
 # modify training config
-train.init_checkpoint = "detectron2://ImageNetPretrained/MAE/mae_pretrain_vit_base.pth"
+train.init_checkpoint = ""
 train.output_dir = "./output/dino_vitdet_base_12ep"
 
 # max training iterations
@@ -30,7 +31,7 @@ train.clip_grad.params.max_norm = 0.1
 train.clip_grad.params.norm_type = 2
 
 # set training devices
-train.device = "cpu"
+train.device = "cuda"
 model.device = train.device
 
 # modify optimizer config
@@ -49,3 +50,6 @@ dataloader.train.total_batch_size = 16
 
 # dump the testing results into output_dir for visualization
 dataloader.evaluator.output_dir = train.output_dir
+
+# logger
+train.wandb.enabled=True

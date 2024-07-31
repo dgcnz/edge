@@ -160,3 +160,6 @@ runs/*
 **/*.pth
 artifacts
 .DS_Store
+.vscode-server
+.lightning_studio
+.torch
