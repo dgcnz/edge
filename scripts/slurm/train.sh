@@ -15,6 +15,7 @@ cd $HOME/development/.local/edge
 source .venv/bin/activate
 
 cd $HOME/development/.local/edge/detrex
+export DETECTRON2_DATASETS=$HOME/datasets
 python tools/train_net.py --config-file ../projects/dino_dinov2/configs/COCO/dino_dinov2_b_12ep.py 
 
 deactivate
