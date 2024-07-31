@@ -21,6 +21,8 @@ model.backbone = L(SimpleFeaturePyramid)(
         norm_layer=partial(nn.LayerNorm, eps=1e-6),
         patch_size=16,
         freeze=True,
+        dynamic_img_size=True,
+        dynamic_img_pad=True,
     ),
     in_feature="p-1",
     out_channels=256,
