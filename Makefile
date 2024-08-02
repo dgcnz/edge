@@ -1,3 +1,11 @@
+VENV           = .venv
+VENV_PYTHON    = $(VENV)/bin/python
+# make it work on windows too
+ifeq ($(OS), Windows_NT)
+    VENV_PYTHON=$(VENV)/Scripts/python
+endif
+SYSTEM_PYTHON  = $(or $(shell which python3), $(shell which python))
+PYTHON = $(VENV_PYTHON)
 
 help:  ## Show help
 	@grep -E '^[.a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -51,3 +59,22 @@ demo_vitdet_dino:
 													--input ../artifacts/idea.jpg \
 													--output ../artifacts/demo_output_dino_vit.jpg \
 													--opts train.init_checkpoint=../artifacts/dino_vitdet_base_4scale_50ep.pth train.device=cpu model.device=cpu
+
+module_avail: ## greppable module avail
+	module -t avail 2>&1
+
+load_modules:
+	module load 2023
+	module load Python/3.11.3-GCCcore-12.3.0
+
+unload_modlues:
+	module unload Python/3.11.3-GCCcore-12.3.0
+	module unload 2023
+
+setup_env: # setup the virtual environment and download dependencies
+	$(SYSTEM_PYTHON) -m venv .venv
+	$(PYTHON) -m pip install poetry
+	$(PYTHON) -m poetry install
+
+scat: ## cat slurm log with param
+	cat scripts/slurm_logs/slurm_output_$(id).out
