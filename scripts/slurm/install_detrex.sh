@@ -12,13 +12,13 @@ module load 2023
 module load Python/3.11.3-GCCcore-12.3.0
 module load CUDA/12.1.1
 
-cd $HOME/development/.local/edge
+cd $HOME/development/edge
 source .venv/bin/activate
 
-cd $HOME/development/.local/edge/detrex/detectron2
+cd $HOME/development/edge/detrex/detectron2
 srun pip install -e .
 
-cd $HOME/development/.local/edge/detrex
+cd $HOME/development/edge/detrex
 srun pip install -e .
 deactivate
 
