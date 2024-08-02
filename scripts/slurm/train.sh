@@ -5,7 +5,7 @@
 #SBATCH --job-name=train
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
-#SBATCH --time=24:00:00
+#SBATCH --time=12:00:00
 #SBATCH --output=scripts/slurm_logs/slurm_output_%A.out
 
 module load 2023
