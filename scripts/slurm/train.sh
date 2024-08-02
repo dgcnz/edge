@@ -4,7 +4,7 @@
 #SBATCH --gpus=1
 #SBATCH --job-name=train
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=18
 #SBATCH --time=00:30:00
 #SBATCH --output=scripts/slurm_logs/slurm_output_%A.out
 
