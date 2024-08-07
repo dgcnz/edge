@@ -7,6 +7,7 @@
 #SBATCH --cpus-per-task=18
 #SBATCH --time=12:00:00
 #SBATCH --output=scripts/slurm_logs/slurm_output_%A.out
+#SBATCH --signal=B:TERM@00:30
 
 module load 2023
 module load Python/3.11.3-GCCcore-12.3.0
