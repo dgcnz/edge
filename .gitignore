@@ -163,3 +163,4 @@ artifacts
 .vscode-server
 .lightning_studio
 .torch
+notebooks/wandb
