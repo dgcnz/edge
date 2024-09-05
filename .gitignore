@@ -164,3 +164,5 @@ artifacts
 .lightning_studio
 .torch
 notebooks/wandb
+facebookresearch
+projects/dino_dinov2/modeling/scriptable

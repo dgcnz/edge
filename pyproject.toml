@@ -10,8 +10,6 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-torch = "^2.3.1"
-torchvision = "^0.18.1"
 lightning = "^2.3.2"
 hydra-core = "^1.3.2"
 hydra-colorlog = "^1.2.0"
@@ -29,7 +27,37 @@ timm = "^1.0.7"
 ultralytics = "^8.2.48"
 numpy = ">=1.23.0,<2.0.0"
 pillow = "^10.4.0"
+torchvision = {version = "^0.19.0", allow-prereleases = true}
 
+# [tool.poetry.group.cpu]
+# optional = true
+
+# [tool.poetry.group.cpu.dependencies]
+# torch = { version = "^2.4.0", source = "torch_cpu", markers = "extra=='cpu' and extra!='gpu'", allow-prereleases = true }
+
+# [tool.poetry.group.gpu]
+# optional = true
+
+# [tool.poetry.group.gpu.dependencies]
+# torch = { version = "^2.4.0", source = "torch_cuda", markers = "extra=='gpu' and extra!='cpu'", allow-prereleases = true }
+
+
+# [tool.poetry.extras]
+# cpu = ["torch"]
+# gpu = ["torch"]
+
+# [[tool.poetry.source]]
+# name = "torch_cpu"
+# url = "https://download.pytorch.org/whl/nightly/cpu"
+# priority = "explicit"
+
+
+# [[tool.poetry.source]]
+# name = "torch_cuda"
+# url = "https://download.pytorch.org/whl/nightly/cu121"
+# priority = "explicit"
+onnx = "^1.16.2"
+onnxscript = "^0.1.0.dev20240902"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.1.0"

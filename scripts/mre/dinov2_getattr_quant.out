@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/dgcnz/development/amsterdam/edge/scripts/mre/dinov2_getattr_quant.py", line 21, in <module>
+    m = prepare_pt2e(m, quantizer)
+  File "/Users/dgcnz/development/amsterdam/edge/.venv/lib/python3.10/site-packages/torch/ao/quantization/quantize_pt2e.py", line 107, in prepare_pt2e
+    quantizer.annotate(model)
+  File "/Users/dgcnz/development/amsterdam/edge/.venv/lib/python3.10/site-packages/torch/ao/quantization/quantizer/xnnpack_quantizer.py", line 390, in annotate
+    model = self._annotate_for_static_quantization_config(model)
+  File "/Users/dgcnz/development/amsterdam/edge/.venv/lib/python3.10/site-packages/torch/ao/quantization/quantizer/xnnpack_quantizer.py", line 440, in _annotate_for_static_quantization_config
+    self._annotate_all_static_patterns(
+  File "/Users/dgcnz/development/amsterdam/edge/.venv/lib/python3.10/site-packages/torch/ao/quantization/quantizer/xnnpack_quantizer.py", line 408, in _annotate_all_static_patterns
+    OP_TO_ANNOTATOR[op](model, quantization_config, filter_fn)
+  File "/Users/dgcnz/development/amsterdam/edge/.venv/lib/python3.10/site-packages/torch/ao/quantization/quantizer/xnnpack_quantizer_utils.py", line 944, in _annotate_mul
+    if _is_input_large_scalar(input_act1, gm):
+  File "/Users/dgcnz/development/amsterdam/edge/.venv/lib/python3.10/site-packages/torch/ao/quantization/quantizer/xnnpack_quantizer_utils.py", line 744, in _is_input_large_scalar
+    tensor = getattr(gm, node.target)  # type: ignore[arg-type]
+  File "/Users/dgcnz/development/amsterdam/edge/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1729, in __getattr__
+    raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+AttributeError: 'GraphModule' object has no attribute 'blocks.0.ls1.gamma'

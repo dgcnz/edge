@@ -55,3 +55,11 @@ dataloader.evaluator.output_dir = train.output_dir
 
 # logger
 train.wandb.enabled=True
+#     wandb=dict(
+#         enabled=False,
+#         params=dict(
+#             dir="./wandb_output",
+#             project="detrex",
+#             name="detrex_experiment",
+#         )
+#     ),
