@@ -82,25 +82,35 @@ def load_model(
     cfg = LazyConfig.load(config_file)
     cfg = LazyConfig.apply_overrides(cfg, opts)
     model: torch.nn.Module = instantiate(OmegaConf.to_object(cfg.model)).eval()
-    checkpointer = DetectionCheckpointer(model)
-    checkpointer.load(cfg.train.init_checkpoint)
+    if ckpt_path:
+        print(f"Loading checkpoint {ckpt_path}")
+        checkpointer = DetectionCheckpointer(model)
+        checkpointer.load(cfg.train.init_checkpoint)
     return model
 
+def unflatten_detectron2_boxes(values, _):
+    boxes = object.__new__(detectron2.structures.boxes.Boxes)
+    boxes.tensor = values[0]
+    return boxes
 
-def register_DINO_output_types():
+def unflatten_detectron2_instances(values, _):
+    instances = object.__new__(detectron2.structures.instances.Instances)
+    instances._image_size = values[0]
+    instances._fields = values[1]
+    return instances
+
+def register_DINO_output_types(): 
     pytree.register_pytree_node(
         detectron2.structures.boxes.Boxes,
         lambda x: ([x.tensor], None),
-        lambda values, _: detectron2.structures.boxes.Boxes(tensor=values[0]),
+        unflatten_fn=unflatten_detectron2_boxes,
         serialized_type_name="detectron2.structures.boxes.Boxes",
     )
 
     pytree.register_pytree_node(
         detectron2.structures.instances.Instances,
         lambda x: ([x._image_size, x._fields], None),
-        lambda values, _: detectron2.structures.instances.Instances(
-            image_size=values[0], **values[1]
-        ),
+        unflatten_fn=unflatten_detectron2_instances,
         serialized_type_name="detectron2.structures.instances.Instances",
     )
 
