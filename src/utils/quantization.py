@@ -117,7 +117,7 @@ def register_DINO_output_types():
 
 def export_dinov2(
     model: torch.nn.Module,
-    example_kwargs: dict[str, typing.Any],
+    inputs: tuple[torch.Tensor],
     cache: bool = False,
     exported_ckpt_path: typing.Optional[Path] = None,
 ) -> torch.export.ExportedProgram:
@@ -128,12 +128,9 @@ def export_dinov2(
     if cache and exported_ckpt_path is not None and exported_ckpt_path.exists():
         return torch.export.load(exported_ckpt_path)
 
-    # torch._dynamo.config.verbose = True
-    # torch._logging.set_logs(dynamo=logging.INFO)
     exported_program: torch.export.ExportedProgram = export(
         model,
-        args=(),
-        kwargs=example_kwargs,
+        args=inputs,
         strict=True,
     )
     if cache:

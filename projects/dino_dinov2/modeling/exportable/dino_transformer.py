@@ -454,7 +454,7 @@ class DINOTransformer(nn.Module):
         # )
         # list refactor
         # level_start_index = torch.cat((spatial_shapes.new_zeros((1,)), spatial_shapes.prod(1).cumsum(0)[:-1]))
-        level_start_index = [0] + list(itertools.accumulate(map(math.prod, spatial_shapes)))[:-1]
+        level_start_index = [0] + list(itertools.accumulate(list(map(math.prod, spatial_shapes))))[:-1]
         valid_ratios = torch.stack(
             [self.get_valid_ratio(m) for m in multi_level_masks], 1
         )
