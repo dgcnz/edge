@@ -612,7 +612,8 @@ class DINO(nn.Module):
         topk_boxes = torch.div(topk_indexes, box_cls.shape[2], rounding_mode="floor")
         labels = topk_indexes % box_cls.shape[2]
 
-        boxes = torch.gather(box_pred, 1, topk_boxes.unsqueeze(-1).repeat(1, 1, 4))
+        # REFACTOR repeat->expand for torchtensorrt compatibility: https://github.com/pytorch/TensorRT/issues/3172
+        boxes = torch.gather(box_pred, 1, topk_boxes.unsqueeze(-1).expand(-1, -1, 4))
 
         # For each box we assign the best class or the second best if the best on is `no_object`.
         # scores, labels = F.softmax(box_cls, dim=-1)[:, :, :-1].max(-1)

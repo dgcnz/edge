@@ -494,8 +494,9 @@ class DINOTransformer(nn.Module):
         topk_proposals = torch.topk(enc_outputs_class.max(-1)[0], topk, dim=1)[1]
 
         # extract region proposal boxes
+        # REFACTOR repeat->expand for torchtensorrt compatibility: https://github.com/pytorch/TensorRT/issues/3172
         topk_coords_unact = torch.gather(
-            enc_outputs_coord_unact, 1, topk_proposals.unsqueeze(-1).repeat(1, 1, 4)
+            enc_outputs_coord_unact, 1, topk_proposals.unsqueeze(-1).expand(-1, -1, 4)
         )  # unsigmoided.
         reference_points = topk_coords_unact.detach().sigmoid()
         if query_embed[1] is not None:
