@@ -99,17 +99,24 @@ def unflatten_detectron2_instances(values, _):
     instances._fields = values[1]
     return instances
 
+def flatten_detectron2_instances(x):
+    return ([x._image_size, x._fields], None)
+
+def flatten_detectron2_boxes(x):
+    return ([x.tensor], None)
+
+
 def register_DINO_output_types(): 
     pytree.register_pytree_node(
         detectron2.structures.boxes.Boxes,
-        lambda x: ([x.tensor], None),
+        flatten_fn=flatten_detectron2_boxes,
         unflatten_fn=unflatten_detectron2_boxes,
         serialized_type_name="detectron2.structures.boxes.Boxes",
     )
 
     pytree.register_pytree_node(
         detectron2.structures.instances.Instances,
-        lambda x: ([x._image_size, x._fields], None),
+        flatten_fn=flatten_detectron2_instances,
         unflatten_fn=unflatten_detectron2_instances,
         serialized_type_name="detectron2.structures.instances.Instances",
     )
