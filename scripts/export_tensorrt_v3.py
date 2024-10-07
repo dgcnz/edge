@@ -92,8 +92,10 @@ with torch.inference_mode(), torch.no_grad():
             cache_built_engines=False,
             enable_experimental_decompositions=True,
             truncate_double=True,
-            use_fast_partitioner=False,
+            use_fast_partitioner=True,
+            optimization_level=5,
             require_full_compilation=True,
+            
             # make_refitable=True,
         )  # Output is a torch.fx.GraphModule
         print("OUTPUT OF COMPILED MODEL")

@@ -1,3 +1,11 @@
+import torchao
+from torchao.quantization.quant_api import (
+    quantize_,
+    int8_dynamic_activation_int8_weight,
+    int4_weight_only,
+    int8_weight_only,
+    unwrap_tensor_subclass,
+)
 import detectron2.structures
 from src.utils.quantization import (
     load_input,
@@ -59,19 +67,31 @@ img, example_kwargs = load_input_fixed(height=512, width=512)
 model = load_model(device="cuda").cuda()
 model = (
     ModelWrapper(
-        net=model,
+        net=model.half(),
         height=example_kwargs["heights"][0],
         width=example_kwargs["widths"][0],
     )
+    .half()
     .eval()
     .cuda()
 )
-inputs = (example_kwargs["images"].cuda(),)
-model(*inputs)
+inputs = (example_kwargs["images"].cuda().half(),)
+# print(model(*inputs))
+# quantize_(model, int8_dynamic_activation_int8_weight())
+# print(model(*inputs))
+# model = unwrap_tensor_subclass(model)
+# print(model(*inputs))
+print("exporting program")
+# with torch.inference_mode(), torch.no_grad():
 exported_program = torch.export.export(
     model,
     args=inputs,
+    strict=True,
 )
+
+# exported_program = exported_program.run_decompositions()
+
+print("exported program")
 
 
 def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
@@ -83,8 +103,9 @@ def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
     return predictions
 
 
-with torch.inference_mode(), torch.no_grad():
+with torch.no_grad():
     with torch_tensorrt.logging.debug():
+        #trt_gm = torch_tensorrt.compile(model, ir="dynamo", inputs=inputs)
         trt_gm = torch_tensorrt.dynamo.compile(
             exported_program,
             inputs,
@@ -95,7 +116,7 @@ with torch.inference_mode(), torch.no_grad():
             use_fast_partitioner=True,
             optimization_level=5,
             require_full_compilation=True,
-            
+            enabled_precisions = {torch.half}
             # make_refitable=True,
         )  # Output is a torch.fx.GraphModule
         print("OUTPUT OF COMPILED MODEL")

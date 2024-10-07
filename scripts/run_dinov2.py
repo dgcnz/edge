@@ -1,3 +1,12 @@
+import torchao
+import logging
+from torchao.quantization.quant_api import (
+    quantize_,
+    int8_dynamic_activation_int8_weight,
+    int4_weight_only,
+    int8_weight_only,
+    unwrap_tensor_subclass,
+)
 import detectron2.structures
 from src.utils.quantization import (
     load_input,
@@ -67,56 +76,28 @@ model = (
     .cuda()
 )
 inputs = (example_kwargs["images"].cuda(),)
-model(*inputs)
-exported_program = torch.export.export(
-    model,
-    args=inputs,
-)
+inputs = (torch.randn(1, 3, 512, 512).cuda(),)
+# print(model(*inputs))
+# quantize_(model, int8_dynamic_activation_int8_weight())
+# print(model(*inputs))
+# model = unwrap_tensor_subclass(model)
+# print(model(*inputs))
 
+logging.info("warmup")
+for _ in range(5):
+    _ = model(example_kwargs["images"].cuda())
+# Measure inference time with GPU synchronization
+import time
+logging.info("warmup")
+times = []
+for _ in range(5):
+    torch.cuda.synchronize()
+    start_time = time.time()
+    _ = model(example_kwargs["images"].cuda())
+    torch.cuda.synchronize()
+    end_time = time.time()
+    inference_time = end_time - start_time
+    times.append(inference_time)
+    print(inference_time)
 
-def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
-    if "instances" in predictions:
-        preds = predictions["instances"]
-        keep_idxs = preds.scores > confidence_threshold
-        predictions = copy(predictions)  # don't modify the original
-        predictions["instances"] = preds[keep_idxs]
-    return predictions
-
-
-with torch.inference_mode(), torch.no_grad():
-    with torch_tensorrt.logging.debug():
-        trt_gm = torch_tensorrt.dynamo.compile(
-            exported_program,
-            inputs,
-            reuse_cached_engines=False,
-            cache_built_engines=False,
-            enable_experimental_decompositions=True,
-            truncate_double=True,
-            use_fast_partitioner=False,
-            require_full_compilation=True,
-            # make_refitable=True,
-        )  # Output is a torch.fx.GraphModule
-        print("OUTPUT OF COMPILED MODEL")
-        outputs = trt_gm(*inputs)
-        print(outputs)
-        outputs = unflatten_repr(outputs)
-        print(outputs)
-        # outputs = outputs[0]
-        pred = filter_predictions_with_confidence(outputs, confidence_threshold=0.5)
-        v = Visualizer(img, MetadataCatalog.get("coco_2017_val"))
-        v = v.draw_instance_predictions(pred["instances"].to("cpu"))
-
-        # Display the results
-        plt.figure(figsize=(14, 10))
-        plt.imshow(v.get_image()[:, :, ::-1])
-        plt.axis("off")
-        plt.savefig("res.png")
-
-        print("BYE")
-        print("SAVE TS")
-        torch_tensorrt.save(
-            trt_gm, "trt.ts", output_format="torchscript", inputs=inputs
-        )
-        print("SAVE EP")
-        # trt_gm = inline_torch_modules(trt_gm)
-        torch_tensorrt.save(trt_gm, "trt.ep", inputs=inputs)
+print(times)
