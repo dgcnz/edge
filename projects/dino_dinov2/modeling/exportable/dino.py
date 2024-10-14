@@ -20,6 +20,8 @@ from typing import List, Optional, Dict, Tuple
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from detectron2.layers import move_device_like
+from warnings import warn
 
 from detrex.layers import MLP, box_cxcywh_to_xyxy, box_xyxy_to_cxcywh
 from detrex.utils import inverse_sigmoid
@@ -93,7 +95,7 @@ class DINO(nn.Module):
         pixel_std: List[float] = [58.395, 57.120, 57.375],
         aux_loss: bool = True,
         select_box_nums_for_evaluation: int = 300,
-        device="cuda",
+        device=None,
         dn_number: int = 100,
         label_noise_ratio: float = 0.2,
         box_noise_scale: float = 1.0,
@@ -101,6 +103,9 @@ class DINO(nn.Module):
         vis_period: int = 0,
     ):
         super().__init__()
+        if device is not None:
+            # EXPORT_RULE: do not manually hardcode device, use parameters.device to avoid device mismatch
+            warn("device argument is deprecated and has no effect.")
         # define backbone and position embedding module
         self.backbone = backbone
         self.position_embedding = position_embedding
@@ -131,9 +136,9 @@ class DINO(nn.Module):
         self.box_noise_scale = box_noise_scale
 
         # normalizer for input raw images
-        self.device = device
-        self.pixel_mean = torch.Tensor(pixel_mean).to(self.device).view(3, 1, 1)
-        self.pixel_std = torch.Tensor(pixel_std).to(self.device).view(3, 1, 1)
+        self.register_buffer("pixel_mean", torch.tensor(pixel_mean).view(3, 1, 1))
+        self.register_buffer("pixel_std", torch.tensor(pixel_std).view(3, 1, 1))
+        # EXPORT_RULE: avoid lambdas
         # self.normalizer = lambda x: (x - pixel_mean) / pixel_std
 
         # initialize weights
@@ -179,7 +184,7 @@ class DINO(nn.Module):
     def normalizer(self, x: torch.Tensor) -> torch.Tensor:
         return (x - self.pixel_mean) / self.pixel_std
 
-    def forward(self, images: torch.Tensor, heights: List[int], widths: List[int]):
+    def __forward(self, images: torch.Tensor, heights: List[int], widths: List[int]):
         assert len(images) == len(heights) == len(widths), "Batch dimension mismatch"
         batched_inputs = [
             {"image": x, "height": h, "width": w}
@@ -187,7 +192,7 @@ class DINO(nn.Module):
         ]
         return self._forward(batched_inputs=batched_inputs)
 
-    def _forward(self, batched_inputs: List[Dict[str, torch.Tensor | int]]):
+    def forward(self, batched_inputs: List[Dict[str, torch.Tensor | int]]):
         """Forward function of `DINO` which excepts a list of dict as inputs.
 
         Args:
@@ -224,12 +229,6 @@ class DINO(nn.Module):
             batch_size, _, H, W = images.tensor.shape
             img_masks = images.tensor.new_zeros(batch_size, H, W)
 
-        # if torch.compiler.is_compiling():
-        # print("IS COMPILING")
-        # torch._check(images.tensor.shape[0] == 1, lambda: "Only support one image for torch.export")
-        # torch._check(images.tensor.shape[2] == images.image_sizes[0][0], lambda: "Image size mismatch")
-        # torch._check(images.tensor.shape[3] == images.image_sizes[0][1], lambda: "Image size mismatch")
-
         # original features
         features: Dict[str, torch.Tensor] = self.backbone(
             images.tensor
@@ -253,7 +252,7 @@ class DINO(nn.Module):
         # denoising preprocessing
         # prepare label query embedding
         if self.training:
-            gt_instances = [x["instances"].to(self.device) for x in batched_inputs]
+            gt_instances = [self._move_to_current_device(x["instances"]) for x in batched_inputs]
             targets = self.prepare_targets(gt_instances)
             input_query_label, input_query_bbox, attn_mask, dn_meta = (
                 self.prepare_for_cdn(
@@ -580,9 +579,8 @@ class DINO(nn.Module):
         return outputs_class, outputs_coord
 
     def preprocess_image(self, batched_inputs):
-        images = [self.normalizer(x["image"].to(self.device)) for x in batched_inputs]
+        images = [self.normalizer(self._move_to_current_device(x["image"])) for x in batched_inputs]
         images, image_sizes = batch_images(images)
-        # images = ImageList.from_tensors(images)
         images = ImageList(tensor=images, image_sizes=image_sizes)
         return images
 
@@ -633,12 +631,18 @@ class DINO(nn.Module):
             results.append(result)
         return results
 
+    def _move_to_current_device(self, x: torch.Tensor):
+        return move_device_like(x, self.pixel_mean)
+    
+    def _current_device(self):
+        return self.pixel_mean.device
+
     def prepare_targets(self, targets):
         new_targets = []
         for targets_per_image in targets:
             h, w = targets_per_image.image_size
             image_size_xyxy = torch.as_tensor(
-                [w, h, w, h], dtype=torch.float, device=self.device
+                [w, h, w, h], dtype=torch.float, device=self._current_device()
             )
             gt_classes = targets_per_image.gt_classes
             gt_boxes = targets_per_image.gt_boxes.tensor / image_size_xyxy

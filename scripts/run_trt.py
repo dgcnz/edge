@@ -1,6 +1,6 @@
 import torch
 torch.cuda.memory._record_memory_history()
-from src.utils.quantization import export_and_quantize_dinov2, load_input, load_model, export_dinov2, load_input_fixed, unflatten_detectron2_boxes, unflatten_detectron2_instances
+from src.utils.quantization import load_input_fixed,  unflatten_repr, filter_predictions_with_confidence
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ import torchvision.transforms as T
 import torch_tensorrt
 from torch.profiler import profile, record_function, ProfilerActivity
 import logging
-import nvidia_dlprof_pytorch_nvtx
+# import nvidia_dlprof_pytorch_nvtx
 # nvidia_dlprof_pytorch_nvtx.init()
 
 
@@ -20,11 +20,14 @@ import nvidia_dlprof_pytorch_nvtx
 logging.basicConfig(level=logging.INFO)
 
 logging.info("Loading model")
-# model = torch.jit.load("trt.ts")
-model = torch.export.load("trt.ep").module()
+# model = torch.jit.load("trt_f16.ts")
+# model = torch.export.load("trt_f16.ep").module()
+model = torch.jit.load("trt.ts")
+# model = torch.export.load("trt.ep").module()
 logging.info("Loaded model")
 
-image_path = "artifacts/ams.jpg"
+image_path = "artifacts/idea_raw.jpg"
+# image_path = "artifacts/ams.jpg"
 # image_path = "artifacts/white.jpg"
 img, example_kwargs = load_input_fixed(image_path, height=512, width=512)
 
@@ -46,20 +49,21 @@ img, example_kwargs = load_input_fixed(image_path, height=512, width=512)
 # # print(torch.cuda.max_memory_allocated())
 # # torch.cuda.memory._dump_snapshot("my_snapshot.pickle")
 # 
-logging.info("warmup")
-for _ in range(5):
-    _ = model(example_kwargs["images"].cuda())
-# Measure inference time with GPU synchronization
-import time
-logging.info("warmup")
-times = []
-for _ in range(5):
-    torch.cuda.synchronize()
-    start_time = time.time()
-    _ = model(example_kwargs["images"].cuda())
-    torch.cuda.synchronize()
-    end_time = time.time()
-    inference_time = end_time - start_time
-    times.append(inference_time)
+with torch.no_grad():
+    logging.info("warmup")
+    for _ in range(5):
+        _ = model(example_kwargs["images"].cuda())
+    # Measure inference time with GPU synchronization
+    import time
+    logging.info("warmup")
+    times = []
+    for _ in range(5):
+        torch.cuda.synchronize()
+        start_time = time.time()
+        _ = model(example_kwargs["images"].cuda())
+        torch.cuda.synchronize()
+        end_time = time.time()
+        inference_time = end_time - start_time
+        times.append(inference_time)
 
-print(times)
+    print(times)

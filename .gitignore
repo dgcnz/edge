@@ -166,3 +166,12 @@ artifacts
 notebooks/wandb
 facebookresearch
 projects/dino_dinov2/modeling/scriptable
+third-party/*
+build/*
+events.out*
+wandb_output/*
+requirements.txt
+res.png
+*.ts
+*.ep
+output/*

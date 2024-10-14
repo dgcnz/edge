@@ -1,3 +1,7 @@
+import torch_tensorrt
+# import torchao
+from torch.ao.quantization.quantizer.xnnpack_quantizer import XNNPACKQuantizer, get_symmetric_quantization_config
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e, convert_pt2e
 import detectron2.structures
 from src.utils.quantization import (
     load_input,
@@ -12,12 +16,18 @@ from src.utils.quantization import (
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog
 import detectron2
-import torch_tensorrt
 import torch
 from copy import copy
 import matplotlib.pyplot as plt
 import torch
-from torch_tensorrt.dynamo._exporter import inline_torch_modules
+
+def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
+    if "instances" in predictions:
+        preds = predictions["instances"]
+        keep_idxs = preds.scores > confidence_threshold
+        predictions = copy(predictions)  # don't modify the original
+        predictions["instances"] = preds[keep_idxs]
+    return predictions
 
 
 class ModelWrapper(torch.nn.Module):
@@ -56,7 +66,7 @@ def unflatten_repr(obj):
 
 register_DINO_output_types()
 img, example_kwargs = load_input_fixed(height=512, width=512)
-model = load_model(device="cuda").cuda()
+model = load_model(device="cpu").cuda()
 model = (
     ModelWrapper(
         net=model,
@@ -66,36 +76,44 @@ model = (
     .eval()
     .cuda()
 )
-inputs = (example_kwargs["images"].cuda(),)
-model(*inputs)
-exported_program = torch.export.export(
-    model,
-    args=inputs,
-)
 
+with torch.no_grad():
+    inputs = (example_kwargs["images"].cuda(),)
+    model(*inputs)
+    exported_program = torch.export.export(
+        model,
+        args=inputs,
+    )
+    # model = exported_program.module()
+    # model = torchao.autoquant(torch.compile(model, mode='max-autotune', fullgraph=True))
+    # model(*inputs)
+    quantizer = XNNPACKQuantizer().set_global(get_symmetric_quantization_config())
+    # or prepare_qat_pt2e for Quantization Aware Training
+    model = exported_program.module()
+    model = prepare_pt2e(model, quantizer)
 
-def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
-    if "instances" in predictions:
-        preds = predictions["instances"]
-        keep_idxs = preds.scores > confidence_threshold
-        predictions = copy(predictions)  # don't modify the original
-        predictions["instances"] = preds[keep_idxs]
-    return predictions
-
-
-with torch.inference_mode(), torch.no_grad():
+    # run calibration
+    # calibrate(m, sample_inference_data)
+    model = convert_pt2e(model)
+    model = model.cuda()
+    inputs = (inputs[0].cuda(), )
+    exported_program = torch.export.export(
+        model,
+        args=inputs,
+    )
     with torch_tensorrt.logging.debug():
+        #trt_gm = torch_tensorrt.compile(model, ir="dynamo", inputs=inputs)
         trt_gm = torch_tensorrt.dynamo.compile(
-            exported_program,
+            model,
             inputs,
             reuse_cached_engines=False,
             cache_built_engines=False,
             enable_experimental_decompositions=True,
             truncate_double=True,
             use_fast_partitioner=True,
-            optimization_level=5,
             require_full_compilation=True,
-            
+            # optimization_level=5,
+            # enabled_precisions = {torch}
             # make_refitable=True,
         )  # Output is a torch.fx.GraphModule
         print("OUTPUT OF COMPILED MODEL")

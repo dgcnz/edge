@@ -1,0 +1,55 @@
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
+project(example-app)
+list(APPEND CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/third-party/libtorch")
+set(CUDA_TOOLKIT_ROOT_DIR $ENV{CONDA_PREFIX})
+find_package(Torch REQUIRED)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+
+// done
+find_package (Python COMPONENTS Interpreter Development)
+# find_package(CUDA REQUIRED)
+# find_package(CUDAToolkit REQUIRED)
+message(STATUS "CUDA_INCLUDE_DIRS: ${CUDA_INCLUDE_DIRS}")
+# print cuda libraries
+message(STATUS "CUDA_LIBRARIES: ${CUDA_LIBRARIES}")
+
+add_executable(example-app example-app.cpp)
+# target_link_libraries(example-app "${CUDA_LIBRARIES}")
+# target_include_directories(example-app PRIVATE ${CUDA_INCLUDE_DIRS})
+include_directories(
+  ${PROJECT_SOURCE_DIR}/third-party/torch_tensorrt/include
+    )
+target_link_libraries(example-app "${TORCH_LIBRARIES}")
+# print the path to the python executable
+message(STATUS "PYTHON_EXECUTABLE: ${Python_EXECUTABLE}")
+# set variable Python_PACKAGES to site-packages from PYTHON_EXECUTABLE
+execute_process(COMMAND ${Python_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())" OUTPUT_VARIABLE Python_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
+# print the path to the site-packages directory
+message(STATUS "Python_PACKAGES: ${Python_PACKAGES}")
+
+# link the torch_tensorrt libraries from Python_PACKAGES/tensorrt_libs/*
+# to the example-app executable
+# list all the files in the directory Python_PACKAGES/tensorrt_libs/*
+file(GLOB TORCH_TENSORRT_LIBS ${Python_PACKAGES}/tensorrt_libs/*)
+# remove __init__.py from the list of files
+list(REMOVE_ITEM TORCH_TENSORRT_LIBS "${Python_PACKAGES}/tensorrt_libs/__init__.py")
+# link the files in the variable TORCH_TENSORRT_LIBS to the example-app executable
+# -Wl,--no-as-needed is used to link the libraries even if they are not needed
+# target_link_libraries(example-app -Wl,--no-as-needed ${TORCH_TENSORRT_LIBS})
+
+# print the contents of the variable TORCH_TENSORRT_LIBS
+message(STATUS "TORCH_TENSORRT_LIBS: ${TORCH_TENSORRT_LIBS}")
+# target_link_libraries(example-app -Wl,--no-as-needed ${PROJECT_SOURCE_DIR}/third-party/torch_tensorrt/lib/libtorchtrt.so) #${PROJECT_SOURCE_DIR}/third-party/torch_tensorrt/lib/libtorchtrt_runtime.so ${PROJECT_SOURCE_DIR}/third-party/torch_tensorrt/lib/libtorchtrt_plugins.so)
+target_link_libraries(example-app "${TORCH_LIBRARIES}")
+target_link_libraries (example-app 
+#                                         ${PROJECT_SOURCE_DIR}/third-party/libtorch/lib/libtorch.so
+#                                         ${PROJECT_SOURCE_DIR}/third-party/libtorch/lib/libtorch_cuda.so
+#                                         ${PROJECT_SOURCE_DIR}/third-party/libtorch/lib/libtorch_cpu.so
+                                        ${PROJECT_SOURCE_DIR}/third-party/libtorch/lib/libtorch_global_deps.so
+#                                         ${PROJECT_SOURCE_DIR}/third-party/libtorch/lib/libbackend_with_compiler.so
+#                                          ${PROJECT_SOURCE_DIR}/third-party/libtorch/lib/libc10.so
+#                                         ${PROJECT_SOURCE_DIR}/third-party/libtorch/lib/libc10_cuda.so
+                                        )
+
+# target_link_libraries (example-app  
+set_property(TARGET example-app PROPERTY CXX_STANDARD 17)

@@ -19,9 +19,14 @@ model.backbone = L(SimpleFeaturePyramid)(
         in_channels=3,
         out_indices=(-1,),
         norm_layer=partial(nn.LayerNorm, eps=1e-6),
-        patch_size=16,
+        patch_size=16, 
         freeze=True,
-        img_size=512,
+        # EXPORT_RULE:
+        # - disable dynamic image sizes
+        # - fix image size to target device
+        # dynamic_img_size=False,
+        # dynamic_img_pad=False,
+        img_size=512, 
         dynamic_img_size=False,
         dynamic_img_pad=False,
     ),

@@ -78,3 +78,16 @@ setup_env: # setup the virtual environment and download dependencies
 
 scat: ## cat slurm log with param
 	cat scripts/slurm_logs/slurm_output_$(id).out
+
+download_torch_cpp:
+	cd third-party && wget https://download.pytorch.org/libtorch/nightly/cu124/libtorch-cxx11-abi-shared-with-deps-latest.zip
+
+# cmake -DCMAKE_PREFIX_PATH=/teamspace/studios/this_studio/third-party/libtorch ..    
+#
+# cmake --build . --config Release 
+#
+# pip3 install --pre torch torchvision tensorrt torch_tensorrt --index-url https://download.pytorch.org/whl/nightly/cu124
+#
+# poetry export --without-hashes --format=requirements.txt > requirements.txt
+#
+# python -c "import torch; print(torch._C._GLIBCXX_USE_CXX11_ABI)

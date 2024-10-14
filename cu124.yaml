@@ -1,0 +1,10 @@
+name: cu124
+channels:
+  - nvidia/label/cuda-12.4.1
+  - conda-forge
+dependencies:
+  - cuda-toolkit
+  - cuda
+  - python==3.10
+  - gxx=13
+  - gcc=13

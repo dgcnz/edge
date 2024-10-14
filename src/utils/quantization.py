@@ -1,4 +1,5 @@
 from detectron2.data.detection_utils import read_image
+from copy import copy
 from detectron2.config import LazyConfig, instantiate
 from detectron2.checkpoint import DetectionCheckpointer
 import torch
@@ -72,11 +73,8 @@ def load_input_fixed(
 def load_model(
     config_file: str = "projects/dino_dinov2/configs/COCO/dino_dinov2_b_12ep.py",
     ckpt_path: str = "artifacts/model_final.pth",
-    device: str = "cpu",
 ) -> torch.nn.Module:
     opts = [
-        f"model.device={device}",
-        f"train.device={device}",
         f"train.init_checkpoint={ckpt_path}",
     ]
     cfg = LazyConfig.load(config_file)
@@ -203,3 +201,43 @@ def export_and_quantize_dinov2(
         ckpt_path=quantized_ckpt_path,
     )
     return model, exported_program, quantized_model
+
+
+class ModelWrapper(torch.nn.Module):
+    def __init__(self, net: torch.nn.Module, height: int, width: int):
+        super().__init__()
+        self.net = net
+        self.height = height
+        self.width = width
+
+    def forward(self, images: torch.Tensor):
+        x = [{"image": image, "height": self.height, "width": self.width} for image in images]
+        res = self.net(x)[0]
+        return flatten_repr(res)
+
+
+def flatten_repr(obj):
+    obj["instances"] = flatten_detectron2_instances(obj["instances"])[0]
+    obj["instances"][1]["pred_boxes"] = flatten_detectron2_boxes(
+        obj["instances"][1]["pred_boxes"]
+    )[0][0]
+    obj = obj["instances"][1]
+    return (obj["pred_boxes"], obj["scores"], obj["pred_classes"])
+
+
+def unflatten_repr(obj):
+    obj = dict(pred_boxes=obj[0], scores=obj[1], pred_classes=obj[2])
+    obj = dict(instances=[(512, 512), obj])
+    obj["instances"][1]["pred_boxes"] = unflatten_detectron2_boxes(
+        [obj["instances"][1]["pred_boxes"]], None
+    )
+    obj["instances"] = unflatten_detectron2_instances(obj["instances"], None)
+    return obj
+
+def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
+    if "instances" in predictions:
+        preds = predictions["instances"]
+        keep_idxs = preds.scores > confidence_threshold
+        predictions = copy(predictions)  # don't modify the original
+        predictions["instances"] = preds[keep_idxs]
+    return predictions

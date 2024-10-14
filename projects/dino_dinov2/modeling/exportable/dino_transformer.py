@@ -200,7 +200,9 @@ class DINOTransformerDecoder(TransformerLayerSequence):
             if reference_points.shape[-1] == 4:
                 reference_points_input = (
                     reference_points[:, :, None]
-                    * torch.cat([valid_ratios, valid_ratios], -1)[:, None]
+                    # small refactor to avoid: https://github.com/pytorch/pytorch/issues/129038
+                    # * torch.cat([valid_ratios, valid_ratios], -1)[:, None]
+                    * valid_ratios.repeat(*[1] * (valid_ratios.ndim - 1), 2)[:, None]
                 )
             else:
                 assert reference_points.shape[-1] == 2
