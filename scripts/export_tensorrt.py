@@ -85,8 +85,8 @@ def main():
     logging.info("Plotting predictions")
     precision = "fp16" if args.half else "fp32"
     if args.bf16:
-        precision = precision+"_bf16"
-    output_name = f"exported_res_{precision}"
+        precision = precision+"-bf16"
+    output_name = f"{precision}_{args.height}_{args.width}"
     plot_predictions(outputs, img, output_file=f"{output_name}.png")
 
     logging.info("Saving TorchScript")

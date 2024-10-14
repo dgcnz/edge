@@ -275,8 +275,7 @@ def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
 #         torch_tensorrt.save(trt_gm, "trt.ep", inputs=inputs)
 
 
-def plot_predictions(outputs, img, display: bool = True, output_file: str = "res.png"):
-    ARTIFACTS_FOLDER = Path("artifacts")
+def plot_predictions(outputs, img, display: bool = False, output_file: str = "res.png"):
     pred = filter_predictions_with_confidence(outputs, confidence_threshold=0.5)
     v = Visualizer(img, MetadataCatalog.get("coco_2017_val"))
     v = v.draw_instance_predictions(pred["instances"].to("cpu"))
@@ -285,5 +284,5 @@ def plot_predictions(outputs, img, display: bool = True, output_file: str = "res
     ax.axis("off")
     if display:
         plt.show()
-    plt.savefig(ARTIFACTS_FOLDER / output_file)
+    plt.savefig(output_file)
     return fig, ax, v

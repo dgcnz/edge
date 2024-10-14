@@ -24,11 +24,12 @@ model = ModelWrapper(
     width=example_kwargs["widths"][0],
 )
 model.eval().cuda()
-
-with torch.autocast("cuda", dtype=torch.bfloat16), torch.no_grad():
+inputs = (example_kwargs["images"].cuda(),)
+# with torch.autocast("cuda", dtype=torch.float32), torch.no_grad():
+with torch.no_grad():
     logging.info("warmup")
     for _ in range(5):
-        _ = model(example_kwargs["images"].cuda())
+        _ = model(*inputs)
     # Measure inference time with GPU synchronization
     logging.info("warmup")
     times = []
@@ -36,11 +37,11 @@ with torch.autocast("cuda", dtype=torch.bfloat16), torch.no_grad():
     for _ in range(5):
         torch.cuda.synchronize()
         start_time = time.time()
-        out = model(example_kwargs["images"].cuda())
+        out = model(*inputs)
         torch.cuda.synchronize()
         end_time = time.time()
         inference_time = end_time - start_time
-        times.append(inference_time)
+        times.append(inference_time*1e3)
 
 print(times)
 

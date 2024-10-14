@@ -92,6 +92,10 @@ download_torch_cpp:
 #
 # python -c "import torch; print(torch._C._GLIBCXX_USE_CXX11_ABI)
 #
-# cmake -Bbuild
 #
-# cmake --build build --config Release
+
+build_cpp:
+	cmake -Bbuild
+
+compile_cpp:
+	cmake --build build --config Release
