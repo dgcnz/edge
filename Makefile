@@ -91,3 +91,7 @@ download_torch_cpp:
 # poetry export --without-hashes --format=requirements.txt > requirements.txt
 #
 # python -c "import torch; print(torch._C._GLIBCXX_USE_CXX11_ABI)
+#
+# cmake -Bbuild
+#
+# cmake --build build --config Release

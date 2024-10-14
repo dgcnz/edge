@@ -1,6 +1,9 @@
 from detectron2.data.detection_utils import read_image
+import matplotlib.pyplot as plt
 from copy import copy
 from detectron2.config import LazyConfig, instantiate
+from detectron2.utils.visualizer import Visualizer
+from detectron2.data import MetadataCatalog
 from detectron2.checkpoint import DetectionCheckpointer
 import torch
 import logging
@@ -26,6 +29,7 @@ from torch.ao.quantization.quantizer.xnnpack_quantizer import (
 import torchvision
 import torchvision.transforms.functional
 
+
 def load_input(
     image_path: str = "artifacts/idea_raw.jpg",
     min_size_test: int = 800,
@@ -48,7 +52,8 @@ def load_input(
             "heights": [height],
             "widths": [width],
         }
-    
+
+
 def load_input_fixed(
     image_path: str = "artifacts/idea_raw.jpg",
     height: int = 800,
@@ -59,7 +64,7 @@ def load_input_fixed(
     res = T.Resize((height, width))
     original_img = res.get_transform(img).apply_image(img)
     img = original_img.copy()
-    with torch.no_grad(): 
+    with torch.no_grad():
         if input_format == "RGB":
             img = img[:, :, ::-1]
         img = torch.as_tensor(img.astype("float32").transpose(2, 0, 1))
@@ -86,10 +91,12 @@ def load_model(
         checkpointer.load(cfg.train.init_checkpoint)
     return model
 
+
 def unflatten_detectron2_boxes(values, _):
     boxes = object.__new__(detectron2.structures.boxes.Boxes)
     boxes.tensor = values[0]
     return boxes
+
 
 def unflatten_detectron2_instances(values, _):
     instances = object.__new__(detectron2.structures.instances.Instances)
@@ -97,14 +104,16 @@ def unflatten_detectron2_instances(values, _):
     instances._fields = values[1]
     return instances
 
+
 def flatten_detectron2_instances(x):
     return ([x._image_size, x._fields], None)
+
 
 def flatten_detectron2_boxes(x):
     return ([x.tensor], None)
 
 
-def register_DINO_output_types(): 
+def register_DINO_output_types():
     pytree.register_pytree_node(
         detectron2.structures.boxes.Boxes,
         flatten_fn=flatten_detectron2_boxes,
@@ -160,7 +169,6 @@ def static_quantize(
     return quantized_model
 
 
-
 def save_quantized_model(
     model: torch.nn.Module, ckpt_path: str, example_kwargs: dict[str, typing.Any]
 ):
@@ -211,7 +219,10 @@ class ModelWrapper(torch.nn.Module):
         self.width = width
 
     def forward(self, images: torch.Tensor):
-        x = [{"image": image, "height": self.height, "width": self.width} for image in images]
+        x = [
+            {"image": image, "height": self.height, "width": self.width}
+            for image in images
+        ]
         res = self.net(x)[0]
         return flatten_repr(res)
 
@@ -234,6 +245,7 @@ def unflatten_repr(obj):
     obj["instances"] = unflatten_detectron2_instances(obj["instances"], None)
     return obj
 
+
 def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
     if "instances" in predictions:
         preds = predictions["instances"]
@@ -241,3 +253,37 @@ def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
         predictions = copy(predictions)  # don't modify the original
         predictions["instances"] = preds[keep_idxs]
     return predictions
+
+
+#         pred = filter_predictions_with_confidence(outputs, confidence_threshold=0.5)
+#         v = Visualizer(img, MetadataCatalog.get("coco_2017_val"))
+#         v = v.draw_instance_predictions(pred["instances"].to("cpu"))
+#
+#         # Display the results
+#         plt.figure(figsize=(14, 10))
+#         plt.imshow(v.get_image()[:, :, ::-1])
+#         plt.axis("off")
+#         plt.savefig("res.png")
+#
+#         print("BYE")
+#         print("SAVE TS")
+#         torch_tensorrt.save(
+#             trt_gm, "trt.ts", output_format="torchscript", inputs=inputs
+#         )
+#         print("SAVE EP")
+#         # trt_gm = inline_torch_modules(trt_gm)
+#         torch_tensorrt.save(trt_gm, "trt.ep", inputs=inputs)
+
+
+def plot_predictions(outputs, img, display: bool = True, output_file: str = "res.png"):
+    ARTIFACTS_FOLDER = Path("artifacts")
+    pred = filter_predictions_with_confidence(outputs, confidence_threshold=0.5)
+    v = Visualizer(img, MetadataCatalog.get("coco_2017_val"))
+    v = v.draw_instance_predictions(pred["instances"].to("cpu"))
+    fig, ax = plt.subplots(figsize=(14, 10))
+    ax.imshow(v.get_image()[:, :, ::-1])
+    ax.axis("off")
+    if display:
+        plt.show()
+    plt.savefig(ARTIFACTS_FOLDER / output_file)
+    return fig, ax, v

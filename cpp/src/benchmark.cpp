@@ -46,6 +46,15 @@ int main(int argc, char *argv[])
         .help("TorchScript model path")
         .default_value("trt.ts");
 
+    program.add_argument("--n_warmup")
+        .help("Number of warmup iterations")
+        .default_value(10)
+        .action([](const std::string &value) { return std::stoi(value); });
+    
+    program.add_argument("--n_iter")
+        .help("Number of benchmark iterations")
+        .default_value(10)
+        .action([](const std::string &value) { return std::stoi(value); });
     try
     {
         program.parse_args(argc, argv);
