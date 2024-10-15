@@ -25,11 +25,11 @@ void benchmark(std::string model_name, int n_warmup = 5, int n_iter = 5)
     trt_mod.eval();
     torch::Tensor input_tensor = torch::rand({1, 3, 512, 512}).cuda();
 
-    std::cout << "warmup" << std::endl;
+    std::cout << "warmup["<< n_warmup << "]" <<  std::endl;
     while (n_warmup--)
         auto results = trt_mod.forward({input_tensor});
 
-    std::cout << "measuring time" << std::endl;
+    std::cout << "measuring["<< n_iter << "]" << std::endl;
     std::vector<float> durations;
 
     while (n_iter--)
@@ -80,6 +80,8 @@ int main(int argc, char *argv[])
     }
 
     std::string model_name = program.get<std::string>("--model");
-    benchmark(model_name);
+    int n_warmup = program.get<int>("--n_warmup");
+    int n_iter = program.get<int>("--n_iter");
+    benchmark(model_name, n_warmup, n_iter);
     return 0;
 }

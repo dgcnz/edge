@@ -25,8 +25,9 @@ message(STATUS "TORCHTRT_LIBRARIES: ${TORCHTRT_LIBRARIES}")
 message(STATUS "TensorRT_LIBRARIES: ${TensorRT_LIBRARIES}")
 message(STATUS "TORCH_LIBRARIES: ${TORCH_LIBRARIES}")
 message(STATUS "TORCH_CXX_FLAGS: ${TORCH_CXX_FLAGS}")
-# print torch include
 message(STATUS "TORCH_INCLUDE_DIRS: ${TORCH_INCLUDE_DIRS}")
+# print cmake_cxx_flags
+message(STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 add_executable(benchmark "${CPP_SRC_DIR}/benchmark.cpp")

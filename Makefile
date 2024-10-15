@@ -95,7 +95,7 @@ download_torch_cpp:
 #
 
 build_cpp:
-	cmake -Bbuild
+	cmake -DCMAKE_CXX_FLAGS=-O3 -Bbuild
 
 compile_cpp:
 	cmake --build build --config Release
