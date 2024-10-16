@@ -6,5 +6,8 @@ dependencies:
   - cuda-toolkit
   - cuda
   - python==3.10
+  # LibTorch required gcc <=13 
   - gxx=13
-  - gcc=13
+  - gcc=13 
+  # nvidia-modelopt requires crypt.h, see: https://github.com/stanford-futuredata/ColBERT/issues/309
+  - libxcrypt 

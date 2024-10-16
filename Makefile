@@ -82,10 +82,6 @@ scat: ## cat slurm log with param
 download_torch_cpp:
 	cd third-party && wget https://download.pytorch.org/libtorch/nightly/cu124/libtorch-cxx11-abi-shared-with-deps-latest.zip
 
-# cmake -DCMAKE_PREFIX_PATH=/teamspace/studios/this_studio/third-party/libtorch ..    
-#
-# cmake --build . --config Release 
-#
 # pip3 install --pre torch torchvision tensorrt torch_tensorrt --index-url https://download.pytorch.org/whl/nightly/cu124
 #
 # poetry export --without-hashes --format=requirements.txt > requirements.txt
@@ -99,3 +95,7 @@ build_cpp:
 
 compile_cpp:
 	cmake --build build --config Release
+
+# We need to include crypt.h from $CONDA_PREFIX/include
+test_modelopt_installation:
+	CPATH=$(CONDA_PREFIX)/include python -c "import modelopt.torch.quantization.extensions as ext; print(ext.cuda_ext); print(ext.cuda_ext_fp8)"
