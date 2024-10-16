@@ -12,10 +12,17 @@ torchvision = {version = "^0.20.0.dev20241013+cu124", allow-prereleases = true, 
 torch-tensorrt = {version = "^2.6.0.dev20241013+cu124", allow-prereleases = true, source = "torch-cu124"}
 tensorrt = "10.3.0"
 nvidia-cuda-runtime-cu12 = "12.4.127"
+nvidia-modelopt = {extras = ["all"], version = "^0.17.0", source = "pypi-nvidia"}
 
 [[tool.poetry.source]]
 name = "torch-cu124"
 url = "https://download.pytorch.org/whl/nightly/cu124"
+priority = "explicit"
+
+
+[[tool.poetry.source]]
+name = "pypi-nvidia"
+url = "https://pypi.nvidia.com"
 priority = "explicit"
 
 [build-system]
