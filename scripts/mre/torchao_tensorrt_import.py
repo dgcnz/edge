@@ -1,4 +1,5 @@
-import torchao
+# https://github.com/pytorch/TensorRT/issues/3226
+import torchao 
 import torch_tensorrt
 import torch
 import torch.nn.functional as F

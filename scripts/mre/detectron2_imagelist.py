@@ -24,8 +24,6 @@ def batch_images(image_batch: List[torch.Tensor]) -> Tuple[torch.Tensor, List[Tu
 
 class MRE(torch.nn.Module):
     def forward(self, images: List[torch.Tensor]):
-        # images_tensor = batch_images(images)
-        # tensors = detectron2.structures.ImageList(images_tensor, [(24, 24)]).tensor
         tensors = detectron2.structures.ImageList.from_tensors(images).tensor
         return 2 * tensors
     

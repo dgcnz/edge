@@ -34,10 +34,10 @@ logging.basicConfig(level=logging.INFO)
 
 def load_model(model_path: Path):
     if model_path.suffix == ".ts":
-        _, height, width = model_path.stem.split("_")
+        *_, height, width = model_path.stem.split("_")
         model = torch.jit.load(model_path)
     elif model_path.suffix == ".ep":
-        _, height, width = model_path.stem.split("_")
+        *_, height, width = model_path.stem.split("_")
         model = torch.export.load(model_path).module()
     elif model_path.suffix == ".pth":
         height, width = 512, 512
