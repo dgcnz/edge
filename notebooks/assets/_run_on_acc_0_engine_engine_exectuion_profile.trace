@@ -1,0 +1,6086 @@
+[
+  {
+    "name": "dummy_shape_call__mye3254_0_myl0_0",
+    "ph": "X",
+    "ts": 0,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SubDiv_myl0_1",
+    "ph": "X",
+    "ts": 7.168,
+    "dur": 29.792,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.net.timm_model.model.patch_embed.proj/convolution]",
+    "ph": "X",
+    "ts": 36.96,
+    "dur": 174.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.net.timm_model.model.patch_embed.proj/convolution]",
+    "ph": "X",
+    "ts": 211.04,
+    "dur": 275.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to {ForeignNode[net.backbone.net.timm_model.model.blocks.0.norm1/native_layer_norm_weight + net.backbone.net.timm_model.model.blocks.0.norm1/native_layer_norm_expand_weight_expand_broadcast...Forced Cast ITensor [SHUFFLE]-[aten_ops.permute.default]-[net.backbone.net.timm_model/permute_73]_output from DataType.FLOAT to DataType.FLOAT - [aten_ops.torch.ops.aten.clone.default]-[net.backbone.net.timm_model/clone_37]]}",
+    "ph": "X",
+    "ts": 486.496,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "dummy_shape_call__mye292198_0_myl4_0",
+    "ph": "X",
+    "ts": 504.928,
+    "dur": 5.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_1",
+    "ph": "X",
+    "ts": 510.048,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ConAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_2",
+    "ph": "X",
+    "ts": 528.48,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_0_attn_qkv/addmm_mm]_myl4_3",
+    "ph": "X",
+    "ts": 574.56,
+    "dur": 407.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_4",
+    "ph": "X",
+    "ts": 982.112,
+    "dur": 31.744,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_5",
+    "ph": "X",
+    "ts": 1013.86,
+    "dur": 20.48,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_mm]_myl4_6",
+    "ph": "X",
+    "ts": 1034.34,
+    "dur": 397.312,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_7",
+    "ph": "X",
+    "ts": 1431.65,
+    "dur": 749.568,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_out]_myl4_8",
+    "ph": "X",
+    "ts": 2181.22,
+    "dur": 562.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_0_attn_proj/addmm_1_mm]_myl4_9",
+    "ph": "X",
+    "ts": 2743.39,
+    "dur": 149.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulResAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_10",
+    "ph": "X",
+    "ts": 2892.9,
+    "dur": 38.912,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_0_mlp_fc1/addmm_2_mm]_myl4_11",
+    "ph": "X",
+    "ts": 2931.81,
+    "dur": 520.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_12",
+    "ph": "X",
+    "ts": 3452,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_0_mlp_fc2/addmm_3_mm]_myl4_13",
+    "ph": "X",
+    "ts": 3497.06,
+    "dur": 517.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_14",
+    "ph": "X",
+    "ts": 4014.18,
+    "dur": 52.224,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_1_attn_qkv/addmm_4_mm]_myl4_15",
+    "ph": "X",
+    "ts": 4066.4,
+    "dur": 390.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_16",
+    "ph": "X",
+    "ts": 4456.54,
+    "dur": 33.792,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_17",
+    "ph": "X",
+    "ts": 4490.34,
+    "dur": 21.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_1_mm]_myl4_18",
+    "ph": "X",
+    "ts": 4511.84,
+    "dur": 396.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_19",
+    "ph": "X",
+    "ts": 4908.13,
+    "dur": 740.352,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_1_out]_myl4_20",
+    "ph": "X",
+    "ts": 5648.48,
+    "dur": 555.008,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_1_attn_proj/addmm_5_mm]_myl4_21",
+    "ph": "X",
+    "ts": 6203.49,
+    "dur": 150.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_22",
+    "ph": "X",
+    "ts": 6354.02,
+    "dur": 35.84,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_1_mlp_fc1/addmm_6_mm]_myl4_23",
+    "ph": "X",
+    "ts": 6389.86,
+    "dur": 518.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_24",
+    "ph": "X",
+    "ts": 6908,
+    "dur": 47.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_1_mlp_fc2/addmm_7_mm]_myl4_25",
+    "ph": "X",
+    "ts": 6955.1,
+    "dur": 517.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_26",
+    "ph": "X",
+    "ts": 7472.22,
+    "dur": 47.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_2_attn_qkv/addmm_8_mm]_myl4_27",
+    "ph": "X",
+    "ts": 7519.33,
+    "dur": 392.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_28",
+    "ph": "X",
+    "ts": 7911.52,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_29",
+    "ph": "X",
+    "ts": 7956.58,
+    "dur": 20.48,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_2_mm]_myl4_30",
+    "ph": "X",
+    "ts": 7977.06,
+    "dur": 397.312,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_31",
+    "ph": "X",
+    "ts": 8374.37,
+    "dur": 741.376,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_2_out]_myl4_32",
+    "ph": "X",
+    "ts": 9115.74,
+    "dur": 558.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_2_attn_proj/addmm_9_mm]_myl4_33",
+    "ph": "X",
+    "ts": 9673.82,
+    "dur": 151.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_34",
+    "ph": "X",
+    "ts": 9825.38,
+    "dur": 35.84,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_2_mlp_fc1/addmm_10_mm]_myl4_35",
+    "ph": "X",
+    "ts": 9861.22,
+    "dur": 518.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_36",
+    "ph": "X",
+    "ts": 10379.4,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_2_mlp_fc2/addmm_11_mm]_myl4_37",
+    "ph": "X",
+    "ts": 10427.5,
+    "dur": 517.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_38",
+    "ph": "X",
+    "ts": 10944.6,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_3_attn_qkv/addmm_12_mm]_myl4_39",
+    "ph": "X",
+    "ts": 10992.7,
+    "dur": 387.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_40",
+    "ph": "X",
+    "ts": 11379.8,
+    "dur": 37.888,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_41",
+    "ph": "X",
+    "ts": 11417.7,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_3_mm]_myl4_42",
+    "ph": "X",
+    "ts": 11437.2,
+    "dur": 391.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_43",
+    "ph": "X",
+    "ts": 11828.3,
+    "dur": 753.664,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_3_out]_myl4_44",
+    "ph": "X",
+    "ts": 12582,
+    "dur": 564.224,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_3_attn_proj/addmm_13_mm]_myl4_45",
+    "ph": "X",
+    "ts": 13146.2,
+    "dur": 145.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_46",
+    "ph": "X",
+    "ts": 13291.6,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_3_mlp_fc1/addmm_14_mm]_myl4_47",
+    "ph": "X",
+    "ts": 13328.5,
+    "dur": 519.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_48",
+    "ph": "X",
+    "ts": 13847.6,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_3_mlp_fc2/addmm_15_mm]_myl4_49",
+    "ph": "X",
+    "ts": 13895.8,
+    "dur": 515.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_50",
+    "ph": "X",
+    "ts": 14410.8,
+    "dur": 53.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_4_attn_qkv/addmm_16_mm]_myl4_51",
+    "ph": "X",
+    "ts": 14464.1,
+    "dur": 395.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_52",
+    "ph": "X",
+    "ts": 14859.4,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_53",
+    "ph": "X",
+    "ts": 14905.4,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_4_mm]_myl4_54",
+    "ph": "X",
+    "ts": 14923.9,
+    "dur": 399.36,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_55",
+    "ph": "X",
+    "ts": 15323.2,
+    "dur": 741.376,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_4_out]_myl4_56",
+    "ph": "X",
+    "ts": 16064.6,
+    "dur": 559.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_4_attn_proj/addmm_17_mm]_myl4_57",
+    "ph": "X",
+    "ts": 16623.7,
+    "dur": 149.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_58",
+    "ph": "X",
+    "ts": 16773.2,
+    "dur": 38.912,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_4_mlp_fc1/addmm_18_mm]_myl4_59",
+    "ph": "X",
+    "ts": 16812.1,
+    "dur": 518.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_60",
+    "ph": "X",
+    "ts": 17330.3,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_4_mlp_fc2/addmm_19_mm]_myl4_61",
+    "ph": "X",
+    "ts": 17378.4,
+    "dur": 515.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_62",
+    "ph": "X",
+    "ts": 17893.5,
+    "dur": 52.224,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_5_attn_qkv/addmm_20_mm]_myl4_63",
+    "ph": "X",
+    "ts": 17945.7,
+    "dur": 396.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_64",
+    "ph": "X",
+    "ts": 18342,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_65",
+    "ph": "X",
+    "ts": 18388.1,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_5_mm]_myl4_66",
+    "ph": "X",
+    "ts": 18407.5,
+    "dur": 392.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_67",
+    "ph": "X",
+    "ts": 18799.7,
+    "dur": 740.352,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_5_out]_myl4_68",
+    "ph": "X",
+    "ts": 19540.1,
+    "dur": 559.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_5_attn_proj/addmm_21_mm]_myl4_69",
+    "ph": "X",
+    "ts": 20099.2,
+    "dur": 149.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_70",
+    "ph": "X",
+    "ts": 20248.7,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_5_mlp_fc1/addmm_22_mm]_myl4_71",
+    "ph": "X",
+    "ts": 20285.5,
+    "dur": 519.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_72",
+    "ph": "X",
+    "ts": 20804.7,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_5_mlp_fc2/addmm_23_mm]_myl4_73",
+    "ph": "X",
+    "ts": 20850.8,
+    "dur": 518.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_74",
+    "ph": "X",
+    "ts": 21368.9,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_6_attn_qkv/addmm_24_mm]_myl4_75",
+    "ph": "X",
+    "ts": 21418.1,
+    "dur": 387.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_76",
+    "ph": "X",
+    "ts": 21805.2,
+    "dur": 28.672,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_77",
+    "ph": "X",
+    "ts": 21833.8,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_6_mm]_myl4_78",
+    "ph": "X",
+    "ts": 21851.2,
+    "dur": 393.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_79",
+    "ph": "X",
+    "ts": 22244.4,
+    "dur": 742.4,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_6_out]_myl4_80",
+    "ph": "X",
+    "ts": 22986.8,
+    "dur": 562.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_6_attn_proj/addmm_25_mm]_myl4_81",
+    "ph": "X",
+    "ts": 23549,
+    "dur": 145.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_82",
+    "ph": "X",
+    "ts": 23694.4,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_6_mlp_fc1/addmm_26_mm]_myl4_83",
+    "ph": "X",
+    "ts": 23731.3,
+    "dur": 509.952,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_84",
+    "ph": "X",
+    "ts": 24241.2,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_6_mlp_fc2/addmm_27_mm]_myl4_85",
+    "ph": "X",
+    "ts": 24289.4,
+    "dur": 514.048,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_86",
+    "ph": "X",
+    "ts": 24803.4,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_7_attn_qkv/addmm_28_mm]_myl4_87",
+    "ph": "X",
+    "ts": 24852.6,
+    "dur": 392.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_88",
+    "ph": "X",
+    "ts": 25244.8,
+    "dur": 37.888,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_89",
+    "ph": "X",
+    "ts": 25282.7,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_7_mm]_myl4_90",
+    "ph": "X",
+    "ts": 25300.1,
+    "dur": 396.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_91",
+    "ph": "X",
+    "ts": 25696.4,
+    "dur": 748.544,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_7_out]_myl4_92",
+    "ph": "X",
+    "ts": 26444.9,
+    "dur": 558.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_7_attn_proj/addmm_29_mm]_myl4_93",
+    "ph": "X",
+    "ts": 27003,
+    "dur": 145.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_94",
+    "ph": "X",
+    "ts": 27148.4,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_7_mlp_fc1/addmm_30_mm]_myl4_95",
+    "ph": "X",
+    "ts": 27185.2,
+    "dur": 515.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_96",
+    "ph": "X",
+    "ts": 27700.3,
+    "dur": 47.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_7_mlp_fc2/addmm_31_mm]_myl4_97",
+    "ph": "X",
+    "ts": 27747.4,
+    "dur": 515.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_98",
+    "ph": "X",
+    "ts": 28262.5,
+    "dur": 51.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_8_attn_qkv/addmm_32_mm]_myl4_99",
+    "ph": "X",
+    "ts": 28313.7,
+    "dur": 387.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_100",
+    "ph": "X",
+    "ts": 28700.8,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_101",
+    "ph": "X",
+    "ts": 28737.6,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_8_mm]_myl4_102",
+    "ph": "X",
+    "ts": 28757.1,
+    "dur": 391.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_103",
+    "ph": "X",
+    "ts": 29148.3,
+    "dur": 746.496,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_8_out]_myl4_104",
+    "ph": "X",
+    "ts": 29894.8,
+    "dur": 558.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_8_attn_proj/addmm_33_mm]_myl4_105",
+    "ph": "X",
+    "ts": 30452.8,
+    "dur": 141.312,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_106",
+    "ph": "X",
+    "ts": 30594.1,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_8_mlp_fc1/addmm_34_mm]_myl4_107",
+    "ph": "X",
+    "ts": 30631,
+    "dur": 513.024,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_108",
+    "ph": "X",
+    "ts": 31144,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_8_mlp_fc2/addmm_35_mm]_myl4_109",
+    "ph": "X",
+    "ts": 31190.1,
+    "dur": 513.024,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_110",
+    "ph": "X",
+    "ts": 31703.1,
+    "dur": 53.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_9_attn_qkv/addmm_36_mm]_myl4_111",
+    "ph": "X",
+    "ts": 31756.4,
+    "dur": 396.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_112",
+    "ph": "X",
+    "ts": 32152.7,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_113",
+    "ph": "X",
+    "ts": 32197.7,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_9_mm]_myl4_114",
+    "ph": "X",
+    "ts": 32217.2,
+    "dur": 396.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_115",
+    "ph": "X",
+    "ts": 32613.5,
+    "dur": 739.328,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_9_out]_myl4_116",
+    "ph": "X",
+    "ts": 33352.8,
+    "dur": 556.032,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_9_attn_proj/addmm_37_mm]_myl4_117",
+    "ph": "X",
+    "ts": 33908.8,
+    "dur": 149.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_118",
+    "ph": "X",
+    "ts": 34058.3,
+    "dur": 37.888,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_9_mlp_fc1/addmm_38_mm]_myl4_119",
+    "ph": "X",
+    "ts": 34096.2,
+    "dur": 513.024,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_120",
+    "ph": "X",
+    "ts": 34609.2,
+    "dur": 47.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_9_mlp_fc2/addmm_39_mm]_myl4_121",
+    "ph": "X",
+    "ts": 34656.4,
+    "dur": 514.048,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_122",
+    "ph": "X",
+    "ts": 35170.4,
+    "dur": 51.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_10_attn_qkv/addmm_40_mm]_myl4_123",
+    "ph": "X",
+    "ts": 35221.6,
+    "dur": 392.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_124",
+    "ph": "X",
+    "ts": 35613.8,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_125",
+    "ph": "X",
+    "ts": 35659.9,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_10_mm]_myl4_126",
+    "ph": "X",
+    "ts": 35678.3,
+    "dur": 394.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_127",
+    "ph": "X",
+    "ts": 36072.5,
+    "dur": 741.536,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_10_out]_myl4_128",
+    "ph": "X",
+    "ts": 36814.1,
+    "dur": 558.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_10_attn_proj/addmm_41_mm]_myl4_129",
+    "ph": "X",
+    "ts": 37372.2,
+    "dur": 140.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_130",
+    "ph": "X",
+    "ts": 37512.4,
+    "dur": 35.84,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_10_mlp_fc1/addmm_42_mm]_myl4_131",
+    "ph": "X",
+    "ts": 37548.3,
+    "dur": 518.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_132",
+    "ph": "X",
+    "ts": 38066.4,
+    "dur": 50.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_10_mlp_fc2/addmm_43_mm]_myl4_133",
+    "ph": "X",
+    "ts": 38116.6,
+    "dur": 513.024,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_134",
+    "ph": "X",
+    "ts": 38629.6,
+    "dur": 54.272,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_11_attn_qkv/addmm_44_mm]_myl4_135",
+    "ph": "X",
+    "ts": 38683.9,
+    "dur": 396.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_TraSliSliSli_myl4_136",
+    "ph": "X",
+    "ts": 39080.2,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl4_137",
+    "ph": "X",
+    "ts": 39125.2,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_11_mm]_myl4_138",
+    "ph": "X",
+    "ts": 39143.7,
+    "dur": 396.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulMaxSubExpSumDivMul_myl4_139",
+    "ph": "X",
+    "ts": 39540,
+    "dur": 748.544,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[torchtrt_lowered_ops_scaled_dot_product_attention]_[scaled_dot_product_attention_11_out]_myl4_140",
+    "ph": "X",
+    "ts": 40288.5,
+    "dur": 558.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_11_attn_proj/addmm_45_mm]_myl4_141",
+    "ph": "X",
+    "ts": 40846.6,
+    "dur": 151.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddMeaSubMulMeaAddSqrDivMulMulAdd_myl4_142",
+    "ph": "X",
+    "ts": 40998.1,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_11_mlp_fc1/addmm_46_mm]_myl4_143",
+    "ph": "X",
+    "ts": 41035,
+    "dur": 509.952,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivErfAddMulMul_myl4_144",
+    "ph": "X",
+    "ts": 41545,
+    "dur": 47.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_backbone_net_timm_model_model_blocks_11_mlp_fc2/addmm_47_mm]_myl4_145",
+    "ph": "X",
+    "ts": 41592.1,
+    "dur": 517.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MulAddResSli_myl4_146",
+    "ph": "X",
+    "ts": 42109.2,
+    "dur": 40.96,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraCas_myl4_147",
+    "ph": "X",
+    "ts": 42150.1,
+    "dur": 15.36,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Output Tensor 0 to {ForeignNode[net.backbone.net.timm_model.model.blocks.0.norm1/native_layer_norm_weight + net.backbone.net.timm_model.model.blocks.0.norm1/native_layer_norm_expand_weight_expand_broadcast...Forced Cast ITensor [SHUFFLE]-[aten_ops.permute.default]-[net.backbone.net.timm_model/permute_73]_output from DataType.FLOAT to DataType.FLOAT - [aten_ops.torch.ops.aten.clone.default]-[net.backbone.net.timm_model/clone_37]]}",
+    "ph": "X",
+    "ts": 42165.5,
+    "dur": 15.36,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [MAX]-[aten_ops.max_pool2d.default]-[net.backbone.stages.2.0/max_pool2d_default]",
+    "ph": "X",
+    "ts": 42180.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MAX]-[aten_ops.max_pool2d.default]-[net.backbone.stages.2.0/max_pool2d_default]",
+    "ph": "X",
+    "ts": 42180.9,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.2.1/convolution_6]",
+    "ph": "X",
+    "ts": 42197.2,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Output Tensor 0 to [CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.2.1/convolution_6]",
+    "ph": "X",
+    "ts": 42223.9,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.1.0/convolution_4]",
+    "ph": "X",
+    "ts": 42232.1,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.1.0/convolution_4]",
+    "ph": "X",
+    "ts": 42232.1,
+    "dur": 64.512,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Output Tensor 0 to [CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.1.0/convolution_4]",
+    "ph": "X",
+    "ts": 42296.6,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [DECONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.0.0/convolution_1]",
+    "ph": "X",
+    "ts": 42306.8,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[DECONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.0.0/convolution_1]",
+    "ph": "X",
+    "ts": 42306.8,
+    "dur": 351.232,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.0.1/convolution_2]",
+    "ph": "X",
+    "ts": 42658,
+    "dur": 112.64,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.1.norm/mean]",
+    "ph": "X",
+    "ts": 42770.7,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Output Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.1.norm/mean]",
+    "ph": "X",
+    "ts": 42787.1,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_1_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_1]), PWN(net.backbone.stages.0.1.norm/pow_1_rhs_val + net.backbone.stages.0.1.norm/pow_1_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.1.norm/pow_1_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.1.norm/pow_1])))",
+    "ph": "X",
+    "ts": 42787.1,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_1_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_1]), PWN(net.backbone.stages.0.1.norm/pow_1_rhs_val + net.backbone.stages.0.1.norm/pow_1_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.1.norm/pow_1_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.1.norm/pow_1])))",
+    "ph": "X",
+    "ts": 42787.1,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.1.norm/mean_1]",
+    "ph": "X",
+    "ts": 42805.5,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.1.norm/mean_1]",
+    "ph": "X",
+    "ts": 42805.5,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(net.backbone.stages.0.1.norm/add_25_rhs + net.backbone.stages.0.1.norm/add_25_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_25_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_25], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.0.1.norm/sqrt])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_2]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.1.norm/div_1_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.1.norm/div_1])))",
+    "ph": "X",
+    "ts": 42821.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 1 to PWN(PWN(net.backbone.stages.0.1.norm/add_25_rhs + net.backbone.stages.0.1.norm/add_25_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_25_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_25], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.0.1.norm/sqrt])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_2]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.1.norm/div_1_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.1.norm/div_1])))",
+    "ph": "X",
+    "ts": 42821.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN(net.backbone.stages.0.1.norm/add_25_rhs + net.backbone.stages.0.1.norm/add_25_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_25_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_25], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.0.1.norm/sqrt])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.1.norm/sub_2]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.1.norm/div_1_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.1.norm/div_1])))",
+    "ph": "X",
+    "ts": 42821.9,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to net.backbone.stages.0.1.norm/mul_24_lhs + net.backbone.stages.0.1.norm/mul_24_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.1.norm/mul_24_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.1.norm/mul_24] + net.backbone.stages.0.1.norm/add_26_rhs + net.backbone.stages.0.1.norm/add_26_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_26_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_26]",
+    "ph": "X",
+    "ts": 42844.4,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "net.backbone.stages.0.1.norm/mul_24_lhs + net.backbone.stages.0.1.norm/mul_24_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.1.norm/mul_24_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.1.norm/mul_24] + net.backbone.stages.0.1.norm/add_26_rhs + net.backbone.stages.0.1.norm/add_26_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_26_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.1.norm/add_26]",
+    "ph": "X",
+    "ts": 42844.4,
+    "dur": 20.48,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.0.norm/mean_4]",
+    "ph": "X",
+    "ts": 42864.9,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Output Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.0.norm/mean_4]",
+    "ph": "X",
+    "ts": 42877.2,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_5_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_5]), PWN(net.backbone.stages.1.0.norm/pow_3_rhs_val + net.backbone.stages.1.0.norm/pow_3_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.0.norm/pow_3_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.0.norm/pow_3])))",
+    "ph": "X",
+    "ts": 42877.2,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_5_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_5]), PWN(net.backbone.stages.1.0.norm/pow_3_rhs_val + net.backbone.stages.1.0.norm/pow_3_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.0.norm/pow_3_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.0.norm/pow_3])))",
+    "ph": "X",
+    "ts": 42877.2,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.0.norm/mean_5]",
+    "ph": "X",
+    "ts": 42886.4,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.0.norm/mean_5]",
+    "ph": "X",
+    "ts": 42886.4,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(net.backbone.stages.1.0.norm/add_29_rhs + net.backbone.stages.1.0.norm/add_29_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_29_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_29], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.1.0.norm/sqrt_2])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_6]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.0.norm/div_3_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.0.norm/div_3])))",
+    "ph": "X",
+    "ts": 42898.7,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 1 to PWN(PWN(net.backbone.stages.1.0.norm/add_29_rhs + net.backbone.stages.1.0.norm/add_29_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_29_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_29], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.1.0.norm/sqrt_2])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_6]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.0.norm/div_3_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.0.norm/div_3])))",
+    "ph": "X",
+    "ts": 42898.7,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN(net.backbone.stages.1.0.norm/add_29_rhs + net.backbone.stages.1.0.norm/add_29_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_29_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_29], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.1.0.norm/sqrt_2])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.0.norm/sub_6]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.0.norm/div_3_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.0.norm/div_3])))",
+    "ph": "X",
+    "ts": 42898.7,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to net.backbone.stages.1.0.norm/mul_26_lhs + net.backbone.stages.1.0.norm/mul_26_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.0.norm/mul_26_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.0.norm/mul_26] + net.backbone.stages.1.0.norm/add_30_rhs + net.backbone.stages.1.0.norm/add_30_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_30_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_30]",
+    "ph": "X",
+    "ts": 42908.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "net.backbone.stages.1.0.norm/mul_26_lhs + net.backbone.stages.1.0.norm/mul_26_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.0.norm/mul_26_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.0.norm/mul_26] + net.backbone.stages.1.0.norm/add_30_rhs + net.backbone.stages.1.0.norm/add_30_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_30_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.0.norm/add_30]",
+    "ph": "X",
+    "ts": 42908.9,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.2.1.norm/mean_8]",
+    "ph": "X",
+    "ts": 42920.2,
+    "dur": 11.328,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_9_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_9]), PWN(net.backbone.stages.2.1.norm/pow_5_rhs_val + net.backbone.stages.2.1.norm/pow_5_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.2.1.norm/pow_5_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.2.1.norm/pow_5])))",
+    "ph": "X",
+    "ts": 42931.5,
+    "dur": 7.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.2.1.norm/mean_9]",
+    "ph": "X",
+    "ts": 42938.6,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(net.backbone.stages.2.1.norm/add_33_rhs + net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.1.norm/sqrt_4])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5])))",
+    "ph": "X",
+    "ts": 42950.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 1 to PWN(PWN(net.backbone.stages.2.1.norm/add_33_rhs + net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.1.norm/sqrt_4])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5])))",
+    "ph": "X",
+    "ts": 42950.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 2 to PWN(PWN(net.backbone.stages.2.1.norm/add_33_rhs + net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.1.norm/sqrt_4])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5])))",
+    "ph": "X",
+    "ts": 42950.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN(net.backbone.stages.2.1.norm/add_33_rhs + net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_33], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.1.norm/sqrt_4])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.1.norm/sub_10]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.1.norm/div_5])))",
+    "ph": "X",
+    "ts": 42950.9,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to net.backbone.stages.2.1.norm/mul_28_lhs + net.backbone.stages.2.1.norm/mul_28_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.1.norm/mul_28_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.1.norm/mul_28] + net.backbone.stages.2.1.norm/add_34_rhs + net.backbone.stages.2.1.norm/add_34_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_34_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_34]",
+    "ph": "X",
+    "ts": 42957.1,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "net.backbone.stages.2.1.norm/mul_28_lhs + net.backbone.stages.2.1.norm/mul_28_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.1.norm/mul_28_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.1.norm/mul_28] + net.backbone.stages.2.1.norm/add_34_rhs + net.backbone.stages.2.1.norm/add_34_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_34_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.1.norm/add_34]",
+    "ph": "X",
+    "ts": 42957.1,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.2.2/convolution_7]",
+    "ph": "X",
+    "ts": 42964.2,
+    "dur": 60.416,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.1.1/convolution_5]",
+    "ph": "X",
+    "ts": 43024.6,
+    "dur": 129.024,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.backbone.stages.0.2/convolution_3]",
+    "ph": "X",
+    "ts": 43153.7,
+    "dur": 428.032,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.2.norm/mean_2]",
+    "ph": "X",
+    "ts": 43581.7,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Output Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.2.norm/mean_2]",
+    "ph": "X",
+    "ts": 43598.1,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_3_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_3]), PWN(net.backbone.stages.0.2.norm/pow_2_rhs_val + net.backbone.stages.0.2.norm/pow_2_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.2.norm/pow_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.2.norm/pow_2])))",
+    "ph": "X",
+    "ts": 43598.1,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_3_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_3]), PWN(net.backbone.stages.0.2.norm/pow_2_rhs_val + net.backbone.stages.0.2.norm/pow_2_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.2.norm/pow_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.0.2.norm/pow_2])))",
+    "ph": "X",
+    "ts": 43598.1,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.2.norm/mean_3]",
+    "ph": "X",
+    "ts": 43616.5,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.0.2.norm/mean_3]",
+    "ph": "X",
+    "ts": 43616.5,
+    "dur": 15.36,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(net.backbone.stages.0.2.norm/add_27_rhs + net.backbone.stages.0.2.norm/add_27_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_27_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_27], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.0.2.norm/sqrt_1])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_4]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.2.norm/div_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.2.norm/div_2])))",
+    "ph": "X",
+    "ts": 43631.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 1 to PWN(PWN(net.backbone.stages.0.2.norm/add_27_rhs + net.backbone.stages.0.2.norm/add_27_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_27_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_27], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.0.2.norm/sqrt_1])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_4]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.2.norm/div_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.2.norm/div_2])))",
+    "ph": "X",
+    "ts": 43631.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN(net.backbone.stages.0.2.norm/add_27_rhs + net.backbone.stages.0.2.norm/add_27_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_27_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_27], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.0.2.norm/sqrt_1])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.0.2.norm/sub_4]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.2.norm/div_2_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.0.2.norm/div_2])))",
+    "ph": "X",
+    "ts": 43631.9,
+    "dur": 20.48,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to net.backbone.stages.0.2.norm/mul_25_lhs + net.backbone.stages.0.2.norm/mul_25_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.2.norm/mul_25_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.2.norm/mul_25] + net.backbone.stages.0.2.norm/add_28_rhs + net.backbone.stages.0.2.norm/add_28_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_28_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_28]",
+    "ph": "X",
+    "ts": 43652.4,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "net.backbone.stages.0.2.norm/mul_25_lhs + net.backbone.stages.0.2.norm/mul_25_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.2.norm/mul_25_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.0.2.norm/mul_25] + net.backbone.stages.0.2.norm/add_28_rhs + net.backbone.stages.0.2.norm/add_28_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_28_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.0.2.norm/add_28]",
+    "ph": "X",
+    "ts": 43652.4,
+    "dur": 20.48,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.1.norm/mean_6]",
+    "ph": "X",
+    "ts": 43672.8,
+    "dur": 14.336,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Output Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.1.norm/mean_6]",
+    "ph": "X",
+    "ts": 43687.2,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_7_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_7]), PWN(net.backbone.stages.1.1.norm/pow_4_rhs_val + net.backbone.stages.1.1.norm/pow_4_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.1.norm/pow_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.1.norm/pow_4])))",
+    "ph": "X",
+    "ts": 43687.2,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_7_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_7]), PWN(net.backbone.stages.1.1.norm/pow_4_rhs_val + net.backbone.stages.1.1.norm/pow_4_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.1.norm/pow_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.1.1.norm/pow_4])))",
+    "ph": "X",
+    "ts": 43687.2,
+    "dur": 9.44,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to [REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.1.norm/mean_7]",
+    "ph": "X",
+    "ts": 43696.6,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.1.1.norm/mean_7]",
+    "ph": "X",
+    "ts": 43696.6,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(net.backbone.stages.1.1.norm/add_31_rhs + net.backbone.stages.1.1.norm/add_31_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_31_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_31], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.1.1.norm/sqrt_3])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_8_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_8]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.1.norm/div_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.1.norm/div_4])))",
+    "ph": "X",
+    "ts": 43708.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 1 to PWN(PWN(net.backbone.stages.1.1.norm/add_31_rhs + net.backbone.stages.1.1.norm/add_31_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_31_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_31], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.1.1.norm/sqrt_3])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_8_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_8]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.1.norm/div_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.1.norm/div_4])))",
+    "ph": "X",
+    "ts": 43708.9,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN(net.backbone.stages.1.1.norm/add_31_rhs + net.backbone.stages.1.1.norm/add_31_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_31_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_31], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.1.1.norm/sqrt_3])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_8_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.1.1.norm/sub_8]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.1.norm/div_4_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.1.1.norm/div_4])))",
+    "ph": "X",
+    "ts": 43708.9,
+    "dur": 9.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to net.backbone.stages.1.1.norm/mul_27_lhs + net.backbone.stages.1.1.norm/mul_27_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.1.norm/mul_27_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.1.norm/mul_27] + net.backbone.stages.1.1.norm/add_32_rhs + net.backbone.stages.1.1.norm/add_32_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_32_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_32]",
+    "ph": "X",
+    "ts": 43718.3,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "net.backbone.stages.1.1.norm/mul_27_lhs + net.backbone.stages.1.1.norm/mul_27_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.1.norm/mul_27_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.1.1.norm/mul_27] + net.backbone.stages.1.1.norm/add_32_rhs + net.backbone.stages.1.1.norm/add_32_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_32_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.1.1.norm/add_32]",
+    "ph": "X",
+    "ts": 43718.3,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.2.2.norm/mean_10]",
+    "ph": "X",
+    "ts": 43728.5,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_11_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_11]), PWN(net.backbone.stages.2.2.norm/pow_6_rhs_val + net.backbone.stages.2.2.norm/pow_6_broadcast_to_same_shape_rhs_broadcast, PWN([SLICE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.2.2.norm/pow_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.pow.Tensor_Scalar]-[net.backbone.stages.2.2.norm/pow_6])))",
+    "ph": "X",
+    "ts": 43740.8,
+    "dur": 6.336,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[REDUCE]-[aten_ops.mean.dim]-[net.backbone.stages.2.2.norm/mean_11]",
+    "ph": "X",
+    "ts": 43747.2,
+    "dur": 12.096,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(net.backbone.stages.2.2.norm/add_35_rhs + net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.2.norm/sqrt_5])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6])))",
+    "ph": "X",
+    "ts": 43759.3,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 1 to PWN(PWN(net.backbone.stages.2.2.norm/add_35_rhs + net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.2.norm/sqrt_5])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6])))",
+    "ph": "X",
+    "ts": 43759.3,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 2 to PWN(PWN(net.backbone.stages.2.2.norm/add_35_rhs + net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.2.norm/sqrt_5])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6])))",
+    "ph": "X",
+    "ts": 43759.3,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "PWN(PWN(net.backbone.stages.2.2.norm/add_35_rhs + net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_35], PWN([UNARY]-[aten_ops.sqrt.default]-[net.backbone.stages.2.2.norm/sqrt_5])), PWN(PWN([SLICE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.sub.Tensor]-[net.backbone.stages.2.2.norm/sub_12]), PWN([SLICE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.div.Tensor]-[net.backbone.stages.2.2.norm/div_6])))",
+    "ph": "X",
+    "ts": 43759.3,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "Reformatting CopyNode for Input Tensor 0 to net.backbone.stages.2.2.norm/mul_29_lhs + net.backbone.stages.2.2.norm/mul_29_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.2.norm/mul_29_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.2.norm/mul_29] + net.backbone.stages.2.2.norm/add_36_rhs + net.backbone.stages.2.2.norm/add_36_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_36_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_36]",
+    "ph": "X",
+    "ts": 43766.4,
+    "dur": 0,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "net.backbone.stages.2.2.norm/mul_29_lhs + net.backbone.stages.2.2.norm/mul_29_broadcast_to_same_shape_lhs_broadcast + [SLICE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.2.norm/mul_29_broadcast_to_same_shape_expand_lhs_val] + [ELEMENTWISE]-[aten_ops.mul.Tensor]-[net.backbone.stages.2.2.norm/mul_29] + net.backbone.stages.2.2.norm/add_36_rhs + net.backbone.stages.2.2.norm/add_36_broadcast_to_same_shape_rhs_broadcast + [SLICE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_36_broadcast_to_same_shape_expand_rhs_val] + [ELEMENTWISE]-[aten_ops.add.Tensor]-[net.backbone.stages.2.2.norm/add_36]",
+    "ph": "X",
+    "ts": 43766.4,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.neck.convs.2.conv/convolution_10]",
+    "ph": "X",
+    "ts": 43773.6,
+    "dur": 25.6,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MAX]-[aten_ops.max_pool2d.default]-[net.backbone.top_block/max_pool2d_default_1]",
+    "ph": "X",
+    "ts": 43799.2,
+    "dur": 7.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.neck.convs.3.conv/convolution_11]",
+    "ph": "X",
+    "ts": 43806.5,
+    "dur": 20.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.neck.convs.1.conv/convolution_9]",
+    "ph": "X",
+    "ts": 43826.8,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[CONVOLUTION]-[aten_ops.convolution.default]-[net.neck.convs.0.conv/convolution_8]",
+    "ph": "X",
+    "ts": 43876,
+    "dur": 92.16,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "dummy_shape_call__mye1708687_0_myl86_0",
+    "ph": "X",
+    "ts": 43968.2,
+    "dur": 3.072,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mea_myl86_1",
+    "ph": "X",
+    "ts": 43971.2,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepSubMulMea_myl86_2",
+    "ph": "X",
+    "ts": 43979.4,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepAddSqrDivResMulAddResTra_myl86_3",
+    "ph": "X",
+    "ts": 43987.6,
+    "dur": 13.312,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_4",
+    "ph": "X",
+    "ts": 44000.9,
+    "dur": 5.28,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mea_myl86_5",
+    "ph": "X",
+    "ts": 44006.2,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_6",
+    "ph": "X",
+    "ts": 44024.6,
+    "dur": 5.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepSubMulMea_myl86_7",
+    "ph": "X",
+    "ts": 44029.8,
+    "dur": 25.6,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepAddSqrDivResMulAddResTra_myl86_8",
+    "ph": "X",
+    "ts": 44055.4,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mea_myl86_9",
+    "ph": "X",
+    "ts": 44100.4,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepSubMulMea_myl86_10",
+    "ph": "X",
+    "ts": 44107.6,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepAddSqrDivResMulAddResTra_myl86_11",
+    "ph": "X",
+    "ts": 44114.8,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mea_myl86_12",
+    "ph": "X",
+    "ts": 44122.9,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepSubMulMea_myl86_13",
+    "ph": "X",
+    "ts": 44130.1,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepAddSqrDivResMulAddResTra_myl86_14",
+    "ph": "X",
+    "ts": 44136.3,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Add_myl86_15",
+    "ph": "X",
+    "ts": 44144.4,
+    "dur": 54.272,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_0_attentions_0_attention_weights/addmm_50_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_0_attentions_0_sampling_offsets/addmm_49_mm]_myl86_16",
+    "ph": "X",
+    "ts": 44198.7,
+    "dur": 133.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_17",
+    "ph": "X",
+    "ts": 44331.8,
+    "dur": 21.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_0_attentions_0_value_proj/addmm_48_mm]_myl86_18",
+    "ph": "X",
+    "ts": 44353.3,
+    "dur": 89.088,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_19",
+    "ph": "X",
+    "ts": 44442.4,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliSliSliSli_myl86_20",
+    "ph": "X",
+    "ts": 44465,
+    "dur": 20.48,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_21",
+    "ph": "X",
+    "ts": 44485.4,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_22",
+    "ph": "X",
+    "ts": 44494.7,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMulAddResTraResResTraResResResMulAddSliResTraResRevTraAddMulAddMulRouCasAddMaxMinGatLteEtc_myl86_23",
+    "ph": "X",
+    "ts": 44513.1,
+    "dur": 775.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_24",
+    "ph": "X",
+    "ts": 45288.3,
+    "dur": 821.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_25",
+    "ph": "X",
+    "ts": 46109.5,
+    "dur": 41.984,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_0_attentions_0_output_proj/addmm_51_mm]_myl86_26",
+    "ph": "X",
+    "ts": 46151.5,
+    "dur": 87.04,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_27",
+    "ph": "X",
+    "ts": 46238.5,
+    "dur": 51.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_0_ffns_0_layers_0_0/addmm_52_mm]_myl86_28",
+    "ph": "X",
+    "ts": 46289.7,
+    "dur": 593.92,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_29",
+    "ph": "X",
+    "ts": 46883.6,
+    "dur": 577.536,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_0_ffns_0_layers_1/addmm_53_mm]_myl86_30",
+    "ph": "X",
+    "ts": 47461.2,
+    "dur": 581.632,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_31",
+    "ph": "X",
+    "ts": 48042.8,
+    "dur": 111.616,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_1_attentions_0_value_proj/addmm_54_mm]_myl86_32",
+    "ph": "X",
+    "ts": 48154.4,
+    "dur": 98.304,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_1_attentions_0_attention_weights/addmm_56_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_1_attentions_0_sampling_offsets/addmm_55_mm]_myl86_33",
+    "ph": "X",
+    "ts": 48252.7,
+    "dur": 125.952,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_34",
+    "ph": "X",
+    "ts": 48378.7,
+    "dur": 21.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliSliSliSli_myl86_35",
+    "ph": "X",
+    "ts": 48400.2,
+    "dur": 23.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_36",
+    "ph": "X",
+    "ts": 48423.7,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_37",
+    "ph": "X",
+    "ts": 48431.9,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMulResTraResResTraResResResAddMulAddSliResTraResRevTraAddMulAddMulRouCasAddMaxMinGatLteEtc_myl86_38",
+    "ph": "X",
+    "ts": 48451.4,
+    "dur": 770.048,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_39",
+    "ph": "X",
+    "ts": 49221.4,
+    "dur": 822.272,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_40",
+    "ph": "X",
+    "ts": 50043.7,
+    "dur": 41.984,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_1_attentions_0_output_proj/addmm_57_mm]_myl86_41",
+    "ph": "X",
+    "ts": 50085.7,
+    "dur": 97.28,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_42",
+    "ph": "X",
+    "ts": 50183,
+    "dur": 53.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_1_ffns_0_layers_0_0/addmm_58_mm]_myl86_43",
+    "ph": "X",
+    "ts": 50236.2,
+    "dur": 592.896,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_44",
+    "ph": "X",
+    "ts": 50829.1,
+    "dur": 571.392,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_1_ffns_0_layers_1/addmm_59_mm]_myl86_45",
+    "ph": "X",
+    "ts": 51400.5,
+    "dur": 582.656,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_46",
+    "ph": "X",
+    "ts": 51983.2,
+    "dur": 111.616,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_2_attentions_0_value_proj/addmm_60_mm]_myl86_47",
+    "ph": "X",
+    "ts": 52094.8,
+    "dur": 93.184,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_2_attentions_0_attention_weights/addmm_62_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_2_attentions_0_sampling_offsets/addmm_61_mm]_myl86_48",
+    "ph": "X",
+    "ts": 52188,
+    "dur": 126.976,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_49",
+    "ph": "X",
+    "ts": 52314.9,
+    "dur": 21.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliSliSliSli_myl86_50",
+    "ph": "X",
+    "ts": 52336.4,
+    "dur": 21.728,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_51",
+    "ph": "X",
+    "ts": 52358.2,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_52",
+    "ph": "X",
+    "ts": 52367.4,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMulResTraResResTraResResResAddMulAddSliResTraResRevTraAddMulAddMulRouCasAddMaxMinGatLteEtc_myl86_53",
+    "ph": "X",
+    "ts": 52385.8,
+    "dur": 793.6,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_54",
+    "ph": "X",
+    "ts": 53179.4,
+    "dur": 829.44,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_55",
+    "ph": "X",
+    "ts": 54008.9,
+    "dur": 40.96,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_2_attentions_0_output_proj/addmm_63_mm]_myl86_56",
+    "ph": "X",
+    "ts": 54049.8,
+    "dur": 98.304,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_57",
+    "ph": "X",
+    "ts": 54148.1,
+    "dur": 50.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_2_ffns_0_layers_0_0/addmm_64_mm]_myl86_58",
+    "ph": "X",
+    "ts": 54198.3,
+    "dur": 591.872,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_59",
+    "ph": "X",
+    "ts": 54790.2,
+    "dur": 586.752,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_2_ffns_0_layers_1/addmm_65_mm]_myl86_60",
+    "ph": "X",
+    "ts": 55376.9,
+    "dur": 576.512,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_61",
+    "ph": "X",
+    "ts": 55953.4,
+    "dur": 112.64,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_3_attentions_0_value_proj/addmm_66_mm]_myl86_62",
+    "ph": "X",
+    "ts": 56066.1,
+    "dur": 96.256,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_3_attentions_0_attention_weights/addmm_68_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_3_attentions_0_sampling_offsets/addmm_67_mm]_myl86_63",
+    "ph": "X",
+    "ts": 56162.3,
+    "dur": 123.904,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_64",
+    "ph": "X",
+    "ts": 56286.2,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliSliSliSli_myl86_65",
+    "ph": "X",
+    "ts": 56305.7,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_66",
+    "ph": "X",
+    "ts": 56328.2,
+    "dur": 8.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_67",
+    "ph": "X",
+    "ts": 56336.5,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMulResTraResResTraResResResAddMulAddSliResTraResRevTraAddMulAddMulRouCasAddMaxMinGatLteEtc_myl86_68",
+    "ph": "X",
+    "ts": 56354.9,
+    "dur": 805.888,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_69",
+    "ph": "X",
+    "ts": 57160.8,
+    "dur": 825.344,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_70",
+    "ph": "X",
+    "ts": 57986.2,
+    "dur": 41.984,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_3_attentions_0_output_proj/addmm_69_mm]_myl86_71",
+    "ph": "X",
+    "ts": 58028.2,
+    "dur": 97.28,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_72",
+    "ph": "X",
+    "ts": 58125.4,
+    "dur": 51.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_3_ffns_0_layers_0_0/addmm_70_mm]_myl86_73",
+    "ph": "X",
+    "ts": 58176.6,
+    "dur": 592.896,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_74",
+    "ph": "X",
+    "ts": 58769.5,
+    "dur": 587.776,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_3_ffns_0_layers_1/addmm_71_mm]_myl86_75",
+    "ph": "X",
+    "ts": 59357.3,
+    "dur": 577.536,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_76",
+    "ph": "X",
+    "ts": 59934.8,
+    "dur": 110.592,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_4_attentions_0_value_proj/addmm_72_mm]_myl86_77",
+    "ph": "X",
+    "ts": 60045.4,
+    "dur": 96.256,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_4_attentions_0_attention_weights/addmm_74_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_4_attentions_0_sampling_offsets/addmm_73_mm]_myl86_78",
+    "ph": "X",
+    "ts": 60141.7,
+    "dur": 124.928,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_79",
+    "ph": "X",
+    "ts": 60266.6,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliSliSliSli_myl86_80",
+    "ph": "X",
+    "ts": 60286.1,
+    "dur": 23.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_81",
+    "ph": "X",
+    "ts": 60309.6,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_82",
+    "ph": "X",
+    "ts": 60319.9,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMulResTraResResTraResResResAddMulAddSliResTraResRevTraAddMulAddMulRouCasAddMaxMinGatLteEtc_myl86_83",
+    "ph": "X",
+    "ts": 60339.3,
+    "dur": 800.768,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_84",
+    "ph": "X",
+    "ts": 61140.1,
+    "dur": 829.44,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_85",
+    "ph": "X",
+    "ts": 61969.5,
+    "dur": 41.984,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_4_attentions_0_output_proj/addmm_75_mm]_myl86_86",
+    "ph": "X",
+    "ts": 62011.5,
+    "dur": 97.28,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_87",
+    "ph": "X",
+    "ts": 62108.8,
+    "dur": 52.224,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_4_ffns_0_layers_0_0/addmm_76_mm]_myl86_88",
+    "ph": "X",
+    "ts": 62161,
+    "dur": 593.92,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_89",
+    "ph": "X",
+    "ts": 62754.9,
+    "dur": 583.68,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_4_ffns_0_layers_1/addmm_77_mm]_myl86_90",
+    "ph": "X",
+    "ts": 63338.6,
+    "dur": 580.608,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_91",
+    "ph": "X",
+    "ts": 63919.2,
+    "dur": 109.568,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_5_attentions_0_value_proj/addmm_78_mm]_myl86_92",
+    "ph": "X",
+    "ts": 64028.8,
+    "dur": 99.328,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_5_attentions_0_attention_weights/addmm_80_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_5_attentions_0_sampling_offsets/addmm_79_mm]_myl86_93",
+    "ph": "X",
+    "ts": 64128.1,
+    "dur": 123.904,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_94",
+    "ph": "X",
+    "ts": 64252,
+    "dur": 19.456,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliSliSliSli_myl86_95",
+    "ph": "X",
+    "ts": 64271.5,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_96",
+    "ph": "X",
+    "ts": 64294,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_97",
+    "ph": "X",
+    "ts": 64302.2,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMulResTraResResTraResResResAddMulAddSliResTraResRevTraAddMulAddMulRouCasAddMaxMinGatLteEtc_myl86_98",
+    "ph": "X",
+    "ts": 64319.6,
+    "dur": 804.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_99",
+    "ph": "X",
+    "ts": 65124.5,
+    "dur": 829.44,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_100",
+    "ph": "X",
+    "ts": 65953.9,
+    "dur": 41.984,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_5_attentions_0_output_proj/addmm_81_mm]_myl86_101",
+    "ph": "X",
+    "ts": 65995.9,
+    "dur": 97.28,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_102",
+    "ph": "X",
+    "ts": 66093.2,
+    "dur": 50.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_5_ffns_0_layers_0_0/addmm_82_mm]_myl86_103",
+    "ph": "X",
+    "ts": 66143.4,
+    "dur": 591.872,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_104",
+    "ph": "X",
+    "ts": 66735.2,
+    "dur": 590.848,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_encoder_layers_5_ffns_0_layers_1/addmm_83_mm]_myl86_105",
+    "ph": "X",
+    "ts": 67326.1,
+    "dur": 577.536,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddResSelSel_myl86_106",
+    "ph": "X",
+    "ts": 67903.6,
+    "dur": 73.728,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_1_value_proj/addmm_170_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_1_value_proj/addmm_155_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_1_value_proj/addmm_140_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_1_value_proj/addmm_125_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_1_value_proj/addmm_110_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_attentions_1_value_proj/addmm_95_mm]_myl86_107",
+    "ph": "X",
+    "ts": 67977.3,
+    "dur": 459.776,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_enc_output/addmm_84_mm]_myl86_108",
+    "ph": "X",
+    "ts": 68437.1,
+    "dur": 92.16,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MeaSubMulMeaAddSqrDivMulMulAdd_myl86_109",
+    "ph": "X",
+    "ts": 68529.3,
+    "dur": 23.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_6_layers_0/addmm_86_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_class_embed_6/addmm_85_mm]_myl86_110",
+    "ph": "X",
+    "ts": 68552.8,
+    "dur": 132.096,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResRel_myl86_111",
+    "ph": "X",
+    "ts": 68684.9,
+    "dur": 21.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMax_myl86_112",
+    "ph": "X",
+    "ts": 68706.4,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Top_myl86_113",
+    "ph": "X",
+    "ts": 68714.6,
+    "dur": 62.464,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_6_layers_1/addmm_87_mm]_myl86_114",
+    "ph": "X",
+    "ts": 68777.1,
+    "dur": 96.256,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_115",
+    "ph": "X",
+    "ts": 68873.3,
+    "dur": 20.48,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_6_layers_2/addmm_88_mm]_myl86_116",
+    "ph": "X",
+    "ts": 68893.8,
+    "dur": 24.576,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_RepAddResGatResNegExpAddDivResRepMulSliResSliSliSliSliMulRepMulRepMulRepMulRepMulSliCosResEtc_myl86_117",
+    "ph": "X",
+    "ts": 68918.4,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_118",
+    "ph": "X",
+    "ts": 68934.8,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_119",
+    "ph": "X",
+    "ts": 68942,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_120",
+    "ph": "X",
+    "ts": 68949.1,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_121",
+    "ph": "X",
+    "ts": 68956.3,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_122",
+    "ph": "X",
+    "ts": 68963.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_123",
+    "ph": "X",
+    "ts": 68971.6,
+    "dur": 7.424,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_124",
+    "ph": "X",
+    "ts": 68979.1,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_125",
+    "ph": "X",
+    "ts": 68986.2,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_126",
+    "ph": "X",
+    "ts": 68993.4,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_0/addmm_89_mm]_myl86_127",
+    "ph": "X",
+    "ts": 69003.6,
+    "dur": 50.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_128",
+    "ph": "X",
+    "ts": 69053.8,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_1/addmm_90_mm]_myl86_129",
+    "ph": "X",
+    "ts": 69063,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Add_myl86_130",
+    "ph": "X",
+    "ts": 69090.7,
+    "dur": 15.36,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Add_myl86_131",
+    "ph": "X",
+    "ts": 69106,
+    "dur": 8.32,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_attentions_0_attn/addmm_92_mm]_myl86_132",
+    "ph": "X",
+    "ts": 69114.4,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_attentions_0_attn/addmm_91_mm]_myl86_133",
+    "ph": "X",
+    "ts": 69142,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_0_attentions_0_attn/bmm]_myl86_134",
+    "ph": "X",
+    "ts": 69169.7,
+    "dur": 140.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxSubExpSumDivMul_myl86_135",
+    "ph": "X",
+    "ts": 69310,
+    "dur": 314.368,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_0_attentions_0_attn/bmm_1]_myl86_136",
+    "ph": "X",
+    "ts": 69624.3,
+    "dur": 133.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_137",
+    "ph": "X",
+    "ts": 69757.4,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_attentions_0_attn/addmm_94_mm]_myl86_138",
+    "ph": "X",
+    "ts": 69765.6,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_139",
+    "ph": "X",
+    "ts": 69802.5,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_attentions_1_attention_weights/addmm_97_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_attentions_1_sampling_offsets/addmm_96_mm]_myl86_140",
+    "ph": "X",
+    "ts": 69825,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_141",
+    "ph": "X",
+    "ts": 69874.2,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliResTraResSliResTraResSliSliResSliRepSliRepResMulMulMulAddMulAddSliResTraResRevTraEtc_myl86_142",
+    "ph": "X",
+    "ts": 69883.4,
+    "dur": 121.856,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_143",
+    "ph": "X",
+    "ts": 70005.2,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_144",
+    "ph": "X",
+    "ts": 70015.5,
+    "dur": 23.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_145",
+    "ph": "X",
+    "ts": 70039,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_146",
+    "ph": "X",
+    "ts": 70055.4,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_147",
+    "ph": "X",
+    "ts": 70100.5,
+    "dur": 65.536,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_148",
+    "ph": "X",
+    "ts": 70166,
+    "dur": 9.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_attentions_1_output_proj/addmm_98_mm]_myl86_149",
+    "ph": "X",
+    "ts": 70175.3,
+    "dur": 28.672,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_150",
+    "ph": "X",
+    "ts": 70203.9,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_ffns_0_layers_0_0/addmm_99_mm]_myl86_151",
+    "ph": "X",
+    "ts": 70215.2,
+    "dur": 135.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_152",
+    "ph": "X",
+    "ts": 70350.4,
+    "dur": 24.576,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_0_ffns_0_layers_1/addmm_100_mm]_myl86_153",
+    "ph": "X",
+    "ts": 70374.9,
+    "dur": 128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddMeaSubMulMea_myl86_154",
+    "ph": "X",
+    "ts": 70502.9,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_0_attn/addmm_108_mm]_myl86_155",
+    "ph": "X",
+    "ts": 70521.4,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_0_layers_0/addmm_101_mm]_myl86_156",
+    "ph": "X",
+    "ts": 70548,
+    "dur": 28.672,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_157",
+    "ph": "X",
+    "ts": 70576.7,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_0_layers_1/addmm_102_mm]_myl86_158",
+    "ph": "X",
+    "ts": 70585.9,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_159",
+    "ph": "X",
+    "ts": 70612.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_0_layers_2/addmm_103_mm]_myl86_160",
+    "ph": "X",
+    "ts": 70620.7,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxMinSubMaxMaxDivLogAddNegExpAddDivResRepMulSliResSliSliSliSliMulRepMulRepMulRepMulRepMulEtc_myl86_161",
+    "ph": "X",
+    "ts": 70632,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_162",
+    "ph": "X",
+    "ts": 70649.4,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_163",
+    "ph": "X",
+    "ts": 70657.6,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_164",
+    "ph": "X",
+    "ts": 70665.8,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_165",
+    "ph": "X",
+    "ts": 70672.9,
+    "dur": 7.232,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_166",
+    "ph": "X",
+    "ts": 70680.2,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_167",
+    "ph": "X",
+    "ts": 70687.3,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_168",
+    "ph": "X",
+    "ts": 70694.5,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_169",
+    "ph": "X",
+    "ts": 70701.7,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_170",
+    "ph": "X",
+    "ts": 70708.8,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_0/addmm_104_mm]_myl86_171",
+    "ph": "X",
+    "ts": 70719.1,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_172",
+    "ph": "X",
+    "ts": 70767.2,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_1/addmm_105_mm]_myl86_173",
+    "ph": "X",
+    "ts": 70776.4,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAdd_myl86_174",
+    "ph": "X",
+    "ts": 70803,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_0_attn/addmm_107_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_0_attn/addmm_106_mm]_myl86_175",
+    "ph": "X",
+    "ts": 70814.3,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_1_attentions_0_attn/bmm_2]_myl86_176",
+    "ph": "X",
+    "ts": 70862.4,
+    "dur": 145.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxSubExpSumDivMul_myl86_177",
+    "ph": "X",
+    "ts": 71007.8,
+    "dur": 309.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_1_attentions_0_attn/bmm_3]_myl86_178",
+    "ph": "X",
+    "ts": 71317.1,
+    "dur": 162.816,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_179",
+    "ph": "X",
+    "ts": 71479.9,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_0_attn/addmm_109_mm]_myl86_180",
+    "ph": "X",
+    "ts": 71488.1,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_181",
+    "ph": "X",
+    "ts": 71525,
+    "dur": 21.504,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_1_attention_weights/addmm_112_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_1_sampling_offsets/addmm_111_mm]_myl86_182",
+    "ph": "X",
+    "ts": 71546.5,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_183",
+    "ph": "X",
+    "ts": 71595.6,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliResTraResSliResTraResSliSliResSliRepSliRepResMulMulMulAddMulAddSliResTraResRevTraEtc_myl86_184",
+    "ph": "X",
+    "ts": 71603.8,
+    "dur": 123.904,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_185",
+    "ph": "X",
+    "ts": 71727.7,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_186",
+    "ph": "X",
+    "ts": 71736.9,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_187",
+    "ph": "X",
+    "ts": 71759.5,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_188",
+    "ph": "X",
+    "ts": 71776.9,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_189",
+    "ph": "X",
+    "ts": 71821.9,
+    "dur": 66.56,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_190",
+    "ph": "X",
+    "ts": 71888.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_attentions_1_output_proj/addmm_113_mm]_myl86_191",
+    "ph": "X",
+    "ts": 71896.7,
+    "dur": 37.888,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_192",
+    "ph": "X",
+    "ts": 71934.6,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_ffns_0_layers_0_0/addmm_114_mm]_myl86_193",
+    "ph": "X",
+    "ts": 71944.8,
+    "dur": 133.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_194",
+    "ph": "X",
+    "ts": 72077.9,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_1_ffns_0_layers_1/addmm_115_mm]_myl86_195",
+    "ph": "X",
+    "ts": 72104.5,
+    "dur": 134.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddMeaSubMulMea_myl86_196",
+    "ph": "X",
+    "ts": 72238.7,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_0_attn/addmm_123_mm]_myl86_197",
+    "ph": "X",
+    "ts": 72255.1,
+    "dur": 28.672,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_1_layers_0/addmm_116_mm]_myl86_198",
+    "ph": "X",
+    "ts": 72283.7,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_199",
+    "ph": "X",
+    "ts": 72310.4,
+    "dur": 8.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_1_layers_1/addmm_117_mm]_myl86_200",
+    "ph": "X",
+    "ts": 72318.7,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_201",
+    "ph": "X",
+    "ts": 72345.3,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_1_layers_2/addmm_118_mm]_myl86_202",
+    "ph": "X",
+    "ts": 72355.5,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxMinSubMaxMaxDivLogAddNegExpAddDivResRepMulSliResSliSliSliSliMulRepMulRepMulRepMulRepMulEtc_myl86_203",
+    "ph": "X",
+    "ts": 72366.8,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_204",
+    "ph": "X",
+    "ts": 72383.2,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_205",
+    "ph": "X",
+    "ts": 72390.3,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_206",
+    "ph": "X",
+    "ts": 72397.5,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_207",
+    "ph": "X",
+    "ts": 72404.7,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_208",
+    "ph": "X",
+    "ts": 72411.8,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_209",
+    "ph": "X",
+    "ts": 72420,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_210",
+    "ph": "X",
+    "ts": 72427.2,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_211",
+    "ph": "X",
+    "ts": 72435.4,
+    "dur": 7.296,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_212",
+    "ph": "X",
+    "ts": 72442.7,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_0/addmm_119_mm]_myl86_213",
+    "ph": "X",
+    "ts": 72452.9,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_214",
+    "ph": "X",
+    "ts": 72502.1,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_1/addmm_120_mm]_myl86_215",
+    "ph": "X",
+    "ts": 72510.3,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAdd_myl86_216",
+    "ph": "X",
+    "ts": 72536.9,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_0_attn/addmm_122_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_0_attn/addmm_121_mm]_myl86_217",
+    "ph": "X",
+    "ts": 72547.1,
+    "dur": 47.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_2_attentions_0_attn/bmm_4]_myl86_218",
+    "ph": "X",
+    "ts": 72594.2,
+    "dur": 143.36,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxSubExpSumDivMul_myl86_219",
+    "ph": "X",
+    "ts": 72737.6,
+    "dur": 309.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_2_attentions_0_attn/bmm_5]_myl86_220",
+    "ph": "X",
+    "ts": 73046.8,
+    "dur": 163.84,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_221",
+    "ph": "X",
+    "ts": 73210.7,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_0_attn/addmm_124_mm]_myl86_222",
+    "ph": "X",
+    "ts": 73219.9,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_223",
+    "ph": "X",
+    "ts": 73266,
+    "dur": 23.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_1_attention_weights/addmm_127_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_1_sampling_offsets/addmm_126_mm]_myl86_224",
+    "ph": "X",
+    "ts": 73289.5,
+    "dur": 50.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_225",
+    "ph": "X",
+    "ts": 73339.7,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliResTraResSliResTraResSliSliResSliRepSliRepResMulMulMulAddMulAddSliResTraResRevTraEtc_myl86_226",
+    "ph": "X",
+    "ts": 73347.9,
+    "dur": 136.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_227",
+    "ph": "X",
+    "ts": 73484.1,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_228",
+    "ph": "X",
+    "ts": 73494.3,
+    "dur": 23.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_229",
+    "ph": "X",
+    "ts": 73517.9,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_230",
+    "ph": "X",
+    "ts": 73535.3,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_231",
+    "ph": "X",
+    "ts": 73572.2,
+    "dur": 66.56,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_232",
+    "ph": "X",
+    "ts": 73638.7,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_attentions_1_output_proj/addmm_128_mm]_myl86_233",
+    "ph": "X",
+    "ts": 73646.9,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_234",
+    "ph": "X",
+    "ts": 73693,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_ffns_0_layers_0_0/addmm_129_mm]_myl86_235",
+    "ph": "X",
+    "ts": 73703.2,
+    "dur": 134.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_236",
+    "ph": "X",
+    "ts": 73837.4,
+    "dur": 25.6,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_2_ffns_0_layers_1/addmm_130_mm]_myl86_237",
+    "ph": "X",
+    "ts": 73863,
+    "dur": 126.976,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddMeaSubMulMea_myl86_238",
+    "ph": "X",
+    "ts": 73990,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_0_attn/addmm_138_mm]_myl86_239",
+    "ph": "X",
+    "ts": 74008.4,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_2_layers_0/addmm_131_mm]_myl86_240",
+    "ph": "X",
+    "ts": 74036,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_241",
+    "ph": "X",
+    "ts": 74063.7,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_2_layers_1/addmm_132_mm]_myl86_242",
+    "ph": "X",
+    "ts": 74072.9,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_243",
+    "ph": "X",
+    "ts": 74100.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_2_layers_2/addmm_133_mm]_myl86_244",
+    "ph": "X",
+    "ts": 74108.7,
+    "dur": 13.312,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxMinSubMaxMaxDivLogAddNegExpAddDivResRepMulSliResSliSliSliSliMulRepMulRepMulRepMulRepMulEtc_myl86_245",
+    "ph": "X",
+    "ts": 74122,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_246",
+    "ph": "X",
+    "ts": 74139.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_247",
+    "ph": "X",
+    "ts": 74147.6,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_248",
+    "ph": "X",
+    "ts": 74155.8,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_249",
+    "ph": "X",
+    "ts": 74163,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_250",
+    "ph": "X",
+    "ts": 74171.2,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_251",
+    "ph": "X",
+    "ts": 74179.4,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_252",
+    "ph": "X",
+    "ts": 74186.6,
+    "dur": 7.232,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_253",
+    "ph": "X",
+    "ts": 74193.8,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_254",
+    "ph": "X",
+    "ts": 74201,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_0/addmm_134_mm]_myl86_255",
+    "ph": "X",
+    "ts": 74211.2,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_256",
+    "ph": "X",
+    "ts": 74260.4,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_1/addmm_135_mm]_myl86_257",
+    "ph": "X",
+    "ts": 74268.5,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAdd_myl86_258",
+    "ph": "X",
+    "ts": 74296.2,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_0_attn/addmm_137_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_0_attn/addmm_136_mm]_myl86_259",
+    "ph": "X",
+    "ts": 74306.4,
+    "dur": 50.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_3_attentions_0_attn/bmm_6]_myl86_260",
+    "ph": "X",
+    "ts": 74356.6,
+    "dur": 137.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxSubExpSumDivMul_myl86_261",
+    "ph": "X",
+    "ts": 74493.8,
+    "dur": 308.224,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_3_attentions_0_attn/bmm_7]_myl86_262",
+    "ph": "X",
+    "ts": 74802,
+    "dur": 163.84,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_263",
+    "ph": "X",
+    "ts": 74965.9,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_0_attn/addmm_139_mm]_myl86_264",
+    "ph": "X",
+    "ts": 74974.1,
+    "dur": 29.696,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_265",
+    "ph": "X",
+    "ts": 75003.8,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_1_attention_weights/addmm_142_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_1_sampling_offsets/addmm_141_mm]_myl86_266",
+    "ph": "X",
+    "ts": 75026.3,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_267",
+    "ph": "X",
+    "ts": 75075.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliResTraResSliResTraResSliSliResSliRepSliRepResMulMulMulAddMulAddSliResTraResRevTraEtc_myl86_268",
+    "ph": "X",
+    "ts": 75083.6,
+    "dur": 130.048,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_269",
+    "ph": "X",
+    "ts": 75213.7,
+    "dur": 8.352,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_270",
+    "ph": "X",
+    "ts": 75222,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_271",
+    "ph": "X",
+    "ts": 75244.6,
+    "dur": 17.536,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_272",
+    "ph": "X",
+    "ts": 75262.1,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_273",
+    "ph": "X",
+    "ts": 75308.2,
+    "dur": 66.56,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_274",
+    "ph": "X",
+    "ts": 75374.8,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_attentions_1_output_proj/addmm_143_mm]_myl86_275",
+    "ph": "X",
+    "ts": 75382.9,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_276",
+    "ph": "X",
+    "ts": 75429,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_ffns_0_layers_0_0/addmm_144_mm]_myl86_277",
+    "ph": "X",
+    "ts": 75440.3,
+    "dur": 133.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_278",
+    "ph": "X",
+    "ts": 75573.4,
+    "dur": 24.576,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_3_ffns_0_layers_1/addmm_145_mm]_myl86_279",
+    "ph": "X",
+    "ts": 75598,
+    "dur": 132.096,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddMeaSubMulMea_myl86_280",
+    "ph": "X",
+    "ts": 75730.1,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_0_attn/addmm_153_mm]_myl86_281",
+    "ph": "X",
+    "ts": 75747.5,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_3_layers_0/addmm_146_mm]_myl86_282",
+    "ph": "X",
+    "ts": 75774.1,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_283",
+    "ph": "X",
+    "ts": 75801.8,
+    "dur": 9.344,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_3_layers_1/addmm_147_mm]_myl86_284",
+    "ph": "X",
+    "ts": 75811.1,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_285",
+    "ph": "X",
+    "ts": 75838.8,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_3_layers_2/addmm_148_mm]_myl86_286",
+    "ph": "X",
+    "ts": 75846.9,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxMinSubMaxMaxDivLogAddNegExpAddDivResRepMulSliResSliSliSliSliMulRepMulRepMulRepMulRepMulEtc_myl86_287",
+    "ph": "X",
+    "ts": 75859.2,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_288",
+    "ph": "X",
+    "ts": 75876.6,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_289",
+    "ph": "X",
+    "ts": 75883.8,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_290",
+    "ph": "X",
+    "ts": 75890,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_291",
+    "ph": "X",
+    "ts": 75896.1,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_292",
+    "ph": "X",
+    "ts": 75902.2,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_293",
+    "ph": "X",
+    "ts": 75909.4,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_294",
+    "ph": "X",
+    "ts": 75916.6,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_295",
+    "ph": "X",
+    "ts": 75923.7,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_296",
+    "ph": "X",
+    "ts": 75931.9,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_0/addmm_149_mm]_myl86_297",
+    "ph": "X",
+    "ts": 75942.2,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_298",
+    "ph": "X",
+    "ts": 75991.3,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_1/addmm_150_mm]_myl86_299",
+    "ph": "X",
+    "ts": 75999.5,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAdd_myl86_300",
+    "ph": "X",
+    "ts": 76027.2,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_0_attn/addmm_152_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_0_attn/addmm_151_mm]_myl86_301",
+    "ph": "X",
+    "ts": 76038.4,
+    "dur": 51.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_4_attentions_0_attn/bmm_8]_myl86_302",
+    "ph": "X",
+    "ts": 76089.6,
+    "dur": 144.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxSubExpSumDivMul_myl86_303",
+    "ph": "X",
+    "ts": 76234,
+    "dur": 307.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_4_attentions_0_attn/bmm_9]_myl86_304",
+    "ph": "X",
+    "ts": 76541.2,
+    "dur": 166.912,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_305",
+    "ph": "X",
+    "ts": 76708.1,
+    "dur": 8.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_0_attn/addmm_154_mm]_myl86_306",
+    "ph": "X",
+    "ts": 76716.5,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_307",
+    "ph": "X",
+    "ts": 76753.4,
+    "dur": 23.552,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_1_attention_weights/addmm_157_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_1_sampling_offsets/addmm_156_mm]_myl86_308",
+    "ph": "X",
+    "ts": 76776.9,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_309",
+    "ph": "X",
+    "ts": 76825.1,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliResTraResSliResTraResSliSliResSliRepSliRepResMulMulMulAddMulAddSliResTraResRevTraEtc_myl86_310",
+    "ph": "X",
+    "ts": 76833.2,
+    "dur": 132.096,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_311",
+    "ph": "X",
+    "ts": 76965.3,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_312",
+    "ph": "X",
+    "ts": 76975.6,
+    "dur": 24.576,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_313",
+    "ph": "X",
+    "ts": 77000.2,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_314",
+    "ph": "X",
+    "ts": 77017.6,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_315",
+    "ph": "X",
+    "ts": 77062.6,
+    "dur": 65.536,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_316",
+    "ph": "X",
+    "ts": 77128.2,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_attentions_1_output_proj/addmm_158_mm]_myl86_317",
+    "ph": "X",
+    "ts": 77137.4,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_318",
+    "ph": "X",
+    "ts": 77182.4,
+    "dur": 10.272,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_ffns_0_layers_0_0/addmm_159_mm]_myl86_319",
+    "ph": "X",
+    "ts": 77192.7,
+    "dur": 129.024,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_320",
+    "ph": "X",
+    "ts": 77321.7,
+    "dur": 24.576,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_4_ffns_0_layers_1/addmm_160_mm]_myl86_321",
+    "ph": "X",
+    "ts": 77346.3,
+    "dur": 135.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddMeaSubMulMea_myl86_322",
+    "ph": "X",
+    "ts": 77481.5,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_0_attn/addmm_168_mm]_myl86_323",
+    "ph": "X",
+    "ts": 77499.9,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_4_layers_0/addmm_161_mm]_myl86_324",
+    "ph": "X",
+    "ts": 77526.5,
+    "dur": 28.672,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_325",
+    "ph": "X",
+    "ts": 77555.2,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_4_layers_1/addmm_162_mm]_myl86_326",
+    "ph": "X",
+    "ts": 77563.4,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_327",
+    "ph": "X",
+    "ts": 77591,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_4_layers_2/addmm_163_mm]_myl86_328",
+    "ph": "X",
+    "ts": 77599.2,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxMinSubMaxMaxDivLogAddNegExpAddDivResRepMulSliResSliSliSliSliMulRepMulRepMulRepMulRepMulEtc_myl86_329",
+    "ph": "X",
+    "ts": 77611.5,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_330",
+    "ph": "X",
+    "ts": 77627.9,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_331",
+    "ph": "X",
+    "ts": 77635.1,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_332",
+    "ph": "X",
+    "ts": 77643.3,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_333",
+    "ph": "X",
+    "ts": 77651.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_334",
+    "ph": "X",
+    "ts": 77659.6,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_335",
+    "ph": "X",
+    "ts": 77667.8,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SinRes_myl86_336",
+    "ph": "X",
+    "ts": 77675,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_337",
+    "ph": "X",
+    "ts": 77682.2,
+    "dur": 6.368,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_338",
+    "ph": "X",
+    "ts": 77688.5,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_0/addmm_164_mm]_myl86_339",
+    "ph": "X",
+    "ts": 77698.8,
+    "dur": 51.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_340",
+    "ph": "X",
+    "ts": 77750,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_ref_point_head_layers_1/addmm_165_mm]_myl86_341",
+    "ph": "X",
+    "ts": 77758.2,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAdd_myl86_342",
+    "ph": "X",
+    "ts": 77785.8,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_0_attn/addmm_167_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_0_attn/addmm_166_mm]_myl86_343",
+    "ph": "X",
+    "ts": 77796.1,
+    "dur": 54.272,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_5_attentions_0_attn/bmm_10]_myl86_344",
+    "ph": "X",
+    "ts": 77850.3,
+    "dur": 140.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_MaxSubExpSumDivMul_myl86_345",
+    "ph": "X",
+    "ts": 77990.6,
+    "dur": 319.488,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_bmm_default]_[net_transformer_decoder_layers_5_attentions_0_attn/bmm_11]_myl86_346",
+    "ph": "X",
+    "ts": 78310.1,
+    "dur": 166.912,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_347",
+    "ph": "X",
+    "ts": 78477,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_0_attn/addmm_169_mm]_myl86_348",
+    "ph": "X",
+    "ts": 78485.2,
+    "dur": 36.864,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddAdd_myl86_349",
+    "ph": "X",
+    "ts": 78522.1,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_1_attention_weights/addmm_172_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_1_sampling_offsets/addmm_171_mm]_myl86_350",
+    "ph": "X",
+    "ts": 78544.6,
+    "dur": 45.056,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResMaxSubExpSum_myl86_351",
+    "ph": "X",
+    "ts": 78589.7,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SelResSliResTraResSliResTraResSliSliResSliRepSliRepResMulMulMulAddMulAddSliResTraResRevTraEtc_myl86_352",
+    "ph": "X",
+    "ts": 78597.9,
+    "dur": 141.312,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_353",
+    "ph": "X",
+    "ts": 78739.2,
+    "dur": 8.352,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_354",
+    "ph": "X",
+    "ts": 78747.5,
+    "dur": 24.576,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTra_myl86_355",
+    "ph": "X",
+    "ts": 78772.1,
+    "dur": 18.432,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResTraMaxMinGatCasSelTra_myl86_356",
+    "ph": "X",
+    "ts": 78790.5,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_DivMulResTraResRepConMulSum_myl86_357",
+    "ph": "X",
+    "ts": 78836.6,
+    "dur": 66.56,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Tra_myl86_358",
+    "ph": "X",
+    "ts": 78903.2,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_attentions_1_output_proj/addmm_173_mm]_myl86_359",
+    "ph": "X",
+    "ts": 78911.4,
+    "dur": 46.08,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResAddMeaSubMulMeaAddSqrDivMulMulAdd_myl86_360",
+    "ph": "X",
+    "ts": 78957.4,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_ffns_0_layers_0_0/addmm_174_mm]_myl86_361",
+    "ph": "X",
+    "ts": 78967.7,
+    "dur": 134.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_362",
+    "ph": "X",
+    "ts": 79101.8,
+    "dur": 24.576,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_layers_5_ffns_0_layers_1/addmm_175_mm]_myl86_363",
+    "ph": "X",
+    "ts": 79126.4,
+    "dur": 133.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddMeaSubMulMeaAddSqrDivMulMulAddMeaSubMulMea_myl86_364",
+    "ph": "X",
+    "ts": 79259.5,
+    "dur": 17.408,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_5_layers_0/addmm_176_mm]_myl86_365",
+    "ph": "X",
+    "ts": 79276.9,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_366",
+    "ph": "X",
+    "ts": 79303.6,
+    "dur": 8.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AddSqrDivMulMulAddResAddSqrDivMulMulAddResAddSqrDivMulMulAddResAddSqrDivMulMulAddResAddSqrEtc_myl86_367",
+    "ph": "X",
+    "ts": 79311.8,
+    "dur": 53.248,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_368",
+    "ph": "X",
+    "ts": 79365.1,
+    "dur": 16.384,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_369",
+    "ph": "X",
+    "ts": 79381.5,
+    "dur": 22.528,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_370",
+    "ph": "X",
+    "ts": 79404,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_371",
+    "ph": "X",
+    "ts": 79412.2,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_5_layers_1/addmm_177_mm]_myl86_372",
+    "ph": "X",
+    "ts": 79422.4,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_373",
+    "ph": "X",
+    "ts": 79450.1,
+    "dur": 8.224,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_374",
+    "ph": "X",
+    "ts": 79458.3,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_375",
+    "ph": "X",
+    "ts": 79466.5,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_376",
+    "ph": "X",
+    "ts": 79476.7,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_377",
+    "ph": "X",
+    "ts": 79484.9,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_378",
+    "ph": "X",
+    "ts": 79494.1,
+    "dur": 8.32,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_379",
+    "ph": "X",
+    "ts": 79502.5,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_5_layers_0/addmm_200_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_class_embed_5/addmm_199_mm]_myl86_380",
+    "ph": "X",
+    "ts": 79511.7,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResRel_myl86_381",
+    "ph": "X",
+    "ts": 79560.8,
+    "dur": 8.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_4_layers_0/addmm_196_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_class_embed_4/addmm_195_mm]_myl86_382",
+    "ph": "X",
+    "ts": 79569.1,
+    "dur": 47.104,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResRel_myl86_383",
+    "ph": "X",
+    "ts": 79616.2,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_3_layers_0/addmm_192_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_class_embed_3/addmm_191_mm]_myl86_384",
+    "ph": "X",
+    "ts": 79626.5,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResRel_myl86_385",
+    "ph": "X",
+    "ts": 79675.6,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_2_layers_0/addmm_188_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_class_embed_2/addmm_187_mm]_myl86_386",
+    "ph": "X",
+    "ts": 79683.8,
+    "dur": 49.152,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResRel_myl86_387",
+    "ph": "X",
+    "ts": 79733,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_1_layers_0/addmm_184_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_class_embed_1/addmm_183_mm]_myl86_388",
+    "ph": "X",
+    "ts": 79742.2,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResRel_myl86_389",
+    "ph": "X",
+    "ts": 79790.3,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_0_layers_0/addmm_180_mm]+[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_class_embed_0/addmm_179_mm]_myl86_390",
+    "ph": "X",
+    "ts": 79799.5,
+    "dur": 48.128,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResRel_myl86_391",
+    "ph": "X",
+    "ts": 79847.6,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResResResResResResConResGat_myl86_392",
+    "ph": "X",
+    "ts": 79855.8,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResNegExpAddDivResTop_myl86_393",
+    "ph": "X",
+    "ts": 79862,
+    "dur": 606.208,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Res_myl86_394",
+    "ph": "X",
+    "ts": 80468.2,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_5_layers_1/addmm_201_mm]_myl86_395",
+    "ph": "X",
+    "ts": 80474.3,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_396",
+    "ph": "X",
+    "ts": 80501,
+    "dur": 8.352,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_4_layers_1/addmm_197_mm]_myl86_397",
+    "ph": "X",
+    "ts": 80509.3,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_398",
+    "ph": "X",
+    "ts": 80535.9,
+    "dur": 8.224,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_3_layers_1/addmm_193_mm]_myl86_399",
+    "ph": "X",
+    "ts": 80544.2,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_400",
+    "ph": "X",
+    "ts": 80570.8,
+    "dur": 9.216,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_2_layers_1/addmm_189_mm]_myl86_401",
+    "ph": "X",
+    "ts": 80580,
+    "dur": 27.648,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_402",
+    "ph": "X",
+    "ts": 80607.6,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_1_layers_1/addmm_185_mm]_myl86_403",
+    "ph": "X",
+    "ts": 80615.8,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_404",
+    "ph": "X",
+    "ts": 80642.5,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_0_layers_1/addmm_181_mm]_myl86_405",
+    "ph": "X",
+    "ts": 80650.7,
+    "dur": 26.624,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Rel_myl86_406",
+    "ph": "X",
+    "ts": 80677.3,
+    "dur": 8.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_5_layers_2/addmm_202_mm]_myl86_407",
+    "ph": "X",
+    "ts": 80685.5,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_4_layers_2/addmm_198_mm]_myl86_408",
+    "ph": "X",
+    "ts": 80696.7,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_3_layers_2/addmm_194_mm]_myl86_409",
+    "ph": "X",
+    "ts": 80708,
+    "dur": 12.288,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_2_layers_2/addmm_190_mm]_myl86_410",
+    "ph": "X",
+    "ts": 80720.3,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_1_layers_2/addmm_186_mm]_myl86_411",
+    "ph": "X",
+    "ts": 80730.5,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_AbsMulSigCasDivFloCasMulMulSubAddAbsMulSigCasDivFloCasMulMulSubResCas_myl86_412",
+    "ph": "X",
+    "ts": 80741.8,
+    "dur": 6.272,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_transformer_decoder_bbox_embed_5_layers_2/addmm_178_mm]_myl86_413",
+    "ph": "X",
+    "ts": 80748.1,
+    "dur": 10.24,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "[MATRIX_MULTIPLY]_[aten_ops_addmm_default]_[net_bbox_embed_0_layers_2/addmm_182_mm]_myl86_414",
+    "ph": "X",
+    "ts": 80758.3,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_ResResResResResMaxMinSubMaxMaxDivLogAddNegExpAddDivResConResSliResSliResSliResSliResSliResEtc_myl86_415",
+    "ph": "X",
+    "ts": 80769.6,
+    "dur": 11.264,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_416",
+    "ph": "X",
+    "ts": 80780.8,
+    "dur": 7.168,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_417",
+    "ph": "X",
+    "ts": 80788,
+    "dur": 5.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_418",
+    "ph": "X",
+    "ts": 80793.1,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_419",
+    "ph": "X",
+    "ts": 80799.3,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_420",
+    "ph": "X",
+    "ts": 80805.4,
+    "dur": 4.192,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SliMul_myl86_421",
+    "ph": "X",
+    "ts": 80809.6,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_422",
+    "ph": "X",
+    "ts": 80815.7,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_423",
+    "ph": "X",
+    "ts": 80821.9,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_424",
+    "ph": "X",
+    "ts": 80828,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_425",
+    "ph": "X",
+    "ts": 80834.2,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_426",
+    "ph": "X",
+    "ts": 80840.3,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_427",
+    "ph": "X",
+    "ts": 80846.5,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_428",
+    "ph": "X",
+    "ts": 80852.6,
+    "dur": 7.2,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_429",
+    "ph": "X",
+    "ts": 80859.8,
+    "dur": 5.344,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_430",
+    "ph": "X",
+    "ts": 80865.2,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_431",
+    "ph": "X",
+    "ts": 80871.3,
+    "dur": 5.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_432",
+    "ph": "X",
+    "ts": 80876.4,
+    "dur": 6.176,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_433",
+    "ph": "X",
+    "ts": 80882.6,
+    "dur": 5.344,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_434",
+    "ph": "X",
+    "ts": 80887.9,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Mov_myl86_435",
+    "ph": "X",
+    "ts": 80894.1,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sli_myl86_436",
+    "ph": "X",
+    "ts": 80900.2,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_Sca_myl86_437",
+    "ph": "X",
+    "ts": 80906.4,
+    "dur": 5.12,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SliResMaxMinResMov_myl86_438",
+    "ph": "X",
+    "ts": 80911.5,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SliResMaxMinResMov_myl86_439",
+    "ph": "X",
+    "ts": 80917.6,
+    "dur": 6.208,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SliResMaxMinResMov_myl86_440",
+    "ph": "X",
+    "ts": 80923.8,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  },
+  {
+    "name": "__myl_SliResMaxMinResMov_myl86_441",
+    "ph": "X",
+    "ts": 80930,
+    "dur": 6.144,
+    "tid": 1,
+    "pid": "_run_on_acc_0_engine Engine Execution",
+    "args": {}
+  }
+]

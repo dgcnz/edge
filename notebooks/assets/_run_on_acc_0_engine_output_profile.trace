@@ -1,0 +1,91 @@
+[
+
+{
+  "name": "aten::empty",
+  "ph": "X",
+  "ts": 21.070000,
+  "dur": 63.319000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::empty_strided",
+  "ph": "X",
+  "ts": 103.194000,
+  "dur": 14.287000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::copy_",
+  "ph": "X",
+  "ts": 119.715000,
+  "dur": 63.269000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::_to_copy",
+  "ph": "X",
+  "ts": 92.814000,
+  "dur": 90.881000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::to",
+  "ph": "X",
+  "ts": 87.775000,
+  "dur": 96.391000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::empty",
+  "ph": "X",
+  "ts": 199.525000,
+  "dur": 5.550000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::to",
+  "ph": "X",
+  "ts": 205.556000,
+  "dur": 0.220000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::empty",
+  "ph": "X",
+  "ts": 209.584000,
+  "dur": 5.921000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::to",
+  "ph": "X",
+  "ts": 215.946000,
+  "dur": 0.180000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+}]

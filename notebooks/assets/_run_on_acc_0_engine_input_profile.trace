@@ -1,0 +1,61 @@
+[
+
+{
+  "name": "aten::view",
+  "ph": "X",
+  "ts": 62.026000,
+  "dur": 29.515000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::empty",
+  "ph": "X",
+  "ts": 113.733000,
+  "dur": 89.208000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::empty_like",
+  "ph": "X",
+  "ts": 108.143000,
+  "dur": 96.621000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::copy_",
+  "ph": "X",
+  "ts": 207.729000,
+  "dur": 103.525000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::clone",
+  "ph": "X",
+  "ts": 99.056000,
+  "dur": 212.929000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+},
+
+{
+  "name": "aten::contiguous",
+  "ph": "X",
+  "ts": 94.587000,
+  "dur": 217.739000,
+  "tid": 1,
+  "pid": "CPU Functions",
+  "args": {}
+}]
