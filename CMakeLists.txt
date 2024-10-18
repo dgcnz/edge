@@ -10,23 +10,24 @@ set(CUDA_TOOLKIT_ROOT_DIR $ENV{CONDA_PREFIX})
 set(TORCHTRT_ROOT "${PROJECT_SOURCE_DIR}/third-party/TensorRT")
 set(LIBTORCH_PATH "${PROJECT_SOURCE_DIR}/third-party/libtorch")
 set(LIBTORCHTRT_PATH "${TORCHTRT_ROOT}/build/lib")
-set(TensorRT_ROOT "${PROJECT_SOURCE_DIR}/third-party/TensorRT-10.3.0.26/")
 
 list(APPEND CMAKE_PREFIX_PATH "${LIBTORCH_PATH}")
 list(APPEND CMAKE_PREFIX_PATH "${TORCHTRT_ROOT}/build")
 list(APPEND CMAKE_MODULE_PATH "${TORCHTRT_ROOT}/cmake/Modules")
 message(STATUS "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 find_package(Torch REQUIRED)
-find_package(TensorRT REQUIRED)
 
 set(TORCHTRT_LIBRARIES "${LIBTORCHTRT_PATH}/libtorchtrt.so")
 set(TORCHTRT_INCLUDE_DIRS "${TORCHTRT_ROOT}/cpp/include")
 message(STATUS "TORCHTRT_LIBRARIES: ${TORCHTRT_LIBRARIES}")
+set(TensorRT_LIBRARIES 
+    "$ENV{CONDA_PREFIX}/lib/python3.10/site-packages/tensorrt_libs/libnvinfer.so.10"
+    "$ENV{CONDA_PREFIX}/lib/python3.10/site-packages/tensorrt_libs/libnvinfer_plugin.so.10"
+)
 message(STATUS "TensorRT_LIBRARIES: ${TensorRT_LIBRARIES}")
 message(STATUS "TORCH_LIBRARIES: ${TORCH_LIBRARIES}")
 message(STATUS "TORCH_CXX_FLAGS: ${TORCH_CXX_FLAGS}")
 message(STATUS "TORCH_INCLUDE_DIRS: ${TORCH_INCLUDE_DIRS}")
-# print cmake_cxx_flags
 message(STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
