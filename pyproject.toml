@@ -13,6 +13,7 @@ torch-tensorrt = {version = "^2.6.0.dev20241013+cu124", allow-prereleases = true
 tensorrt = "10.3.0"
 nvidia-cuda-runtime-cu12 = "12.4.127"
 nvidia-modelopt = {extras = ["all"], version = "^0.17.0", source = "pypi-nvidia"}
+onnxscript = "^0.1.0.dev20241017"
 
 [[tool.poetry.source]]
 name = "torch-cu124"
@@ -24,6 +25,16 @@ priority = "explicit"
 name = "pypi-nvidia"
 url = "https://pypi.nvidia.com"
 priority = "explicit"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+black = "^24.10.0"
+jupyter = "^1.1.1"
+flake8 = "^7.1.1"
+perfetto = "^0.11.0"
+viztracer = "^0.17.0"
+pandas = "^2.2.3"
 
 [build-system]
 requires = ["poetry-core"]

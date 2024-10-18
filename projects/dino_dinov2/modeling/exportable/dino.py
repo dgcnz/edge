@@ -32,7 +32,6 @@ from detectron2.utils.events import get_event_storage
 from detectron2.data.detection_utils import convert_image_to_rgb
 
 
-@torch.jit.script
 def batch_images(
     image_batch: List[torch.Tensor],
 ) -> Tuple[torch.Tensor, List[Tuple[int, int]]]:

@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 class SimpleNet(nn.Module):
     def __init__(self):
-        super(SimpleNet, self).__init__()
+        super().__init__()
         self.conv = nn.Conv2d(3, 6, 5)
         self.fc = nn.Linear(6 * 14 * 14, 10)
         self.register_buffer("mask", torch.randn(6, 14, 14) > 0.5)
@@ -23,7 +23,9 @@ class SimpleNet(nn.Module):
 
 inputs = (torch.randn(1, 3, 32, 32), )
 model = SimpleNet().eval()
-
 ep = torch.export.export(model, inputs)
+ep2 = ep.run_decompositions()
+print(ep2)
+
 print(ep)
 torch.export.save(ep, "simple_net.pt2")
