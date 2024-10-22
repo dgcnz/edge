@@ -1,0 +1,20 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: root
+parts:
+  - caption: Introduction
+    chapters:
+    - file: introduction
+  - caption: Finding a Feasibility Model
+    chapters:
+    - file: training
+  - caption: Optimization
+    chapters:
+    - file: compilation
+      sections:
+      - file: torch_export
+  - caption: Other
+    chapters:
+    - file: bibliography 
