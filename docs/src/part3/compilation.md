@@ -21,8 +21,8 @@ So far, we've talked about compilation as a process that happens before the prog
 
 Machine learning compilers take a model written in some framework (e.g. PyTorch), translate it into a program that can be executed in some runtime (e.g. TensorRT, CoreML, PyTorch TorchInductor) which then ends up optimized for some specialized hardware (e.g. GPUs, TPUs, Apple Silicon). 
  
-PyTorch has had a few different compiler solutions over the years, the most popular being TorchScript. Recently, however, PyTorch has been endorsing its new compiler frontend TorchDynamo and its accompanying API ecosystem `torch.export` and `torch.compile`. 
+PyTorch has had a few different compiler solutions over the years, the most popular being TorchScript. This, however, has changed since PyTorch 2, as the new compiler stack has been introduced. The main component of this new stack is TorchDynamo, a new compiler frontend with better properties and more Python support than TorchScript. 
 
+Along with TorchDynamo, PyTorch 2 has introduced two new APIs, `torch.export` and `torch.compile`, that leverage this technology. On one hand, `torch.export`'s goal is to act as an ahead-of-time frontend which captures the full semantics of the program into an IR independent of Python, while `torch.compile` is meant to be used as a full JIT compiler that can leverage other backends (TorchInductor, TensorRT, ONNX) to optimize parts of the model at runtime and fallback to native Python if necessary. 
 
-
-
+For edge devices specifically, we are most interested in the `torch.export` API, as it allows us to dispose of the expensive overhead of the Python Runtime and allows us to take advantage of native optimized frameworks for our target hardware, like CoreML for Apple devices or TensorRT (C++) for NVIDIA GPUs. 

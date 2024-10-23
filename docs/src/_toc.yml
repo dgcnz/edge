@@ -9,12 +9,14 @@ parts:
     - file: introduction
   - caption: Finding a Feasibility Model
     chapters:
-    - file: training
+    - file: part2/sota
+    - file: part2/adapting
+    - file: part2/training
   - caption: Optimization
     chapters:
-    - file: compilation
+    - file: part3/compilation
       sections:
-      - file: torch_export
+      - file: part3/torch_export
   - caption: Other
     chapters:
     - file: bibliography 
