@@ -6,10 +6,10 @@ root: root
 parts:
   - caption: Introduction
     chapters:
-    - file: introduction
+    - file: part1/problem
   - caption: Finding a Feasibility Model
     chapters:
-    - file: part2/sota
+    - file: part2/choosing
     - file: part2/adapting
     - file: part2/training
   - caption: Optimization
