@@ -1,5 +1,8 @@
 # Training the Decoder
 
+```{contents}
+```
+
 Now we have a working model with a pre-trained backbone, but we still need to train the decoder. Training this model, however, requires quite a bit of compute and time, if we follow the original training recipe: With a NVIDIA A100 GPU (full-node, 80GB), a batch size of 16 uses almost 90% of the memory and takes around 30 hours to train 12 epochs, on full precision. Training scripts for a SLURM cluster are provided in the `scripts/slurm` folder, but we'll first test that everything works correctly.
 
 ## Testing the Training Script
