@@ -7,6 +7,7 @@ parts:
   - caption: Introduction
     chapters:
     - file: part1/problem
+    - file: part1/getting_started
   - caption: Finding a Feasibility Model
     chapters:
     - file: part2/choosing

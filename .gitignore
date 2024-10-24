@@ -176,3 +176,4 @@ res.png
 *.ep
 output/*
 *.png
+docs/_build

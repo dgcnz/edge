@@ -43,9 +43,6 @@ unload_modlues:
 scat: ## cat slurm log with param
 	cat scripts/slurm_logs/slurm_output_$(id).out
 
-download_torch_cpp:
-	cd third-party && wget https://download.pytorch.org/libtorch/nightly/cu124/libtorch-cxx11-abi-shared-with-deps-latest.zip
-
 build_cpp:
 	cmake -DCMAKE_CXX_FLAGS=-O3 -Bbuild
 
@@ -80,7 +77,6 @@ setup_detrex:
 setup_python: export_requirements
 	pip install -r requirements.txt
 	
-
 
 # C++ Runtime
 

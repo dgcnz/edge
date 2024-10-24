@@ -76,11 +76,21 @@ def load_input_fixed(
 
 
 def load_model(
-    config_file: str = "projects/dino_dinov2/configs/COCO/dino_dinov2_b_12ep.py",
+    config_file: str = "projects/dino_dinov2/configs/models/dino_dinov2.py",
     ckpt_path: str = "artifacts/model_final.pth",
+    img_size: int = 512,
+    dynamic_img_size: bool = False,
+    dynamic_img_pad: bool = False,
 ) -> torch.nn.Module:
+    """
+    # EXPORT_RULE:
+    # - disable dynamic image sizes
+    # - fix image size to target device
+    """ 
     opts = [
-        f"train.init_checkpoint={ckpt_path}",
+        f"model.backbone.net.img_size={img_size}",
+        f"model.backbone.net.dynamic_img_size={dynamic_img_size}",
+        f"model.backbone.net.dynamic_img_pad={dynamic_img_pad}",
     ]
     cfg = LazyConfig.load(config_file)
     cfg = LazyConfig.apply_overrides(cfg, opts)
@@ -88,7 +98,7 @@ def load_model(
     if ckpt_path:
         print(f"Loading checkpoint {ckpt_path}")
         checkpointer = DetectionCheckpointer(model)
-        checkpointer.load(cfg.train.init_checkpoint)
+        checkpointer.load(ckpt_path)
     return model
 
 
