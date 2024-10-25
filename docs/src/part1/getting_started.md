@@ -1,31 +1,68 @@
 # Getting Started
 
-TODO: 
-- [ ] Introduce project structure 
+```{contents}
+```
+
+## Project structure
+
+The project is structured as follows:
+
+```
+.
+├── artifacts           # Model weights and scripts I/O
+├── build               # Build directory (location for cpp executables)
+├── cpp                 # source code for cpp executables
+├── detrex              # fork of detrex
+├── docs                # documentation
+├── logs                
+├── notebooks           # jupyter notebooks
+├── output              # [Training] `scripts.train_net` outputs (tensorboard logs, weights, etc)
+├── projects            # configurations and model definitions
+├── scripts             # utility scripts 
+├── src                 # python source code
+├── third-party         # third-party c libraries
+├── wandb_output        # Output from wandb
+├── CMakeLists.txt      # CMake configuration for cpp executables
+├── cu124.yaml          # Conda environment file (only system dependencies: cuda, gcc, python)
+├── Makefile            # Makefile for project scripts
+├── poetry.lock         # Locked python dependencies
+├── pyproject.toml      # Poetry configuration
+├── README.md 
+```
+
+The main folders to focus are `src` and `scripts` as it is where most of the source code lies.
 
 ## Installation
 
-TODO: 
-- [ ] Write installation instructions nicely
+First make sure the (bold) pre-requirements are fulfilled:
+- **Conda** 
+- **Make** 
+- CMake (for building cpp executables)
 
-Prerequirements:
-- Conda
-- Make
-- CMake
 
-Create conda environment:
+First let's create our conda environment. This will install the cuda runtime and libraries, python, the poetry dependency manager and other stuff:
+
 ```bash
-conda create -f cu124.yaml
+conda env create -f cu124.yaml
 conda activate cu124
 ```
 
-Install python requirements: 
+To avoid TorchInductor and ModelOpt errors looking for `crypt.h`:
+
+```bash
+conda env config vars set CPATH=$CONDA_PREFIX/include  
+conda activate cu124
+```
+
+Installing the dependencies requires some manual building (`detrex`, `detectron2`), so we can use the make commands to do it for us:
+
 ```bash
 make setup_python
 make setup_detrex
 ```
 
-If you need the C++ runtime with TensoRT:
+(Optional) If you need the C++ TensorRT runtime and the accompanying benchmark executables, you can build them with the following commands:
+
 ```bash
 make download_and_build_torchtrt
 # To build the `benchmark` executable
@@ -33,9 +70,12 @@ make build_cpp
 make compile_cpp
 ```
 
-## Downloading datasets
+This will automatically download the necessary files and build the libraries for you.
 
-If you have a designated folder for datasets, use it, for the purpose of this tutorial, we'll use `~/datasets`:
+
+## Downloading datasets (training-only)
+
+If you have a designated folder for datasets, use it, for the purpose of this tutorial, we'll use `~/datasets`. We'll test with the COCO dataset, so let's download it:
 
 ```bash
 cd ~/datasets
@@ -51,11 +91,9 @@ unzip train2017.zip
 unzip val2017.zip
 ```
 
-## Setting up environment variables
+To point the `detectron2` library to the dataset directory, we need to set the `DETECTRON2_DATASETS` environment variable:
 
 ```bash
-# Necessary to avoid TorchInductor and ModelOpt errors looking for crypt.h
-export CPATH=$(CONDA_PREFIX)/include  
-# To help detectron2 locate the dataset, set to your local path containing COCO
-export DETECTRON2_DATASETS=$DATASETS
+conda env config vars set DETECTRON2_DATASETS=~/datasets
+conda activate cu124
 ```

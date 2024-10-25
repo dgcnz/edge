@@ -11,3 +11,4 @@ dependencies:
   - gcc=13 
   # nvidia-modelopt requires crypt.h, see: https://github.com/stanford-futuredata/ColBERT/issues/309
   - libxcrypt 
+  - poetry
