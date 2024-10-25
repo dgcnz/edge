@@ -11,7 +11,7 @@ on:
     # folder has been modified.
     #
     paths:
-    - docs/src
+    - docs/src/**
 
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
