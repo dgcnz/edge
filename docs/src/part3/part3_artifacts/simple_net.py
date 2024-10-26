@@ -9,14 +9,16 @@ class SimpleNet(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
-        self.conv2 = nn.Conv2d(6, 9, 5)
-        self.fc = nn.Linear(5184, 10)
+        self.conv2 = nn.Conv2d(3, 6, 5)
+        self.fc = nn.Linear(4704, 10)
 
     def forward(self, x: torch.Tensor):
-        x = self.conv1(x)
-        x = F.relu(x)
-        x = self.conv2(x)
-        x = F.relu(x)
-        x = torch.flatten(x, 1)
-        x = self.fc(x)
-        return x
+        z = self.conv1(x)
+        z = F.relu(z)
+        y = self.conv2(x)
+        y = F.relu(y)
+        o = z + y
+        o = torch.flatten(o, 1)
+        o = self.fc(o)
+        return o
+    
