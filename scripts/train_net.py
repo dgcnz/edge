@@ -41,7 +41,9 @@ from detectron2.checkpoint import DetectionCheckpointer
 
 from detrex.utils import WandbWriter
 from detrex.modeling import ema
+import detrex
 
+detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 
