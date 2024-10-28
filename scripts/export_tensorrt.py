@@ -1,7 +1,9 @@
+import torch._subclasses.fake_tensor
 import torch_tensorrt
 from typing import Optional
 import logging
 from contextlib import nullcontext
+import detrex
 from src.utils.quantization import (
     load_model,
     plot_predictions,
@@ -14,7 +16,7 @@ import argparse
 from functools import partial
 
 logging.basicConfig(level=logging.INFO)
-
+detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
 
 def setup_parser():
     parser = argparse.ArgumentParser()
@@ -31,7 +33,7 @@ def setup_parser():
         "--trt_precisions",
         nargs="+",
         help="List of possible precisions for TensorRT",
-        required=True,
+        default=["fp32"],
         # choices=[
         #     ["fp32"],
         #     ["bf16"],
@@ -122,6 +124,7 @@ def main():
     )
     model.eval().cuda()
     inputs = (example_kwargs["images"].cuda(),)
+    model(*inputs)
     trt_gm = compile(
         model, inputs, amp_dtype=args.amp_dtype, trt_precisions=args.trt_precisions
     )
