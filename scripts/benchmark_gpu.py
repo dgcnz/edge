@@ -15,7 +15,9 @@ import torch_tensorrt
 import logging
 import argparse
 from pathlib import Path
+import detrex
 
+detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
 
 def setup_parser():
     DEFAULT_IMG = Path("artifacts/idea_raw.jpg")

@@ -78,7 +78,7 @@ def load_input_fixed(
 def load_model(
     config_file: str = "projects/dino_dinov2/configs/models/dino_dinov2.py",
     ckpt_path: str = "artifacts/model_final.pth",
-    img_size: int = 512,
+    img_size: tuple[int, int] = (512, 512),
     dynamic_img_size: bool = False,
     dynamic_img_pad: bool = False,
 ) -> torch.nn.Module:
@@ -88,7 +88,7 @@ def load_model(
     # - fix image size to target device
     """ 
     opts = [
-        f"model.backbone.net.img_size={img_size}",
+        f"model.backbone.net.img_size={list(img_size)}",
         f"model.backbone.net.dynamic_img_size={dynamic_img_size}",
         f"model.backbone.net.dynamic_img_pad={dynamic_img_pad}",
     ]

@@ -118,7 +118,7 @@ def main():
     logging.info("Loading model and example input")
     img, example_kwargs = load_input_fixed(height=args.height, width=args.width)
     model = ModelWrapper(
-        net=load_model().cuda(),
+        net=load_model(img_size=(args.height, args.width)).cuda(),
         height=example_kwargs["heights"][0],
         width=example_kwargs["widths"][0],
     )
