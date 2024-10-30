@@ -8,12 +8,13 @@ import torch
 import torch_tensorrt
 from omegaconf import DictConfig, OmegaConf
 
+import importlib
 import detrex
 from src.utils import TracingAdapter, load_input_fixed, load_model, plot_predictions
 
 logging.basicConfig(level=logging.INFO)
-torch._subclasses.fake_tensor.CONSTANT_NUMEL_LIMIT = 2000
-detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
+# torch._subclasses.fake_tensor.CONSTANT_NUMEL_LIMIT = 2000
+# detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
 
 
 def to_dtype(precision: str):
@@ -86,10 +87,17 @@ def compile(
         return trt_gm
 
 
-@hydra.main(version_base=None, config_path="config/export_tensorrt", config_name="vit")
+@hydra.main(version_base=None, config_path="config/export_tensorrt", config_name="dinov2")
 def main(cfg: DictConfig):
     OUTPUT_DIR = Path(hydra.core.hydra_config.HydraConfig.get().runtime.output_dir)
     print(OmegaConf.to_yaml(cfg))
+
+    # Setting variables
+    for var, val in cfg.env.items():
+        logging.info(f"Setting {var} to {val}")
+        module_name, attr_name = var.rsplit(".", 1)
+        module = importlib.import_module(module_name)
+        setattr(module, attr_name, val)
 
     # check that amp_dtype is in enabled_precisions
     if cfg.amp_dtype not in cfg.trt.enabled_precisions:
@@ -116,6 +124,7 @@ def main(cfg: DictConfig):
     )
     inputs = model.flattened_inputs
     model.eval().cuda()
+    # This forward call is important, it ensures the model works before compilation
     model(*inputs)
     try:
         trt_gm = compile(model, inputs, amp_dtype=cfg.amp_dtype, trt_cfg=cfg.trt)

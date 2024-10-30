@@ -200,6 +200,7 @@ class DINOTransformerDecoder(TransformerLayerSequence):
             if reference_points.shape[-1] == 4:
                 reference_points_input = (
                     reference_points[:, :, None]
+                    # DYNAMO REFACTOR
                     # small refactor to avoid: https://github.com/pytorch/pytorch/issues/129038
                     # * torch.cat([valid_ratios, valid_ratios], -1)[:, None]
                     * valid_ratios.repeat(*[1] * (valid_ratios.ndim - 1), 2)[:, None]
@@ -272,6 +273,7 @@ class DINOTransformer(nn.Module):
         num_feature_levels=4,
         two_stage_num_proposals=900,
         learnt_init_query=True,
+        specialize_with_list: bool = False,
     ):
         super(DINOTransformer, self).__init__()
         self.encoder = encoder
@@ -289,6 +291,7 @@ class DINOTransformer(nn.Module):
             self.tgt_embed = nn.Embedding(self.two_stage_num_proposals, self.embed_dim)
         self.enc_output = nn.Linear(self.embed_dim, self.embed_dim)
         self.enc_output_norm = nn.LayerNorm(self.embed_dim)
+        self.specialize_with_list = specialize_with_list
 
         self.init_weights()
 
@@ -301,7 +304,7 @@ class DINOTransformer(nn.Module):
                 m.init_weights()
         nn.init.normal_(self.level_embeds)
 
-    def gen_encoder_output_proposals(self, memory, memory_padding_mask, spatial_shapes: List[Tuple[int, int]]):
+    def gen_encoder_output_proposals(self, memory, memory_padding_mask, spatial_shapes):
         N, S, C = memory.shape
         proposals = []
         _cur = 0
@@ -348,7 +351,7 @@ class DINOTransformer(nn.Module):
         return output_memory, output_proposals
 
     @staticmethod
-    def get_reference_points(spatial_shapes: List[Tuple[int, int]], valid_ratios: torch.Tensor, device: torch.device):
+    def get_reference_points(spatial_shapes, valid_ratios: torch.Tensor, device: torch.device):
         """Get the reference points used in decoder.
 
         Args:
@@ -422,17 +425,18 @@ class DINOTransformer(nn.Module):
         feat_flatten = torch.cat(feat_flatten, 1)
         mask_flatten = torch.cat(mask_flatten, 1)
         lvl_pos_embed_flatten = torch.cat(lvl_pos_embed_flatten, 1)
-        # spatial_shapes = torch.as_tensor(
-        #     spatial_shapes, dtype=torch.long, device=feat_flatten.device
-        # )
-        # list refactor
-        # level_start_index = torch.cat((spatial_shapes.new_zeros((1,)), spatial_shapes.prod(1).cumsum(0)[:-1]))
-        level_start_index = [0] + list(itertools.accumulate(list(map(math.prod, spatial_shapes))))[:-1]
+        if not self.specialize_with_list:
+            spatial_shapes = torch.tensor(
+                spatial_shapes, dtype=torch.long, device=feat_flatten.device
+            )
+            level_start_index = torch.cat((spatial_shapes.new_zeros((1,)), spatial_shapes.prod(1).cumsum(0)[:-1]))
+        else:
+            level_start_index = [0] + list(itertools.accumulate(list(map(math.prod, spatial_shapes))))[:-1]
         valid_ratios = torch.stack(
             [self.get_valid_ratio(m) for m in multi_level_masks], 1
         )
 
-        reference_points = self.get_reference_points( # DONE
+        reference_points = self.get_reference_points(
             spatial_shapes, valid_ratios, device=feat.device
         )
 

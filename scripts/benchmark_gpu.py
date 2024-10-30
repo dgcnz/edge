@@ -1,74 +1,71 @@
 import torch
 import time
-from typing import Optional
 from functools import partial
 import contextlib
 from src.utils import (
     load_input_fixed,
-    plot_predictions,
     TracingAdapter,
 )
-from src.utils import load_model as _load_model
+from src.utils import load_model
 from statistics import stdev, mean
 import torch_tensorrt
 import logging
-import argparse
 from pathlib import Path
 import detrex
-
-detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
-
-
-def setup_parser():
-    DEFAULT_IMG = Path("artifacts/idea_raw.jpg")
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=Path, required=True)
-    parser.add_argument("--image", type=Path, default=DEFAULT_IMG)
-    parser.add_argument("--n_warmup", type=int, default=10)
-    parser.add_argument("--n_iter", type=int, default=10)
-    parser.add_argument("--output", type=Path, default=None)
-    parser.add_argument(
-        "--amp_dtype", type=str, default=None, choices=["fp16", "bf16", None]
-    )
-    return parser
+import hydra
+from omegaconf import DictConfig, OmegaConf
+import importlib
 
 
 logging.basicConfig(level=logging.INFO)
 
 
-def load_model(model_path: Path):
-    if model_path.suffix == ".ts":
-        *_, height, width = model_path.stem.split("_")
+@hydra.main(
+    version_base=None, config_path="config/benchmark_gpu", config_name="default"
+)
+def main(cfg: DictConfig):
+    OUTPUT_DIR = Path(hydra.core.hydra_config.HydraConfig.get().runtime.output_dir)
+    print(OmegaConf.to_yaml(cfg))
+
+    n_iter = cfg.n_iter  # default 10
+    n_warmup = cfg.n_warmup  # default 10
+    amp_dtype = cfg.amp_dtype  # default None
+    compile_run_path = Path(cfg.compile_run_path)
+    compile_run_cfg = OmegaConf.load(compile_run_path / ".hydra" / "config.yaml")
+    print(OmegaConf.to_yaml(compile_run_cfg))
+
+    # Setting variables
+    for var, val in compile_run_cfg.env.items():
+        logging.info(f"Setting {var} to {val}")
+        module_name, attr_name = var.rsplit(".", 1)
+        module = importlib.import_module(module_name)
+        setattr(module, attr_name, val)
+
+    height, width = compile_run_cfg.image.height, compile_run_cfg.image.width
+
+    base_model = load_model(
+        config_file=compile_run_cfg.model.config,
+        ckpt_path=compile_run_cfg.model.ckpt_path,
+        opts=compile_run_cfg.model.opts,
+    )
+
+    _, inputs = load_input_fixed(height=height, width=width, device="cuda")
+    model = TracingAdapter(
+        base_model, inputs=inputs, allow_non_tensor=False, specialize_non_tensor=True
+    )
+
+    inputs = model.flattened_inputs
+    print(inputs[0].shape)
+
+    if cfg.load_ts:
+        del base_model, model
+        model_path = compile_run_path / "model.ts"
         model = torch.jit.load(model_path)
-    elif model_path.suffix == ".ep":
-        *_, height, width = model_path.stem.split("_")
-        model = torch.export.load(model_path).module()
-    elif model_path.suffix == ".pth":
-        height, width = 512, 512
-        model = _load_model().cuda()
-        model = TracingAdapter(model, *load_input_fixed(height=height, width=width))
-    else:
-        raise ValueError(f"Unsupported model format: {model_path.suffix}")
 
-    return model, int(height), int(width)
-
-
-def benchmark(
-    model_path: Path,
-    image_path: Path,
-    n_warmup: int,
-    n_iter: int,
-    output_path: Optional[Path],
-    amp_dtype: Optional[str] = None,
-):
-    # track cuda memory history
     torch.cuda.memory._record_memory_history()
-    model, height, width = load_model(model_path)
+
     model.eval()
     model.cuda()
-    logging.info("Loaded model")
-    img, example_kwargs = load_input_fixed(str(image_path), height, width)
-    input = (example_kwargs["images"].cuda(),)
 
     ctx = contextlib.nullcontext
     if amp_dtype is not None:
@@ -81,7 +78,7 @@ def benchmark(
     with torch.no_grad(), ctx():
         logging.info("warmup")
         for _ in range(n_warmup):
-            _ = model(*input)
+            _ = model(*inputs)
 
         torch.cuda.reset_peak_memory_stats()
         logging.info("measuring time")
@@ -89,7 +86,7 @@ def benchmark(
         for _ in range(n_iter):
             torch.cuda.synchronize()
             start_time = time.time()
-            _ = model(*input)
+            _ = model(*inputs)
             torch.cuda.synchronize()
             end_time = time.time()
             inference_time = end_time - start_time
@@ -101,23 +98,8 @@ def benchmark(
 
         # get max memory usage
         max_memory = torch.cuda.memory.max_memory_allocated()
-        torch.cuda.memory._dump_snapshot(f"artifacts/{model_path.stem}_mem.pickle")
+        torch.cuda.memory._dump_snapshot(OUTPUT_DIR / "mem.pickle")
         logging.info(f"Max memory usage: {max_memory / 1e6:.4f} MB")
-
-    if output_path is not None:
-        outputs = model(*input)
-        outputs = unflatten_repr(outputs)
-        plot_predictions(outputs, img, output_file=output_path)
-
-
-def main():
-    parser = setup_parser()
-    args = parser.parse_args()
-    logging.info("Loading model")
-    model_path = args.model
-    benchmark(
-        model_path, args.image, args.n_warmup, args.n_iter, args.output, args.amp_dtype
-    )
 
 
 if __name__ == "__main__":

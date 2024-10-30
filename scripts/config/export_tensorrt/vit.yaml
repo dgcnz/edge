@@ -14,4 +14,11 @@ trt:
   enable_experimental_decompositions: True
   min_block_size: 1
   use_fast_partitioner: True # doesn't make any difference in supported nodes
+  torch_executed_ops:
+    - "torch.ops.aten.sym_size.int"
 amp_dtype: "fp32"
+env:
+  "torch._subclasses.fake_tensor.CONSTANT_NUMEL_LIMIT":  2000
+  "detectron2.modeling.proposal_generator.proposal_utils.SKIP_NMS": True
+  "detectron2.modeling.roi_heads.fast_rcnn.SKIP_NMS": True
+  "detectron2.modeling.roi_heads.fast_rcnn.SKIP_FILTER_CONFIDENCE": True

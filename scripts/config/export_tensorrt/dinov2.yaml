@@ -6,6 +6,8 @@ amp_dtype: "fp32"
 trt:
   enabled_precisions:
     - "fp32"
+    - "fp16"
+    - "bf16"
 model:
   config: "projects/dino_dinov2/configs/models/dino_dinov2.py"
   ckpt_path: "artifacts/model_final.pth"
@@ -13,3 +15,8 @@ model:
     - "model.backbone.net.img_size=[512, 512]"
     - "model.backbone.net.dynamic_img_size=False"
     - "model.backbone.net.dynamic_img_pad=False"
+    - "model.transformer.specialize_with_list=True"
+
+env:
+  "torch._subclasses.fake_tensor.CONSTANT_NUMEL_LIMIT":  2000
+  "detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA": False

@@ -34,7 +34,7 @@ def load_input_fixed(
     with torch.no_grad():
         if input_format == "RGB":
             img = img[:, :, ::-1]
-        img = torch.as_tensor(img.astype("float32").transpose(2, 0, 1))
+        img = torch.as_tensor(img.astype("float32").transpose(2, 0, 1)).contiguous()
         return original_img, (
             [
                 {

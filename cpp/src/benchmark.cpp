@@ -23,7 +23,7 @@ void benchmark(std::string model_name, int n_warmup = 5, int n_iter = 5)
 
     auto trt_mod = torch::jit::load(model_name, torch::kCUDA);
     trt_mod.eval();
-    torch::Tensor input_tensor = torch::rand({1, 3, 512, 512}).cuda();
+    torch::Tensor input_tensor = torch::rand({3, 512, 512}).cuda();
 
     std::cout << "warmup["<< n_warmup << "]" <<  std::endl;
     while (n_warmup--)
