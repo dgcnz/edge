@@ -1,7 +1,7 @@
 import torch
 # import torch_tensorrt
 # import modelopt.torch.quantization as mtq
-from src.utils.quantization import load_input_fixed, ModelWrapper, load_model
+from src.utils._quantization import load_input_fixed, ModelWrapper, load_model
 from torchao.utils import unwrap_tensor_subclass
 import pickle
 import torchao

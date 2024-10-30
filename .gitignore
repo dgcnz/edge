@@ -177,3 +177,5 @@ res.png
 output/*
 *.png
 docs/_build
+!docs/src/**/*.png
+outputs/

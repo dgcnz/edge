@@ -1,51 +1,19 @@
-import torch._subclasses.fake_tensor
-import torch_tensorrt
-from typing import Optional
 import logging
 from contextlib import nullcontext
-import detrex
-from src.utils.quantization import (
-    load_model,
-    plot_predictions,
-    load_input_fixed,
-    ModelWrapper,
-    unflatten_repr,
-)
-import torch
-import argparse
 from functools import partial
+from pathlib import Path
+
+import hydra
+import torch
+import torch_tensorrt
+from omegaconf import DictConfig, OmegaConf
+
+import detrex
+from src.utils import TracingAdapter, load_input_fixed, load_model, plot_predictions
 
 logging.basicConfig(level=logging.INFO)
+torch._subclasses.fake_tensor.CONSTANT_NUMEL_LIMIT = 2000
 detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
-
-def setup_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--height", type=int, default=512)
-    parser.add_argument("--width", type=int, default=512)
-    parser.add_argument(
-        "--amp_dtype",
-        type=str,
-        default="fp32",
-        choices=["fp16", "bf16", "fp32"],
-        help="AMP dtype. If fp32, no AMP is used.",
-    )
-    parser.add_argument(
-        "--trt_precisions",
-        nargs="+",
-        help="List of possible precisions for TensorRT",
-        default=["fp32"],
-        # choices=[
-        #     ["fp32"],
-        #     ["bf16"],
-        #     ["fp16"],
-        #     ["fp32", "bf16"],
-        #     ["fp32", "fp16"],
-        #     ["bf16", "fp16"],
-        #     ["fp32", "fp16", "bf16"],
-        # ],
-    )
-
-    return parser
 
 
 def to_dtype(precision: str):
@@ -59,14 +27,17 @@ def to_dtype(precision: str):
 
 
 def compile(
-    model: torch.nn.Module, inputs: tuple, amp_dtype: str = "fp32", trt_precisions: list[str] = ["fp32"]
+    model: torch.nn.Module,
+    inputs: tuple,
+    trt_cfg: DictConfig,
+    amp_dtype: str = "fp32",
 ):
     """
     Compile the model with the given AMP dtype and enabled TRT precisions.
     :param model: Model to compile
     :param inputs: Example inputs
+    :param trt_cfg: TRT compilation configuration
     :param amp_dtype: AMP dtype, if fp32, no AMP is used
-    :param trt_precisions: List of precisions to enable in TensorRT
     """
 
     amp_dtype = to_dtype(amp_dtype)
@@ -74,9 +45,15 @@ def compile(
     if amp_dtype != torch.float32:
         amp_autocast = partial(torch.amp.autocast, "cuda", dtype=amp_dtype)
 
-    enabled_precisions = {to_dtype(p) for p in trt_precisions}
+    assert trt_cfg.enabled_precisions, "enabled_precisions must not be empty"
+    trt_cfg = OmegaConf.to_container(trt_cfg, resolve=True)
+    trt_cfg["enabled_precisions"] = list(
+        set(to_dtype(p) for p in trt_cfg["enabled_precisions"])
+    )
 
-    logging.info(f"Compiling model with {amp_dtype} and {trt_precisions}")
+    logging.info(
+        f"Compiling model with {amp_dtype} and {trt_cfg['enabled_precisions']}"
+    )
 
     with torch.no_grad(), amp_autocast():
         logging.info("Warmup")
@@ -89,69 +66,86 @@ def compile(
             args=inputs,
         )
         logging.info("Compiling model")
+        trt_kwargs = {
+            "reuse_cached_engines": False,
+            "cache_built_engines": False,
+            "enable_experimental_decompositions": True,
+            "truncate_double": True,
+            "use_fast_partitioner": True,
+            "require_full_compilation": True,
+            "debug": True,
+        }
+        # override trt_kwargs with trt_cfg
+        trt_kwargs.update(trt_cfg)
         trt_gm = torch_tensorrt.dynamo.compile(
             exported_program,
             inputs,
-            reuse_cached_engines=False,
-            cache_built_engines=False,
-            enable_experimental_decompositions=True,
-            truncate_double=True,
-            use_fast_partitioner=True,
-            require_full_compilation=True,
-            enabled_precisions=enabled_precisions,
+            **trt_kwargs,
         )
         logging.info("Compiled model")
         return trt_gm
 
 
-def main():
-    parser = setup_parser()
-    args = parser.parse_args()
-    
+@hydra.main(version_base=None, config_path="config/export_tensorrt", config_name="vit")
+def main(cfg: DictConfig):
+    OUTPUT_DIR = Path(hydra.core.hydra_config.HydraConfig.get().runtime.output_dir)
+    print(OmegaConf.to_yaml(cfg))
+
     # check that amp_dtype is in enabled_precisions
-    if args.amp_dtype not in args.trt_precisions:
+    if cfg.amp_dtype not in cfg.trt.enabled_precisions:
         raise ValueError(
-            f"amp_dtype {args.amp_dtype} is not in trt_precisions {args.trt_precisions}"
+            f"amp_dtype {cfg.amp_dtype} is not in cfg.trt.enabled_precisions {cfg.trt.enabled_precisions}"
         )
-    args.trt_precisions.sort() # to ensure consistency in output file name
+    cfg.trt.enabled_precisions.sort()  # to ensure consistency in output file name
+    # save cfg to yaml file using OmegaConf
 
     logging.info("Loading model and example input")
-    img, example_kwargs = load_input_fixed(height=args.height, width=args.width)
-    model = ModelWrapper(
-        net=load_model(img_size=(args.height, args.width)).cuda(),
-        height=example_kwargs["heights"][0],
-        width=example_kwargs["widths"][0],
+    img, raw_inputs = load_input_fixed(
+        image_path=cfg.image.path,
+        height=cfg.image.height,
+        width=cfg.image.width,
+        device="cuda",
     )
+    model = load_model(
+        config_file=cfg.model.config,
+        ckpt_path=cfg.model.ckpt_path,
+        opts=cfg.model.opts,
+    ).cuda()
+    model = TracingAdapter(
+        model, inputs=raw_inputs, allow_non_tensor=False, specialize_non_tensor=True
+    )
+    inputs = model.flattened_inputs
     model.eval().cuda()
-    inputs = (example_kwargs["images"].cuda(),)
     model(*inputs)
-    trt_gm = compile(
-        model, inputs, amp_dtype=args.amp_dtype, trt_precisions=args.trt_precisions
-    )
+    try:
+        trt_gm = compile(model, inputs, amp_dtype=cfg.amp_dtype, trt_cfg=cfg.trt)
+    except Exception as e:
+        logging.error("Failed to compile model", exc_info=True)
+        return
 
     logging.info("Executing compiled model")
     outputs = trt_gm(*inputs)
-    outputs = unflatten_repr(outputs)
+    outputs = model.outputs_schema(outputs)[0]
     logging.info(f"Predictions\n{outputs}")
 
     logging.info("Plotting predictions")
-    enabled_precisions = "-".join(args.trt_precisions)  
-    output_name = f"{args.amp_dtype}_{enabled_precisions}_{args.height}_{args.width}"
-    plot_predictions(outputs, img, output_file=f"{output_name}.png")
+    plot_predictions(outputs, img, output_file=str(OUTPUT_DIR / "predictions.png"))
     try:
         logging.info("Saving PT2E")
-        torch_tensorrt.save(trt_gm, f"artifacts/{output_name}.ep", inputs=inputs)
+        torch_tensorrt.save(trt_gm, str(OUTPUT_DIR / "model.pt2"), inputs=inputs)
     except Exception as e:
         logging.error("Failed to save PT2E", exc_info=True)
+        logging.info("Saved PT2E")
 
     try:
         logging.info("Saving TorchScript")
         torch_tensorrt.save(
             trt_gm,
-            f"artifacts/{output_name}.ts",
+            str(OUTPUT_DIR / f"model.ts"),
             output_format="torchscript",
             inputs=inputs,
         )
+        logging.info("Saved TorchScript")
     except Exception as e:
         logging.error("Failed to save TorchScript", exc_info=True)
 

@@ -305,17 +305,6 @@ class DINOTransformer(nn.Module):
         N, S, C = memory.shape
         proposals = []
         _cur = 0
-        # temporary
-        # REFACTOR: we can remove these static checks if we never cast the spatial_shapes to a tensor
-        # spatial_shapes: List[Tuple[int, int]] = spatial_shapes.tolist()
-        # torch._check(spatial_shapes[0][0] == 150)
-        # torch._check(spatial_shapes[0][1] == 100)
-        # torch._check(spatial_shapes[1][0] == 75)
-        # torch._check(spatial_shapes[1][1] == 50)
-        # torch._check(spatial_shapes[2][0] == 37)
-        # torch._check(spatial_shapes[2][1] == 25)
-        # torch._check(spatial_shapes[3][0] == 19)
-        # torch._check(spatial_shapes[3][1] == 13)
         for lvl, (H, W) in enumerate(spatial_shapes):
             mask_flatten_ = memory_padding_mask[:, _cur : (_cur + H * W)].view(
                 N, H, W, 1
@@ -375,26 +364,8 @@ class DINOTransformer(nn.Module):
             Tensor: reference points used in decoder, has \
                 shape (bs, num_keys, num_levels, 2).
         """
-        # spatial_shapes: list[tuple[int, int]] =  spatial_shapes.tolist()
-        # [[150, 100], [75, 50], [37, 25], [19, 13]]
-        # temporary
-        # torch._check(spatial_shapes[0][0] == 150)
-        # torch._check(spatial_shapes[0][1] == 100)
-        # torch._check(spatial_shapes[1][0] == 75)
-        # torch._check(spatial_shapes[1][1] == 50)
-        # torch._check(spatial_shapes[2][0] == 37)
-        # torch._check(spatial_shapes[2][1] == 25)
-        # torch._check(spatial_shapes[3][0] == 19)
-        # torch._check(spatial_shapes[3][1] == 13)
         reference_points_list = []
         for lvl, (H, W) in enumerate(spatial_shapes):
-            #  TODO  check this 0.5
-            # H, W = H.item(), W.item()
-            # torch._check(0 <= H)
-            # torch._check(H <= 200)
-            # torch._check(0 <= W)
-            # torch._check(W <= 200)
-
             ref_y, ref_x = torch.meshgrid(
                 torch.linspace(0.5, H - 0.5, H, dtype=torch.float32, device=device),
                 torch.linspace(0.5, W - 0.5, W, dtype=torch.float32, device=device),

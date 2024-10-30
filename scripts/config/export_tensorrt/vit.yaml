@@ -1,0 +1,17 @@
+model:
+  config: "detrex/detectron2/projects/ViTDet/configs/COCO/cascade_mask_rcnn_vitdet_b_100ep.py"
+  ckpt_path: "artifacts/model_final_435fa9.pkl"
+  opts:
+    - "model.backbone.net.window_block_indexes=[]"
+image:
+  height: 1024
+  width: 1024
+  path: "artifacts/idea_raw.jpg"
+trt:
+  enabled_precisions: 
+    - "fp32"
+  require_full_compilation: False
+  enable_experimental_decompositions: True
+  min_block_size: 1
+  use_fast_partitioner: True # doesn't make any difference in supported nodes
+amp_dtype: "fp32"

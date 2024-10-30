@@ -3,7 +3,7 @@ import torch_tensorrt
 from torch.ao.quantization.quantizer.xnnpack_quantizer import XNNPACKQuantizer, get_symmetric_quantization_config
 from torch.ao.quantization.quantize_pt2e import prepare_pt2e, convert_pt2e
 import detectron2.structures
-from src.utils.quantization import (
+from src.utils._quantization import (
     load_input,
     load_model,
     register_DINO_output_types,

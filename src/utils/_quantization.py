@@ -54,53 +54,6 @@ def load_input(
         }
 
 
-def load_input_fixed(
-    image_path: str = "artifacts/idea_raw.jpg",
-    height: int = 800,
-    width: int = 1200,
-    input_format: str = "RGB",
-):
-    img = read_image(image_path, format="BGR")
-    res = T.Resize((height, width))
-    original_img = res.get_transform(img).apply_image(img)
-    img = original_img.copy()
-    with torch.no_grad():
-        if input_format == "RGB":
-            img = img[:, :, ::-1]
-        img = torch.as_tensor(img.astype("float32").transpose(2, 0, 1))
-        return original_img, {
-            "images": img.unsqueeze(0),
-            "heights": [height],
-            "widths": [width],
-        }
-
-
-def load_model(
-    config_file: str = "projects/dino_dinov2/configs/models/dino_dinov2.py",
-    ckpt_path: str = "artifacts/model_final.pth",
-    img_size: tuple[int, int] = (512, 512),
-    dynamic_img_size: bool = False,
-    dynamic_img_pad: bool = False,
-) -> torch.nn.Module:
-    """
-    # EXPORT_RULE:
-    # - disable dynamic image sizes
-    # - fix image size to target device
-    """ 
-    opts = [
-        f"model.backbone.net.img_size={list(img_size)}",
-        f"model.backbone.net.dynamic_img_size={dynamic_img_size}",
-        f"model.backbone.net.dynamic_img_pad={dynamic_img_pad}",
-    ]
-    cfg = LazyConfig.load(config_file)
-    cfg = LazyConfig.apply_overrides(cfg, opts)
-    model: torch.nn.Module = instantiate(OmegaConf.to_object(cfg.model)).eval()
-    if ckpt_path:
-        print(f"Loading checkpoint {ckpt_path}")
-        checkpointer = DetectionCheckpointer(model)
-        checkpointer.load(ckpt_path)
-    return model
-
 
 def unflatten_detectron2_boxes(values, _):
     boxes = object.__new__(detectron2.structures.boxes.Boxes)
@@ -256,13 +209,6 @@ def unflatten_repr(obj):
     return obj
 
 
-def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
-    if "instances" in predictions:
-        preds = predictions["instances"]
-        keep_idxs = preds.scores > confidence_threshold
-        predictions = copy(predictions)  # don't modify the original
-        predictions["instances"] = preds[keep_idxs]
-    return predictions
 
 
 #         pred = filter_predictions_with_confidence(outputs, confidence_threshold=0.5)
@@ -284,15 +230,3 @@ def filter_predictions_with_confidence(predictions, confidence_threshold=0.5):
 #         # trt_gm = inline_torch_modules(trt_gm)
 #         torch_tensorrt.save(trt_gm, "trt.ep", inputs=inputs)
 
-
-def plot_predictions(outputs, img, display: bool = False, output_file: str = "res.png"):
-    pred = filter_predictions_with_confidence(outputs, confidence_threshold=0.5)
-    v = Visualizer(img, MetadataCatalog.get("coco_2017_val"))
-    v = v.draw_instance_predictions(pred["instances"].to("cpu"))
-    fig, ax = plt.subplots(figsize=(14, 10))
-    ax.imshow(v.get_image()[:, :, ::-1])
-    ax.axis("off")
-    if display:
-        plt.show()
-    plt.savefig(output_file)
-    return fig, ax, v

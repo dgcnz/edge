@@ -3,13 +3,12 @@ import time
 from typing import Optional
 from functools import partial
 import contextlib
-from src.utils.quantization import (
+from src.utils import (
     load_input_fixed,
-    unflatten_repr,
     plot_predictions,
-    ModelWrapper,
+    TracingAdapter,
 )
-from src.utils.quantization import load_model as _load_model
+from src.utils import load_model as _load_model
 from statistics import stdev, mean
 import torch_tensorrt
 import logging
@@ -19,6 +18,7 @@ import detrex
 
 detrex.layers.multi_scale_deform_attn._ENABLE_CUDA_MSDA = False
 
+
 def setup_parser():
     DEFAULT_IMG = Path("artifacts/idea_raw.jpg")
     parser = argparse.ArgumentParser()
@@ -27,7 +27,9 @@ def setup_parser():
     parser.add_argument("--n_warmup", type=int, default=10)
     parser.add_argument("--n_iter", type=int, default=10)
     parser.add_argument("--output", type=Path, default=None)
-    parser.add_argument("--amp_dtype", type=str, default=None, choices=["fp16", "bf16", None])
+    parser.add_argument(
+        "--amp_dtype", type=str, default=None, choices=["fp16", "bf16", None]
+    )
     return parser
 
 
@@ -43,11 +45,8 @@ def load_model(model_path: Path):
         model = torch.export.load(model_path).module()
     elif model_path.suffix == ".pth":
         height, width = 512, 512
-        model = ModelWrapper(
-            net=_load_model().cuda(),
-            height=height,
-            width=width,
-        )
+        model = _load_model().cuda()
+        model = TracingAdapter(model, *load_input_fixed(height=height, width=width))
     else:
         raise ValueError(f"Unsupported model format: {model_path.suffix}")
 

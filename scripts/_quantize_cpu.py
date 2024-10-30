@@ -1,7 +1,7 @@
 import torch
 import torchao
 import detectron2.structures
-from src.utils.quantization import (
+from src.utils._quantization import (
     load_input,
     load_model,
     register_DINO_output_types,

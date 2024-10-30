@@ -1,0 +1,15 @@
+image:
+  height: 512
+  width: 512
+  path: "artifacts/idea_raw.jpg"
+amp_dtype: "fp32"
+trt:
+  enabled_precisions:
+    - "fp32"
+model:
+  config: "projects/dino_dinov2/configs/models/dino_dinov2.py"
+  ckpt_path: "artifacts/model_final.pth"
+  opts:
+    - "model.backbone.net.img_size=[512, 512]"
+    - "model.backbone.net.dynamic_img_size=False"
+    - "model.backbone.net.dynamic_img_pad=False"

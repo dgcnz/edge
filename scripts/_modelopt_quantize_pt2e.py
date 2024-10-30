@@ -1,7 +1,7 @@
 import torch_tensorrt
 import torch
 import modelopt.torch.quantization as mtq
-from src.utils.quantization import load_input_fixed, ModelWrapper, load_model, unflatten_repr, plot_predictions
+from src.utils._quantization import load_input_fixed, ModelWrapper, load_model, unflatten_repr, plot_predictions
 # from torchao.utils import unwrap_tensor_subclass
 from modelopt.torch.quantization.utils import export_torch_mode
 
