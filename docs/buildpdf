@@ -1,2 +1,2 @@
 #!/bin/bash
-jb build --path-output _build/pdf src/ --builder pdfhtml
+jb build --path-output _build/pdf src/ --builder pdflatex

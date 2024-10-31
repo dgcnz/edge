@@ -35,3 +35,7 @@ html:
 sphinx:
   config:
     html_show_copyright: false
+    latex_elements:
+      preamble:
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}} 
