@@ -2,11 +2,17 @@
 
 Our task in this chapter is to choose a candidate architecture that allows us to use pre-trained vision foundation models as their backbone's feature extractor.
 
+
+## State of the Art
+
 A brief glimpse into the literature gives us some promising picks but also some fundamental questions. The first thing we find is that there is no clear winner between CNN-based and ViT-based models, especially when we factor latency/efficiency into the equation. Furthermore, neither CNN-based and ViT-based models have a clear best architectural variant (e.g vanilla ViT vs EVA's TrV's, ResNet vs ResNext) and sometimes the backbone's architecture itself is modified to better suit the task at hand (e.g Swin is a ViT with hierarchical features, useful for dense prediction tasks). Furthermore, some backbones are finetuned in task-specific datasets, which improves task-specific performance at expense of generality.
 
-{numref}`Table {number} <sota>` categorizes these model choices and summarizes its performance on the COCO dataset. However, as we described beforehand, these comparisons are often not fair, and a comprehensive evaluation would have to be done to determine the best backbone on all main tasks, and thus the best candidate as a vision foundation model. This question has been tackled by {cite}`botb` last year (2023), but its results are already outdated, as the most popular vit-based foundation models (dinov2 {cite}`dinov2`, eva02 {cite}`eva02`) were released afterwards. In any case, we want a model that is meant for general use, which narrows down the search.
+:::{tip}
+More generally, the pretraining objective also matters. {cite}`park2023` shows that Contrastive learning favors image classification, while Masked Image Modelling favors dense prediction (object detection).
+:::
 
-To finally arrive at a decision, it is useful to think back to the original motivation of using VFMs: To leverage the knowledge acquired by a model pre-trained with extensive data and compute. To keep ourselves future-proofed, we chose **dinov2** {cite}`dinov2` as the backbone, as it has the most support from the community and the authors at Meta. With the same reasoning, we chose the **VitDet** {cite}`vitdet` adapter which allows us to use almost any decoder head. To stay at the state-of-the-art we chose the **DINO** {cite}`dinodetr` decoder.
+
+{numref}`Table {number} <sota>` categorizes these model choices and summarizes its performance on the COCO dataset. However, as we described beforehand, these comparisons are often not fair, and a comprehensive evaluation would have to be done to determine the best backbone on all main tasks, and thus the best candidate as a vision foundation model. This question has been tackled by {cite}`botb` last year (2023), but its results are already outdated, as the most popular vit-based foundation models (dinov2 {cite}`dinov2`, eva02 {cite}`eva02`) were released afterwards. In any case, we want a model that is meant for general use, which narrows down the search.
 
  
 ```{table} State of the Art of Object Detection models
@@ -39,9 +45,16 @@ To finally arrive at a decision, it is useful to think back to the original moti
 
 ```
 
-:::{tip}
-More generally, the pretraining objective also matters. {cite}`park2023` shows that Contrastive learning favors image classification, while Masked Image Modelling favors dense prediction (object detection).
-:::
+## Final decision
+
+To finally arrive at a decision, it is useful to think back to the original motivation of using VFMs: To leverage the knowledge acquired by a model pre-trained with extensive data and compute. To keep ourselves future-proofed, we chose **Dinov2** {cite}`dinov2` as the backbone, as it has the most support from the community and the authors at Meta. With the same reasoning, we chose the **VitDet** {cite}`vitdet` adapter which allows us to use almost any decoder head. To stay at the state-of-the-art we chose the **DINO** {cite}`dinodetr` decoder. 
+
+:::{figure-md} arch
+<img src="arch.png" alt="arch">
+
+Model architecture: Dinov2 backbone, VitDet adapter, DINO decoder.
+::: 
+
 
 
 [^1]: With TensorRT FP16.

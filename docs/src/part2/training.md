@@ -1,3 +1,18 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+mystnb:
+  execution_mode: force
+---
+
+
 # Training the Decoder
 
 ```{contents}
@@ -7,7 +22,7 @@ Now we have a working model with a pre-trained backbone, but we still need to tr
 
 ## Testing the Training Script
 
-To test the training script locally with a single 16GB GPU, we'll can do a couple of things: Reducing batch size, using a smaller model, and enabling mixed precision training:
+To test the training script locally with a single 16GB GPU, can do a couple of things: Reducing batch size, using a smaller model, and enabling mixed precision training:
 
 ```bash
 WANDB_MODE=offline python -m scripts.train_net --num-gpus=1 \
@@ -32,14 +47,65 @@ In {numref}`Table {number} <training_configs>` we can see how these choices affe
 
 ```
 
+## Training Setup 
+
+The full training recipe can be found at `projects/dino_dinov2/configs/COCO/dino_dinov2_b_12ep.py`, which is mostly based on the original recipe for ViT + VitDet + DINO that can be found at `detrex/projects/dino/configs/dino-vitdet/dino_vitdet_base_4scale_12ep.py`. If you want to create a training recipe for `50 epochs` or use a larger `dinov2` you can find appropriate recipes in that same folder.
+
+As an example, we can check the optimizer and learning rate scheduler configuration for our recipe.
+
+```{code-cell} python
+:tags: [remove-cell]
+
+import sys; from pathlib import Path
+
+__DIRS = list(Path().cwd().resolve().parents) + [Path().cwd().resolve()]
+WDIR = next(p for p in __DIRS if (p / ".project-root").exists())
+sys.path.append(str(WDIR))
+%cd {WDIR}
+
+```
+
+```{code-cell} python
+:tags: [hide-cell, remove-output]
+import detectron2
+from detectron2.config import LazyConfig, instantiate, LazyCall
+from omegaconf import OmegaConf
+```
+
+```{code-cell} python
+:tags: [remove-output]
+
+cfg = LazyConfig.load("projects/dino_dinov2/configs/COCO/dino_dinov2_b_12ep.py")
+```
+```{code-cell} python
+print(OmegaConf.to_yaml(cfg["optimizer"]))
+```
+
+```{code-cell} python
+print(OmegaConf.to_yaml(cfg["lr_multiplier"]["scheduler"]))
+```
+
+Thus we can observe that this model is trained with AdamW, with a constant learning rate of `1e-4` for the first 11 epochs, and then decays to `1e-5` for the last epoch, where each epoch is `7500` steps.
+
+
+The final training command is thus:
+
+```sh
+python -m scripts.train_net \
+--config-file=projects/dino_dinov2/configs/COCO/dino_dinov2_b_12ep.py \
+--num-gpus=4 \
+train.amp.enabled=False
+```
+
+You can activate automatic mixed precision training by setting `train.amp.enabled=True`.
 
 ## Training Results
 
 In figures {numref}`boxap` and {numref}`loss` we can see the validation BoxAP and training loss over 12 epochs, respectively. 
 
 TODO:
-- [ ] Mention the little bump at the end from the learning rate scheduler (2eps)
-- [ ] Mention that the model is not saturated
+-  Mention the little bump at the end from the learning rate scheduler (2eps)
+-  Mention that the model is not saturated
 
 ::::{grid} 2
 :::{grid-item-card} 
@@ -62,11 +128,11 @@ Training loss over 12 epochs
 ## Predicting performance at 50 epochs
 
 TODO
-- [ ] Mention that model is trained for 12eps and 50eps, but the 50ep is the one that is used in evaluations
-- [ ] Let's fit some curves and forecast performance at 50eps
-- [ ] Mention the little accuracy increase at the last 10eps of the training
-- [ ] Mention that the normal vit config can be used as reference: detrex/projects/dino/configs/dino-vitdet/dino_vitdet_base_4scale_50ep.py
-- [ ] lr scheduler information can be found at :detrex/detrex/config/configs/common/coco_schedule.py
+- Mention that model is trained for 12eps and 50eps, but the 50ep is the one that is used in evaluations
+- Let's fit some curves and forecast performance at 50eps
+- Mention the little accuracy increase at the last 10eps of the training
+- Mention that the normal vit config can be used as reference: detrex/projects/dino/configs/dino-vitdet/dino_vitdet_base_4scale_50ep.py
+- lr scheduler information can be found at :detrex/detrex/config/configs/common/coco_schedule.py
 
 ::::{grid} 2
 :::{grid-item-card} 

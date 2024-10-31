@@ -1,6 +1,5 @@
 from detrex.config import get_config
 from ..models.dino_dinov2 import model
-# from ..common.coco_detr_518 import dataloader
 
 # get default config
 dataloader = get_config("common/data/coco_detr.py").dataloader
@@ -55,11 +54,3 @@ dataloader.evaluator.output_dir = train.output_dir
 
 # logger
 train.wandb.enabled=True
-#     wandb=dict(
-#         enabled=False,
-#         params=dict(
-#             dir="./wandb_output",
-#             project="detrex",
-#             name="detrex_experiment",
-#         )
-#     ),
