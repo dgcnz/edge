@@ -33,6 +33,7 @@ The project is structured as follows:
 
 The main folders to focus are `src` and `scripts` as it is where most of the source code lies.
 
+(part1:installation)=
 ## Installation
 
 First make sure the (bold) pre-requirements are fulfilled:
