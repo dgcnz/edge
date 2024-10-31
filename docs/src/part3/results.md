@@ -1,5 +1,8 @@
 # Benchmarks and Results
 
+```{contents}
+```
+
 ## Running the benchmarks
 
 Download the model:

@@ -15,8 +15,9 @@ The project is structured as follows:
 ├── detrex              # fork of detrex
 ├── docs                # documentation
 ├── logs                
-├── notebooks           # jupyter notebooks
+├── notebooks           # experimental jupyter notebooks
 ├── output              # [Training] `scripts.train_net` outputs (tensorboard logs, weights, etc)
+├── outputs             # [Compilation] `scripts.export_tensorrt` outputs (exported model, logs, etc)
 ├── projects            # configurations and model definitions
 ├── scripts             # utility scripts 
 ├── src                 # python source code
@@ -97,3 +98,15 @@ To point the `detectron2` library to the dataset directory, we need to set the `
 conda env config vars set DETECTRON2_DATASETS=~/datasets
 conda activate cu124
 ```
+
+
+(part1:downloadmodel)=
+## Downloading trained model (for compilation and evaluation)
+
+To download the final trained model, download the trained model weights from HuggingFace and place them on `artifacts/model_final.pth` with the following command:
+
+```bash
+wget https://huggingface.co/dgcnz/dinov2_vitdet_DINO_12ep/resolve/main/model_final.pth -O artifacts/model_final.pth ⁠
+```
+
+This is a necessary step for compilation and running benchmarks later on.

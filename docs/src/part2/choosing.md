@@ -1,5 +1,8 @@
 # Choosing a candidate model
 
+```{contents}
+```
+
 Our task in this chapter is to choose a candidate architecture that allows us to use pre-trained vision foundation models as their backbone's feature extractor.
 
 
