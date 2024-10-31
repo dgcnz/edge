@@ -101,11 +101,7 @@ You can activate automatic mixed precision training by setting `train.amp.enable
 
 ## Training Results
 
-In figures {numref}`boxap` and {numref}`loss` we can see the validation BoxAP and training loss over 12 epochs, respectively. 
-
-TODO:
--  Mention the little bump at the end from the learning rate scheduler (2eps)
--  Mention that the model is not saturated
+In figures {numref}`boxap` and {numref}`loss` we can see the validation BoxAP and training loss over 12 epochs, respectively. We can observe the little bump in accuracy at the last epoch of training, which is due to the lower learning rate. The model is not saturated, as we can see that the loss is still decreasing.
 
 ::::{grid} 2
 :::{grid-item-card} 
@@ -127,26 +123,22 @@ Training loss over 12 epochs
 
 ## Predicting performance at 50 epochs
 
-TODO
-- Mention that model is trained for 12eps and 50eps, but the 50ep is the one that is used in evaluations
-- Let's fit some curves and forecast performance at 50eps
-- Mention the little accuracy increase at the last 10eps of the training
-- Mention that the normal vit config can be used as reference: detrex/projects/dino/configs/dino-vitdet/dino_vitdet_base_4scale_50ep.py
-- lr scheduler information can be found at :detrex/detrex/config/configs/common/coco_schedule.py
+The original model was trained for 50 epochs, so doing a comparison at this stage is unfair. However, we can fit some curves and forecast the performance at 50 epochs.  As we can see in {numref}`scaling`, our model's validation BoxAP is well predicted with a power law. If we extrapolate this curve (see {numref}`scaling_prediction`), we can expect a performance of 54.54 at 50 epochs. However, this doesn't account for the bump in accuracy caused by the learning rate decay, so we can expect a slightly higher performance (~56 AP). 55 box AP is +4.8 points over the original model {cite}`vitdet`, which is already a significant improvement.
+
 
 ::::{grid} 2
 :::{grid-item-card} 
 :::{figure-md} scaling
 <img src="scaling.png" alt="">
 
-Caption
+Trying different curve fits (logarithmic, log-linear, power law).
 :::
 :::
 :::{grid-item-card}  
 :::{figure-md} scaling_prediction
 <img src="scaling_prediction.png" alt="">
 
-Caption
+Predicting performance at 50 epochs with power law.
 :::
 :::
 ::::

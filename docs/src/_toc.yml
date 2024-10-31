@@ -18,6 +18,7 @@ parts:
     chapters:
     - file: part3/compilation
     - file: part3/results
-  - caption: Other
+  - caption: Wrapping Up
     chapters:
-    - file: bibliography 
+    - file: part4/conclusions
+    - file: part4/bibliography 

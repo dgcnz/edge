@@ -31,6 +31,7 @@ Masked Image Modelling is a self-supervised objective that consists in predictin
 The drawback of using these foundation models is that they are large and computationally expensive, which makes them unsuitable for deployment in production environments, especially on edge devices. To address this issue, we need to optimize these models.
 
 
+(part1:objectives)=
 ## Objectives
 
 To ground our problem, we can use the framework described by {cite}`mcip` that Apple engineers use to deploy machine learning models on their devices. As we can see on {numref}`Figure {number} <apple_practice>`, this consists on three steps:

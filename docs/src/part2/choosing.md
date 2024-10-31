@@ -6,6 +6,7 @@
 Our task in this chapter is to choose a candidate architecture that allows us to use pre-trained vision foundation models as their backbone's feature extractor.
 
 
+(part2:sota)=
 ## State of the Art
 
 A brief glimpse into the literature gives us some promising picks but also some fundamental questions. The first thing we find is that there is no clear winner between CNN-based and ViT-based models, especially when we factor latency/efficiency into the equation. Furthermore, neither CNN-based and ViT-based models have a clear best architectural variant (e.g vanilla ViT vs EVA's TrV's, ResNet vs ResNext) and sometimes the backbone's architecture itself is modified to better suit the task at hand (e.g Swin is a ViT with hierarchical features, useful for dense prediction tasks). Furthermore, some backbones are finetuned in task-specific datasets, which improves task-specific performance at expense of generality.

@@ -88,12 +88,20 @@ We include the previous results for completeness, in case the issue is resolved 
 
 | model's precision | trt.enabled_precisions | latency |
 | ----------------- | ---------------------- | ------- |
-| fp32              | fp32+fp16              | 13.984  |
 | fp32              | fp32+bf16+fp16         | 13.898  |
+| fp32              | fp32+fp16              | 13.984  |
 | fp32              | fp32+bf16              | 17.261  |
-| bf16              | fp32+bf16              | 22.913  |
-| bf16              | bf16                   | 22.938  |
+| fp32+bf16         | fp32+bf16              | 22.913  |
 | fp32              | fp32                   | 37.639  |
 ```
 
 :::
+
+## Observations
+
+Some observations we can gather from {numref}`Table {number} <py_notrt>`,  {numref}`Table {number} <py_trt>`, {numref}`Table {number} <cpp_trt>` and {numref}`Table {number} <cpp_trt_old>` are:
+- Compared to the baseline (76 ms) we have achieved a 5x speedup (15 ms). 
+- The C++ runtime is negligibly faster than the Python runtime (<1ms) when using TensorRT.
+- Depending on `torch_tensorrt`'s version, either manually set the precision to `fp16` with `torch.amp.autocast` or let `torch_tensorrt` handle mixed precision, for the best performance.
+- The memory usage is reduced by half when using TensorRT with mixed precision, compared to full precision in Eager Python.
+
