@@ -46,8 +46,7 @@ void benchmark(std::string model_name, int n_warmup = 5, int n_iter = 5)
     float mean = std::accumulate(durations.begin(), durations.end(), 0.0) / durations.size();
     float sq_sum = std::inner_product(durations.begin(), durations.end(), durations.begin(), 0.0);
     float stdev = std::sqrt(sq_sum / durations.size() - mean * mean);
-    std::cout << "mean: " << mean << " ms" << std::endl;
-    std::cout << "std: " << stdev << " ms" << std::endl;
+    std::cout << "Average inference time: " << mean << " ± " << stdev << " ms" << std::endl;
 }
 
 int main(int argc, char *argv[])

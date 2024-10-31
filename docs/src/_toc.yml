@@ -17,6 +17,7 @@ parts:
   - caption: Optimization
     chapters:
     - file: part3/compilation
+    - file: part3/results
   - caption: Other
     chapters:
     - file: bibliography 
