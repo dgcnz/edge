@@ -90,74 +90,76 @@ def compile(
 @hydra.main(version_base=None, config_path="config/export_tensorrt", config_name="dinov2")
 def main(cfg: DictConfig):
     OUTPUT_DIR = Path(hydra.core.hydra_config.HydraConfig.get().runtime.output_dir)
-    print(OmegaConf.to_yaml(cfg))
 
-    # Setting variables
-    for var, val in cfg.env.items():
-        logging.info(f"Setting {var} to {val}")
-        module_name, attr_name = var.rsplit(".", 1)
-        module = importlib.import_module(module_name)
-        setattr(module, attr_name, val)
-
-    # check that amp_dtype is in enabled_precisions
-    if cfg.amp_dtype not in cfg.trt.enabled_precisions:
-        raise ValueError(
-            f"amp_dtype {cfg.amp_dtype} is not in cfg.trt.enabled_precisions {cfg.trt.enabled_precisions}"
-        )
-    cfg.trt.enabled_precisions.sort()  # to ensure consistency in output file name
-    # save cfg to yaml file using OmegaConf
-
-    logging.info("Loading model and example input")
-    img, raw_inputs = load_input_fixed(
-        image_path=cfg.image.path,
-        height=cfg.image.height,
-        width=cfg.image.width,
-        device="cuda",
-    )
-    model = load_model(
-        config_file=cfg.model.config,
-        ckpt_path=cfg.model.ckpt_path,
-        opts=cfg.model.opts,
-    ).cuda()
-    model = TracingAdapter(
-        model, inputs=raw_inputs, allow_non_tensor=False, specialize_non_tensor=True
-    )
-    inputs = model.flattened_inputs
-    model.eval().cuda()
-    # This forward call is important, it ensures the model works before compilation
-    model(*inputs)
     try:
+        print(OmegaConf.to_yaml(cfg))
+
+        # Setting variables
+        for var, val in cfg.env.items():
+            logging.info(f"Setting {var} to {val}")
+            module_name, attr_name = var.rsplit(".", 1)
+            module = importlib.import_module(module_name)
+            setattr(module, attr_name, val)
+
+        # check that amp_dtype is in enabled_precisions
+        if cfg.amp_dtype not in cfg.trt.enabled_precisions:
+            raise ValueError(
+                f"amp_dtype {cfg.amp_dtype} is not in cfg.trt.enabled_precisions {cfg.trt.enabled_precisions}"
+            )
+        cfg.trt.enabled_precisions.sort()  # to ensure consistency in output file name
+        # save cfg to yaml file using OmegaConf
+
+        logging.info("Loading model and example input")
+        img, raw_inputs = load_input_fixed(
+            image_path=cfg.image.path,
+            height=cfg.image.height,
+            width=cfg.image.width,
+            device="cuda",
+        )
+        model = load_model(
+            config_file=cfg.model.config,
+            ckpt_path=cfg.model.ckpt_path,
+            opts=cfg.model.opts,
+        ).cuda()
+        model = TracingAdapter(
+            model, inputs=raw_inputs, allow_non_tensor=False, specialize_non_tensor=True
+        )
+        inputs = model.flattened_inputs
+        model.eval().cuda()
+        # This forward call is important, it ensures the model works before compilation
+        model(*inputs)
         trt_gm = compile(model, inputs, amp_dtype=cfg.amp_dtype, trt_cfg=cfg.trt)
+
+        logging.info("Executing compiled model")
+        outputs = trt_gm(*inputs)
+        outputs = model.outputs_schema(outputs)[0]
+        logging.info(f"Predictions\n{outputs}")
+
+        logging.info("Plotting predictions")
+        plot_predictions(outputs, img, output_file=str(OUTPUT_DIR / "predictions.png"))
+        try:
+            logging.info("Saving PT2E")
+            torch_tensorrt.save(trt_gm, str(OUTPUT_DIR / "model.pt2"), inputs=inputs)
+        except Exception as e:
+            logging.error("Failed to save PT2E", exc_info=True)
+            logging.info("Saved PT2E")
+
+        try:
+            logging.info("Saving TorchScript")
+            torch_tensorrt.save(
+                trt_gm,
+                str(OUTPUT_DIR / f"model.ts"),
+                output_format="torchscript",
+                inputs=inputs,
+            )
+            logging.info("Saved TorchScript")
+        except Exception as e:
+            logging.error("Failed to save TorchScript", exc_info=True)
+
     except Exception as e:
-        logging.error("Failed to compile model", exc_info=True)
-        return
+        logging.error("Failed to export model", exc_info=True)
 
-    logging.info("Executing compiled model")
-    outputs = trt_gm(*inputs)
-    outputs = model.outputs_schema(outputs)[0]
-    logging.info(f"Predictions\n{outputs}")
-
-    logging.info("Plotting predictions")
-    plot_predictions(outputs, img, output_file=str(OUTPUT_DIR / "predictions.png"))
-    try:
-        logging.info("Saving PT2E")
-        torch_tensorrt.save(trt_gm, str(OUTPUT_DIR / "model.pt2"), inputs=inputs)
-    except Exception as e:
-        logging.error("Failed to save PT2E", exc_info=True)
-        logging.info("Saved PT2E")
-
-    try:
-        logging.info("Saving TorchScript")
-        torch_tensorrt.save(
-            trt_gm,
-            str(OUTPUT_DIR / f"model.ts"),
-            output_format="torchscript",
-            inputs=inputs,
-        )
-        logging.info("Saved TorchScript")
-    except Exception as e:
-        logging.error("Failed to save TorchScript", exc_info=True)
-
+    logging.info(f"OUTPUT DIR: {OUTPUT_DIR}")
 
 if __name__ == "__main__":
     main()
