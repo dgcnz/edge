@@ -1,5 +1,7 @@
 # Large Vision models on the Edge
 
-Check the docs at [https://dgcnz.github.io/edge](https://dgcnz.github.io/edge/).
-
-To build the docs, check [docs/README.md](docs/README.md).
+<p align="center">
+<img src="docs/src/logo_header.png" alt="drawing" width="400"/>
+</br>
+<em>Docs: <a href="https://dgcnz.github.io/edge">https://dgcnz.github.io/edge</a></em>
+</p>
